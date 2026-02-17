@@ -4,6 +4,7 @@ import FurtherQuestionsBanner from "@/component/contact";
 import MedicalLabSection from "@/component/doctor-section";
 import FAQSection from "@/component/faq";
 import IframeTwoColumnSection from "@/component/iframe";
+import Navbar from "@/component/navbar";
 import MedicalServicesComponent from "@/component/our-team";
 import HairFallTreatmentSection from "@/component/service";
 import HealthcareFeaturesSection from "@/component/service-two";
@@ -13,6 +14,7 @@ import Image from "next/image";
 export default function Home() {
   return (
       <>
+      <Navbar />
       <CarRentalHero/>
       <WhoWeAreSection />
       <HairFallTreatmentSection />
