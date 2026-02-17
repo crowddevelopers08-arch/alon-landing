@@ -3,6 +3,7 @@ import CarRentalHero from "@/component/banner";
 import FurtherQuestionsBanner from "@/component/contact";
 import MedicalLabSection from "@/component/doctor-section";
 import FAQSection from "@/component/faq";
+import Footers from "@/component/footer";
 import IframeTwoColumnSection from "@/component/iframe";
 import Navbar from "@/component/navbar";
 import MedicalServicesComponent from "@/component/our-team";
@@ -26,6 +27,7 @@ export default function page() {
       <FAQSection />
       <IframeTwoColumnSection />
       <FurtherQuestionsBanner />
+      <Footers />
       </div>
   );
 }
