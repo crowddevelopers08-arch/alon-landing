@@ -13,7 +13,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-      <>
+      <div>
       <Navbar />
       <CarRentalHero/>
       <WhoWeAreSection />
@@ -26,6 +26,6 @@ export default function Home() {
       <FAQSection />
       <IframeTwoColumnSection />
       <FurtherQuestionsBanner />
-      </>
+      </div>
   );
 }
