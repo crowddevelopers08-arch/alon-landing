@@ -11,7 +11,7 @@ import HealthcareFeaturesSection from "@/component/service-two";
 import ClinicVideosSection from "@/component/videosection";
 import Image from "next/image";
 
-export default function Home() {
+export default function page() {
   return (
       <div>
       <Navbar />
