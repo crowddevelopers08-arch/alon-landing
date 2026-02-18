@@ -9,7 +9,7 @@ const HairServicesComponents = () => {
 
   const handleCallNow = () => {
     // Handle call now action
-    window.location.href = "tel:+1234567890"; // Replace with your actual phone number
+    window.location.href = "tel:+ 95006 51761"; // Replace with your actual phone number
   };
 
   const handleImageError = (imageName: string) => {
@@ -111,7 +111,7 @@ const HairServicesComponents = () => {
             <div className="flex items-center justify-center">
               <div className="w-full max-w-md h-100">
                 <img
-                  src="/scientifi.avif"
+                  src="/microscope.webp"
                   alt="Hair Treatment Services"
                   className="w-full h-full object-contain"
                 />
@@ -205,7 +205,7 @@ const HairServicesComponents = () => {
             <div className="w-full flex justify-center mb-4">
               <div className="w-2/4 sm:w-2/3 md:w-1/2 max-w-md">
                 <img
-                  src="/scientifi.avif"
+                  src="/microscope.webp"
                   alt="Hair Treatment Services"
                   className="w-full h-auto object-contain"
                 />

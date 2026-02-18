@@ -10,12 +10,16 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-5">
           {/* Column 1 - About/Logo */}
           <div className="space-y-4">
-            <h3
-              className="text-2xl sm:text-3xl font-bold text-white mb-4"
-              style={{ fontFamily: "CaslonCP, serif", color: "#D9953D" }}
-            >
-              Anlon Aesthetics
-            </h3>
+           <div className="flex items-center bg-white rounded-lg px-3 py-2 w-max">
+            <a href="/" className="flex items-center">
+              {/* Logo Image */}
+              <img 
+                src="/logos-removebg.png" 
+                alt="Anlon Aesthetics Logo" 
+                className="h-8 sm:h-10 md:h-12 lg:h-14 w-auto transition-all duration-300"
+              />
+            </a>
+          </div>
             <p className="text-sm sm:text-base leading-relaxed">
               Expert-led hair restoration and treatment clinic in Chennai.
               Medical clarity, personalized care, lasting results.
@@ -27,7 +31,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
-                style={{ backgroundColor: "#D9953D" }}
+                style={{ backgroundColor: "#9B7057" }}
                 aria-label="Facebook"
               >
                 <svg
@@ -43,7 +47,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
-                style={{ backgroundColor: "#D9953D" }}
+                style={{ backgroundColor: "#9B7057" }}
                 aria-label="Instagram"
               >
                 <svg
@@ -59,7 +63,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
-                style={{ backgroundColor: "#D9953D" }}
+                style={{ backgroundColor: "#9B7057" }}
                 aria-label="YouTube"
               >
                 <svg
@@ -82,7 +86,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#about"
-                  className="text-sm sm:text-base hover:text-[#D9953D] transition-colors duration-300"
+                  className="text-sm sm:text-base hover:text-[#9B7057] transition-colors duration-300"
                 >
                   About Us
                 </a>
@@ -90,7 +94,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#treatments"
-                  className="text-sm sm:text-base hover:text-[#D9953D] transition-colors duration-300"
+                  className="text-sm sm:text-base hover:text-[#9B7057] transition-colors duration-300"
                 >
                   Treatments
                 </a>
@@ -98,7 +102,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#regenera"
-                  className="text-sm sm:text-base hover:text-[#D9953D] transition-colors duration-300"
+                  className="text-sm sm:text-base hover:text-[#9B7057] transition-colors duration-300"
                 >
                   Regenera Activa
                 </a>
@@ -106,7 +110,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#videos"
-                  className="text-sm sm:text-base hover:text-[#D9953D] transition-colors duration-300"
+                  className="text-sm sm:text-base hover:text-[#9B7057] transition-colors duration-300"
                 >
                   Videos
                 </a>
@@ -114,7 +118,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#faq"
-                  className="text-sm sm:text-base hover:text-[#D9953D] transition-colors duration-300"
+                  className="text-sm sm:text-base hover:text-[#9B7057] transition-colors duration-300"
                 >
                   FAQs
                 </a>
@@ -132,7 +136,7 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <svg
                   className="w-5 h-5 mt-1 flex-shrink-0"
-                  style={{ color: "#D9953D" }}
+                  style={{ color: "#9B7057" }}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -162,7 +166,7 @@ const Footer = () => {
               <div className="flex items-center gap-3">
                 <svg
                   className="w-5 h-5 flex-shrink-0"
-                  style={{ color: "#D9953D" }}
+                  style={{ color: "#9B7057" }}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -176,23 +180,23 @@ const Footer = () => {
                 </svg>
                 <a
                   href="tel:+919500651761"
-                  className="text-sm sm:text-base hover:text-[#D9953D] transition-colors duration-300"
+                  className="text-sm sm:text-base hover:text-[#9B7057] transition-colors duration-300"
                 >
                   (+91) 95006 51761 - HairCare
                 </a>
-                <a
+                {/* <a
                   href="tel:+919500653243"
-                  className="text-sm sm:text-base hover:text-[#D9953D] transition-colors duration-300"
+                  className="text-sm sm:text-base hover:text-[#9B7057] transition-colors duration-300"
                 >
                   (+91) 95006 53243 - SkinCare
-                </a>
+                </a> */}
               </div>
 
               {/* Email */}
               <div className="flex items-center gap-3">
                 <svg
                   className="w-5 h-5 flex-shrink-0"
-                  style={{ color: "#D9953D" }}
+                  style={{ color: "#9B7057" }}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -206,7 +210,7 @@ const Footer = () => {
                 </svg>
                 <a
                   href="mailto:info@anlonartsalon.com"
-                  className="text-sm sm:text-base hover:text-[#D9953D] transition-colors duration-300"
+                  className="text-sm sm:text-base hover:text-[#9B7057] transition-colors duration-300"
                 >
                   info@anlonartsalon.com
                 </a>
@@ -216,7 +220,7 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <svg
                   className="w-5 h-5 mt-1 flex-shrink-0"
-                  style={{ color: "#D9953D" }}
+                  style={{ color: "#9B7057" }}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -246,7 +250,7 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <svg
                   className="w-5 h-5 mt-1 flex-shrink-0"
-                  style={{ color: "#D9953D" }}
+                  style={{ color: "#9B7057" }}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -276,7 +280,7 @@ const Footer = () => {
               <div className="flex items-center gap-3">
                 <svg
                   className="w-5 h-5 flex-shrink-0"
-                  style={{ color: "#D9953D" }}
+                  style={{ color: "#9B7057" }}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -290,7 +294,7 @@ const Footer = () => {
                 </svg>
                 <a
                   href="tel:+919840783334"
-                  className="text-sm sm:text-base hover:text-[#D9953D] transition-colors duration-300"
+                  className="text-sm sm:text-base hover:text-[#9B7057] transition-colors duration-300"
                 >
                   (+91) 98407 83334{" "}
                 </a>
@@ -300,7 +304,7 @@ const Footer = () => {
               <div className="flex items-center gap-3">
                 <svg
                   className="w-5 h-5 flex-shrink-0"
-                  style={{ color: "#D9953D" }}
+                  style={{ color: "#9B7057" }}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -314,7 +318,7 @@ const Footer = () => {
                 </svg>
                 <a
                   href="mailto:info@anlonartsalon.com"
-                  className="text-sm sm:text-base hover:text-[#D9953D] transition-colors duration-300"
+                  className="text-sm sm:text-base hover:text-[#9B7057] transition-colors duration-300"
                 >
                   info@anlonartsalon.com
                 </a>
@@ -324,7 +328,7 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <svg
                   className="w-5 h-5 mt-1 flex-shrink-0"
-                  style={{ color: "#D9953D" }}
+                  style={{ color: "#9B7057" }}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -356,17 +360,17 @@ const Footer = () => {
             </p>
             <div className="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm">
               <a
-                href="/privacy"
-                className="text-gray-400 hover:text-[#D9953D] transition-colors duration-300"
+                href="/privacy-policy"
+                className="text-gray-400 hover:text-[#9B7057] transition-colors duration-300"
               >
                 Privacy Policy
               </a>
-              <a
+              {/* <a
                 href="/terms"
-                className="text-gray-400 hover:text-[#D9953D] transition-colors duration-300"
+                className="text-gray-400 hover:text-[#9B7057] transition-colors duration-300"
               >
                 Terms of Service
-              </a>
+              </a> */}
             </div>
           </div>
         </div>

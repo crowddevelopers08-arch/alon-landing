@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Outfit } from "next/font/google";
 import "./globals.css";
+import AnimatedBackground from "@/component/white";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,9 +28,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${outfit.variable} antialiased`}
       >
-
+        <AnimatedBackground >
         {children}
-
+        </AnimatedBackground>
       </body>
     </html>
   );

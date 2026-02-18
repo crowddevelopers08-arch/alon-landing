@@ -4,7 +4,7 @@ import React from 'react';
 
 const IframeTwoColumnSection = () => {
   return (
-    <section className="sm:py-10 md:py-12 lg:py-6 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 bg-white">
+    <section className="sm:py-10 md:py-12 lg:py-6 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
       <div className="max-w-7xl mx-auto">
         {/* Main Container - Responsive grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5 md:gap-6 lg:gap-8">

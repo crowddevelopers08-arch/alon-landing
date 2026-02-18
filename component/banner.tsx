@@ -17,93 +17,75 @@ const CarRentalHero = () => {
   const fullHeadline = staticPart + rewritePart;
   const subheadline = "Hair fall treatment, hair thinning solutions, and advanced hair restoration planned after detailed doctor-led scalp analysis.";
 
-  // Multiple images for carousel - using hair/medical related images
   const carImages = [
-    '/DSC02258.JPG', // Medical/clinic
-    'DSC02268.JPG', // Professional
-    'DSC02275.JPG', // Portrait
-    'DSC02264.JPG', // Portrait
+    '/DSC02258.JPG',
+    '/DSC02268.JPG',
+    '/DSC02275.JPG',
+    '/DSC02264.JPG',
   ];
 
   useEffect(() => {
-    // Initial typing of full headline
     if (headlineChars < fullHeadline.length) {
       const timer = setTimeout(() => {
         setHeadlineChars(prev => prev + 1);
-      }, 20); // 50ms per character - slow and smooth
+      }, 20);
       return () => clearTimeout(timer);
-    } 
-    // Start subheadline after headline completes
-    else if (subheadlineChars < subheadline.length) {
+    } else if (subheadlineChars < subheadline.length) {
       const timer = setTimeout(() => {
         setSubheadlineChars(prev => prev + 1);
-      }, 15); // 30ms per character for subheadline
+      }, 15);
       return () => clearTimeout(timer);
-    } 
-    // Show buttons after text completes
-    else if (!showButtons) {
+    } else if (!showButtons) {
       const timer = setTimeout(() => {
         setShowButtons(true);
       }, 300);
       return () => clearTimeout(timer);
-    } 
-    // Show trust indicators after buttons
-    else if (!showIndicators) {
+    } else if (!showIndicators) {
       const timer = setTimeout(() => {
         setShowIndicators(true);
       }, 400);
       return () => clearTimeout(timer);
-    }
-    // Start rewriting animation after everything is done
-    else if (!isRewriting) {
+    } else if (!isRewriting) {
       const timer = setTimeout(() => {
         setIsRewriting(true);
-      }, 1000); // Wait 2 seconds before starting rewrite loop
+      }, 1000);
       return () => clearTimeout(timer);
     }
   }, [headlineChars, subheadlineChars, showButtons, showIndicators, isRewriting]);
 
-  // Rewriting animation loop - deletes and rewrites "Hair Restoration in Chennai"
   useEffect(() => {
     if (!isRewriting) return;
 
     if (isDeleting) {
-      // Deleting characters
       if (rewriteChars > 0) {
         const timer = setTimeout(() => {
           setRewriteChars(prev => prev - 1);
-        }, 20); // 40ms to delete each character
+        }, 20);
         return () => clearTimeout(timer);
       } else {
-        // Finished deleting, start typing again
         const timer = setTimeout(() => {
           setIsDeleting(false);
-        }, 500); // Pause before typing again
+        }, 500);
         return () => clearTimeout(timer);
       }
     } else {
-      // Typing characters
       if (rewriteChars < rewritePart.length) {
         const timer = setTimeout(() => {
           setRewriteChars(prev => prev + 1);
-        }, 70); // 70ms to type each character
+        }, 70);
         return () => clearTimeout(timer);
       } else {
-        // Finished typing, wait then start deleting
         const timer = setTimeout(() => {
           setIsDeleting(true);
-        },2000); // Show full text for 3 seconds before deleting
+        }, 2000);
         return () => clearTimeout(timer);
       }
     }
   }, [isRewriting, isDeleting, rewriteChars]);
 
   useEffect(() => {
-    // Auto-rotate carousel
     const carouselTimer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % carImages.length);
-      
-      // Reset all animations when slide changes
       setHeadlineChars(0);
       setSubheadlineChars(0);
       setShowButtons(false);
@@ -125,7 +107,9 @@ const CarRentalHero = () => {
   };
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-gray-900">
+    <div className="relative w-full overflow-hidden bg-gray-900 h-[65svh] lg:h-[100svh]"
+      // style={{ height: '65vh' }} // ✅ svh fixes mobile browser bar issue
+    >
       {/* Background Carousel with Zoom Effect */}
       <div className="absolute inset-0 z-0">
         {carImages.map((image, index) => (
@@ -150,16 +134,19 @@ const CarRentalHero = () => {
         ))}
       </div>
 
-      {/* Dark Overlay with Gradient - Adjusted for mobile */}
+      {/* Dark Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/75 to-black/60 md:from-black/85 md:via-black/75 md:to-black/60 z-[1]" />
 
-      {/* Content Container - Responsive padding */}
-      <div className="relative z-10 h-full flex items-center">
-        <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
-          {/* Animated Text Content - Adjusted max-width for mobile */}
+      {/* Content Container */}
+      <div className="relative z-10 h-full flex items-center md:items-center items-start">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24
+          pt-20 sm:pt-0
+        ">
+          {/* ✅ pt-16/pb-16 on mobile to avoid navbar overlap and bottom indicator overlap */}
           <div className="max-w-full md:max-w-2xl lg:max-w-3xl xl:max-w-4xl">
-            {/* Headline - Responsive font sizes */}
-            <h1 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold mb-4 sm:mb-5 md:mb-6 leading-tight">
+
+            {/* Headline */}
+            <h1 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold mb-3 sm:mb-5 md:mb-6 leading-tight">
               {!isRewriting ? (
                 <>
                   {fullHeadline.substring(0, headlineChars)}
@@ -180,32 +167,29 @@ const CarRentalHero = () => {
               )}
             </h1>
 
-            {/* Subheadline - Responsive font sizes */}
-            <p className="text-gray-200 text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl mb-6 sm:mb-7 md:mb-8 leading-relaxed max-w-full md:max-w-2xl lg:max-w-3xl">
+            {/* Subheadline */}
+            <p className="text-gray-200 text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl mb-4 sm:mb-7 md:mb-8 leading-relaxed max-w-full md:max-w-2xl lg:max-w-3xl">
               {subheadline.substring(0, subheadlineChars)}
               {subheadlineChars < subheadline.length && (
                 <span className="animate-pulse">|</span>
               )}
             </p>
 
-            {/* CTAs - Responsive layout */}
+            {/* CTAs */}
             <div
-              className={`flex sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-7 md:mb-8 transition-all duration-1000 ${
+              className={`flex sm:flex-row gap-3 sm:gap-4 mb-4 sm:mb-7 md:mb-8 transition-all duration-1000 ${
                 showButtons
                   ? 'translate-y-0 opacity-100'
                   : 'translate-y-10 opacity-0'
               }`}
             >
-              {/* Book Now Button - Responsive sizing */}
-              <button 
+              <button
                 className="group bg-white text-black font-bold px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-lg flex items-center justify-center gap-2 transition-all duration-300 hover:gap-4 text-sm sm:text-base md:text-lg shadow-lg hover:shadow-xl hover:brightness-110 w-full sm:w-auto"
-                
               >
                 Book Now
               </button>
 
-              {/* Call Now Button - Responsive sizing */}
-              <button 
+              <button
                 className="group text-white font-bold px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-lg flex items-center justify-center gap-2 transition-all duration-300 hover:gap-4 text-sm sm:text-base md:text-lg shadow-lg hover:shadow-xl hover:brightness-110 w-full sm:w-auto"
                 style={{ backgroundColor: '#9B7057' }}
               >
@@ -213,76 +197,45 @@ const CarRentalHero = () => {
               </button>
             </div>
 
-            {/* Sticky Trust Indicators - Responsive grid */}
+            {/* Trust Indicators */}
             <div
               className={`grid grid-cols-2 sm:grid-cols-2 md:flex md:flex-wrap gap-2 sm:gap-3 md:gap-4 lg:gap-6 transition-all duration-1000 ${
                 showIndicators
                   ? 'translate-y-0 opacity-100'
                   : 'translate-y-10 opacity-0'
-              }`} 
+              }`}
             >
-              <div 
-                className="flex items-center gap-2 backdrop-blur-md px-3 sm:px-3.5 md:px-4 py-1.5 sm:py-2 rounded-full border-2 text-xs sm:text-sm md:text-base"
-                style={{ 
-                  backgroundColor: 'rgba(217, 149, 61, 0.15)',
-                  borderColor: '#D9953D'
-                }}
-              >
-                <span className="text-white font-medium">Chennai</span>
-              </div>
-
-              <div 
-                className="flex items-center gap-2 backdrop-blur-md px-3 sm:px-3.5 md:px-4 py-1.5 sm:py-2 rounded-full border-2 text-xs sm:text-sm md:text-base"
-                style={{ 
-                  backgroundColor: 'rgba(217, 149, 61, 0.15)',
-                  borderColor: '#D9953D'
-                }}
-              >
-                <span className="text-white font-medium">Doctor-led evaluation</span>
-              </div>
-
-              <div 
-                className="flex items-center gap-2 backdrop-blur-md px-3 sm:px-3.5 md:px-4 py-1.5 sm:py-2 rounded-full border-2 text-xs sm:text-sm md:text-base"
-                style={{ 
-                  backgroundColor: 'rgba(217, 149, 61, 0.15)',
-                  borderColor: '#D9953D'
-                }}
-              >
-                <span className="text-white font-medium">Before / After Results</span>
-              </div>
-
-              <div 
-                className="flex items-center gap-2 backdrop-blur-md px-3 sm:px-3.5 md:px-4 py-1.5 sm:py-2 rounded-full border-2 text-xs sm:text-sm md:text-base"
-                style={{ 
-                  backgroundColor: 'rgba(217, 149, 61, 0.15)',
-                  borderColor: '#D9953D'
-                }}
-              > 
-                <span className="text-white font-medium">WhatsApp Call & Chat</span>
-              </div>
+              {[
+                'Chennai',
+                'Doctor-led evaluation',
+                'Before / After Results',
+                'WhatsApp Call & Chat',
+              ].map((label) => (
+                <div
+                  key={label}
+                  className="flex items-center gap-2 backdrop-blur-md px-3 sm:px-3.5 md:px-4 py-1.5 sm:py-2 rounded-full border-2 text-xs sm:text-sm md:text-base"
+                  style={{
+                    backgroundColor: 'rgba(217, 149, 61, 0.15)',
+                    borderColor: '#D9953D',
+                  }}
+                >
+                  <span className="text-white flex items-center font-medium">{label}</span>
+                </div>
+              ))}
             </div>
+
           </div>
         </div>
       </div>
 
-      {/* Navigation Arrows - Hidden on mobile, visible on tablet and up */}
+      {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
         className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 lg:w-14 lg:h-14 rounded-full border-2 border-white/50 hover:border-white items-center justify-center text-white hover:bg-white/20 transition-all duration-300"
         aria-label="Previous slide"
       >
-        <svg
-          className="w-5 h-5 lg:w-6 lg:h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M15 19l-7-7 7-7"
-          />
+        <svg className="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
       </button>
 
@@ -291,22 +244,12 @@ const CarRentalHero = () => {
         className="hidden md:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 lg:w-14 lg:h-14 rounded-full border-2 border-white/50 hover:border-white items-center justify-center text-white hover:bg-white/20 transition-all duration-300"
         aria-label="Next slide"
       >
-        <svg
-          className="w-5 h-5 lg:w-6 lg:h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M9 5l7 7-7 7"
-          />
+        <svg className="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </button>
 
-      {/* Carousel Indicators - Responsive positioning and sizing */}
+      {/* Carousel Indicators */}
       <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2 sm:gap-3">
         {carImages.map((_, index) => (
           <button

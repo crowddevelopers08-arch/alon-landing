@@ -8,10 +8,10 @@ const WhoWeAreSection = () => {
   
     const handleCallNow = () => {
       // Handle call now action
-      window.location.href = 'tel:+1234567890'; 
+      window.location.href = 'tel:+ 95006 51761'; 
     }
   return (
-    <section className="py-12 sm:py-14 md:py-16 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 bg-white">
+    <section className="py-12 sm:py-14 md:py-16 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
       <style>
         {`
           @keyframes floatUpDown {

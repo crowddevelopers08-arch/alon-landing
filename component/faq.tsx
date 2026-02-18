@@ -39,13 +39,6 @@ const FAQSection = () => {
       {/* Background Decorative Elements - Hidden on mobile */}
       <div className="hidden md:block absolute top-20 left-10 w-32 md:w-48 h-32 md:h-48 rounded-full opacity-20 z-0" style={{ backgroundColor: '#D9953D' }}></div>
       <div className="hidden md:block absolute top-32 left-40 lg:left-64 w-12 md:w-16 h-12 md:h-16 rounded-full opacity-30 z-0" style={{ backgroundColor: '#9B7057' }}></div>
-      <div className="hidden lg:block absolute top-24 left-80 w-20 h-20 opacity-60 z-0">
-        <div className="grid grid-cols-4 gap-1">
-          {[...Array(16)].map((_, i) => (
-            <div key={i} className="w-2 h-2 rounded-full" style={{ backgroundColor: '#D9953D' }}></div>
-          ))}
-        </div>
-      </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
@@ -125,13 +118,13 @@ const FAQSection = () => {
               {/* Background Decorative Elements */}
               <div className="absolute top-4 sm:top-6 md:top-10 right-4 sm:right-6 md:right-10 w-16 sm:w-20 md:w-32 h-16 sm:h-20 md:h-32 rounded-full opacity-30" style={{ backgroundColor: '#9B7057' }}></div>
               <div className="hidden sm:block absolute top-12 sm:top-20 right-20 sm:right-40 w-10 sm:w-16 h-10 sm:h-16 rounded-full opacity-30" style={{ backgroundColor: '#9B7057' }}></div>
-              <div className="hidden md:block absolute top-16 right-56 w-20 h-20 opacity-40">
+              {/* <div className="hidden md:block absolute top-16 right-56 w-20 h-20 opacity-40">
                 <div className="grid grid-cols-4 gap-1">
                   {[...Array(16)].map((_, i) => (
                     <div key={i} className="w-2 h-2 rounded-full" style={{ backgroundColor: '#9B7057' }}></div>
                   ))}
                 </div>
-              </div>
+              </div> */}
 
               {/* Content */}
               <div className="relative z-10 p-3 sm:p-4 md:p-6 lg:p-8 flex flex-col justify-between h-full">
