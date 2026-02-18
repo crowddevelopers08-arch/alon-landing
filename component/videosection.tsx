@@ -46,14 +46,14 @@ const ClinicVideosResponsiveGrid = () => {
   };
 
   return (
-    <section className="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 bg-gray-50">
+    <section className="py-8 sm:py-12 md:py-16 lg:py-15 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
-        <div className="text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12">
+        <div className="text-center mb-6 sm:mb-8 md:mb-5 lg:mb-6">
           <h2 
             className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl font-bold text-gray-900 leading-tight mb-3 sm:mb-4"
-            style={{ fontFamily: 'CaslonCP, serif' }}
+
           >
             Videos from Our Clinic
           </h2>

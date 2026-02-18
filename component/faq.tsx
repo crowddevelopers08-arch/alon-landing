@@ -71,10 +71,10 @@ const FAQSection = () => {
                     onClick={() => toggleFAQ(index)}
                     className={`w-full px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between font-bold text-left transition-all duration-300 ${
                       openIndex === index 
-                        ? 'text-white' 
+                        ? 'text-black' 
                         : 'bg-white text-gray-900 hover:bg-gray-50'
                     }`}
-                    style={openIndex === index ? { backgroundColor: '#D9953D' } : {}}
+                    style={openIndex === index ? { backgroundColor: '#F5E6D3' } : {}}
                   >
                     <span className="text-xs sm:text-sm md:text-base tracking-wide pr-2">{faq.question}</span>
                     <svg 
@@ -121,7 +121,7 @@ const FAQSection = () => {
             </div>
 
             {/* Card 2 - Top Right - Book Consultation */}
-            <div className="relative h-[180px] sm:h-[250px] md:h-[300px] lg:h-[360px] overflow-hidden" style={{ backgroundColor: '#D9953D' }}>
+            <div className="relative h-[180px] sm:h-[250px] md:h-[300px] lg:h-[360px] overflow-hidden" style={{ backgroundColor: '#F5E6D3' }}>
               {/* Background Decorative Elements */}
               <div className="absolute top-4 sm:top-6 md:top-10 right-4 sm:right-6 md:right-10 w-16 sm:w-20 md:w-32 h-16 sm:h-20 md:h-32 rounded-full opacity-30" style={{ backgroundColor: '#9B7057' }}></div>
               <div className="hidden sm:block absolute top-12 sm:top-20 right-20 sm:right-40 w-10 sm:w-16 h-10 sm:h-16 rounded-full opacity-30" style={{ backgroundColor: '#9B7057' }}></div>
@@ -136,18 +136,18 @@ const FAQSection = () => {
               {/* Content */}
               <div className="relative z-10 p-3 sm:p-4 md:p-6 lg:p-8 flex flex-col justify-between h-full">
                 <div>
-                  <h3 className="text-sm sm:text-lg md:text-2xl lg:text-3xl font-bold text-white leading-tight mb-1 sm:mb-2 md:mb-3 lg:mb-4">
+                  <h3 className="text-sm sm:text-lg md:text-2xl lg:text-3xl font-bold text-black leading-tight mb-1 sm:mb-2 md:mb-3 lg:mb-4">
                     BOOK YOUR<br />CONSULTATION
                   </h3>
-                  <p className="text-white text-[10px] sm:text-xs md:text-sm lg:text-base leading-relaxed hidden sm:block">
+                  <p className="text-black text-[10px] sm:text-xs md:text-sm lg:text-base leading-relaxed hidden sm:block">
                     Schedule a detailed hair and scalp evaluation with our specialists. Get personalized treatment recommendations based on your condition.
                   </p>
-                  <p className="text-white text-[9px] leading-tight sm:hidden">
+                  <p className="text-black text-[9px] leading-tight sm:hidden">
                     Schedule evaluation with specialists
                   </p>
                 </div>
                 
-                <button onClick={() => setIsBookingModalOpen(true)} className="bg-transparent border border-white sm:border-2 text-white font-bold px-2 sm:px-4 md:px-6 lg:px-8 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-md sm:rounded-lg hover:bg-white transition-all duration-300 w-fit uppercase tracking-wide text-[9px] sm:text-xs md:text-sm" onMouseEnter={(e: any) => e.target.style.color = '#D9953D'} onMouseLeave={(e: any) => e.target.style.color = 'white'}>
+                <button onClick={() => setIsBookingModalOpen(true)} className="bg-transparent border border-white sm:border-2 text-black font-bold px-2 sm:px-4 md:px-6 lg:px-8 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-md sm:rounded-lg hover:bg-white transition-all duration-300 w-fit uppercase tracking-wide text-[9px] sm:text-xs md:text-sm" onMouseEnter={(e: any) => e.target.style.color = '#D9953D'} onMouseLeave={(e: any) => e.target.style.color = 'black'}>
                   BOOK NOW
                 </button>
               </div>
@@ -156,12 +156,12 @@ const FAQSection = () => {
             {/* Card 3 - Bottom Left - Treatment Plans */}
             <div className="relative h-[180px] sm:h-[250px] md:h-[300px] lg:h-[360px] overflow-hidden" style={{ backgroundColor: '#9B7057' }}>
               {/* Background Decorative Elements */}
-              <div className="absolute bottom-4 sm:bottom-6 md:bottom-10 left-4 sm:left-6 md:left-10 w-16 sm:w-20 md:w-32 h-16 sm:h-20 md:h-32 rounded-full opacity-30" style={{ backgroundColor: '#D9953D' }}></div>
-              <div className="hidden sm:block absolute bottom-12 sm:bottom-20 left-20 sm:left-40 w-10 sm:w-16 h-10 sm:h-16 rounded-full opacity-30" style={{ backgroundColor: '#D9953D' }}></div>
+              <div className="absolute bottom-4 sm:bottom-6 md:bottom-10 left-4 sm:left-6 md:left-10 w-16 sm:w-20 md:w-32 h-16 sm:h-20 md:h-32 rounded-full opacity-30" style={{ backgroundColor: '#F5E6D3' }}></div>
+              <div className="hidden sm:block absolute bottom-12 sm:bottom-20 left-20 sm:left-40 w-10 sm:w-16 h-10 sm:h-16 rounded-full opacity-30" style={{ backgroundColor: '#F5E6D3' }}></div>
               <div className="hidden md:block absolute bottom-16 left-56 w-20 h-20 opacity-40">
                 <div className="grid grid-cols-4 gap-1">
                   {[...Array(16)].map((_, i) => (
-                    <div key={i} className="w-2 h-2 rounded-full" style={{ backgroundColor: '#D9953D' }}></div>
+                    <div key={i} className="w-2 h-2 rounded-full" style={{ backgroundColor: '#F5E6D3' }}></div>
                   ))}
                 </div>
               </div>
@@ -188,8 +188,8 @@ const FAQSection = () => {
 
       {/* Scroll to Top Button */}
       <button 
-        className="fixed bottom-4 sm:bottom-6 md:bottom-8 right-4 sm:right-6 md:right-8 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 z-50 hover:brightness-110"
-        style={{ backgroundColor: '#D9953D' }}
+        className="fixed bottom-4 sm:bottom-6 md:bottom-8 right-4 sm:right-6 md:right-8 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center text-black shadow-lg hover:shadow-xl transition-all duration-300 z-50 hover:brightness-110"
+        style={{ backgroundColor: '#F5E6D3' }}
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       >
         <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

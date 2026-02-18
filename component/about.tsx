@@ -54,7 +54,7 @@ const WhoWeAreSection = () => {
             {/* Background Image - Doctor with Baby */}
             <div className="absolute top-0 right-0 w-[85%] h-[75%] rounded-2xl overflow-hidden shadow-2xl z-10 animate-float-up-down">
               <img 
-                src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&q=80" 
+                src="/DSC02295.JPG" 
                 alt="Doctor with baby"
                 className="w-full h-full object-cover"
               />
@@ -62,18 +62,18 @@ const WhoWeAreSection = () => {
 
             {/* Foreground Image - Nurse with Patient */}
             <div 
-              className="absolute bottom-0 left-0 rounded-2xl overflow-hidden shadow-2xl z-20 animate-float-left-right"
+              className="absolute bottom-0 left-0 rounded-2xl overflow-hidden shadow-2xl z-20 animate-float-left-right bg-orange-50"
               style={{ 
                 width: '60%',
                 height: '45%',
                 maxHeight: '250px',
-                backgroundColor: '#D9953D',
+                // backgroundColor: '#9B7057',
                 padding: '6px'
               }}
             >
               <div className="w-full h-full rounded-xl overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80" 
+                  src="/DSC02268.JPG" 
                   alt="Nurse with elderly patient"
                   className="w-full h-full object-cover"
                 />
@@ -83,7 +83,7 @@ const WhoWeAreSection = () => {
             {/* Decorative Element */}
             <div 
               className="absolute top-[8%] right-[4%] w-[70%] h-[60%] rounded-2xl border-4 -z-10"
-              style={{ borderColor: '#D9953D', opacity: 0.2 }}
+              style={{ borderColor: '#130e0b', opacity: 0.2 }}
             />
           </div>
 
@@ -100,38 +100,38 @@ const WhoWeAreSection = () => {
           {/* Trust Highlights for mobile */}
           <div
             className="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-orange-50 p-4 rounded-xl border-l-4 mb-6"
-            style={{ borderColor: '#D9953D' }}
+            style={{ borderColor: '#130e0b' }}
           >
             <div className="flex items-start gap-2">
-              <span className="text-lg mt-1 flex-shrink-0" style={{ color: '#D9953D' }}>✔</span>
+              <span className="text-lg mt-1 flex-shrink-0" style={{ color: '#130e0b' }}>✔</span>
               <p className="text-gray-800 text-sm font-medium">
                 Doctor-led scalp & hair evaluation
               </p>
             </div>
 
             <div className="flex items-start gap-2">
-              <span className="text-lg mt-1 flex-shrink-0" style={{ color: '#D9953D' }}>✔</span>
+              <span className="text-lg mt-1 flex-shrink-0" style={{ color: '#130e0b' }}>✔</span>
               <p className="text-gray-800 text-sm font-medium">
                 Personalised medical planning
               </p>
             </div>
 
             <div className="flex items-start gap-2">
-              <span className="text-lg mt-1 flex-shrink-0" style={{ color: '#D9953D' }}>✔</span>
+              <span className="text-lg mt-1 flex-shrink-0" style={{ color: '#130e0b' }}>✔</span>
               <p className="text-gray-800 text-sm font-medium">
                 Ethical, non-aggressive approach
               </p>
             </div>
 
             <div className="flex items-start gap-2">
-              <span className="text-lg mt-1 flex-shrink-0" style={{ color: '#D9953D' }}>✔</span>
+              <span className="text-lg mt-1 flex-shrink-0" style={{ color: '#130e0b' }}>✔</span>
               <p className="text-gray-800 text-sm font-medium">
                 Follow-up and progress monitoring
               </p>
             </div>
 
             <div className="flex items-start gap-2 sm:col-span-2">
-              <span className="text-lg mt-1 flex-shrink-0" style={{ color: '#D9953D' }}>✔</span>
+              <span className="text-lg mt-1 flex-shrink-0" style={{ color: '#130e0b' }}>✔</span>
               <p className="text-gray-800 text-sm font-medium">
                 No over-pitch or unnecessary procedures
               </p>
@@ -179,38 +179,38 @@ const WhoWeAreSection = () => {
             {/* Trust Highlights */}
             <div
               className="grid grid-cols-2 gap-4 bg-orange-50 p-6 rounded-xl border-l-4"
-              style={{ borderColor: '#D9953D' }}
+              style={{ borderColor: '#130e0b' }}
             >
               <div className="flex items-start gap-3">
-                <span className="text-xl mt-1" style={{ color: '#D9953D' }}>✔</span>
+                <span className="text-xl mt-1" style={{ color: '#130e0b' }}>✔</span>
                 <p className="text-gray-800 font-medium">
                   Doctor-led scalp & hair evaluation
                 </p>
               </div>
 
               <div className="flex items-start gap-3">
-                <span className="text-xl mt-1" style={{ color: '#D9953D' }}>✔</span>
+                <span className="text-xl mt-1" style={{ color: '#130e0b' }}>✔</span>
                 <p className="text-gray-800 font-medium">
                   Personalised medical planning
                 </p>
               </div>
 
               <div className="flex items-start gap-3">
-                <span className="text-xl mt-1" style={{ color: '#D9953D' }}>✔</span>
+                <span className="text-xl mt-1" style={{ color: '#130e0b' }}>✔</span>
                 <p className="text-gray-800 font-medium">
                   Ethical, non-aggressive approach
                 </p>
               </div>
 
               <div className="flex items-start gap-3">
-                <span className="text-xl mt-1" style={{ color: '#D9953D' }}>✔</span>
+                <span className="text-xl mt-1" style={{ color: '#130e0b' }}>✔</span>
                 <p className="text-gray-800 font-medium">
                   Follow-up and progress monitoring
                 </p>
               </div>
 
               <div className="flex items-start gap-3">
-                <span className="text-xl mt-1" style={{ color: '#D9953D' }}>✔</span>
+                <span className="text-xl mt-1" style={{ color: '#130e0b' }}>✔</span>
                 <p className="text-gray-800 font-medium">
                   No over-pitch or unnecessary procedures
                 </p>
@@ -241,7 +241,7 @@ onClick={() => setIsBookingModalOpen(true)}
             {/* Background Image - Doctor with Baby */}
             <div className="absolute top-0 right-0 w-[85%] h-[80%] rounded-3xl overflow-hidden shadow-2xl z-10 animate-float-up-down">
               <img 
-                src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&q=80" 
+                src="/DSC02295.JPG" 
                 alt="Doctor with baby"
                 className="w-full h-full object-cover"
               />
@@ -249,19 +249,19 @@ onClick={() => setIsBookingModalOpen(true)}
 
             {/* Foreground Image - Nurse with Patient */}
             <div 
-              className="absolute bottom-0 left-0 rounded-3xl overflow-hidden shadow-2xl z-20 animate-float-left-right"
+              className="absolute bottom-0 left-0 rounded-3xl overflow-hidden shadow-2xl z-20 animate-float-left-right bg-orange-50"
               style={{ 
                 width: '60%',
                 height: '55%',
-                backgroundColor: '#D9953D',
+                // backgroundColor: '#f7ead8',
                 padding: '8px'
               }}
             >
               <div className="w-full h-full rounded-2xl overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80" 
+                  src="/DSC02268.JPG" 
                   alt="Nurse with elderly patient"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full"
                 />
               </div>
             </div>
@@ -269,7 +269,7 @@ onClick={() => setIsBookingModalOpen(true)}
             {/* Decorative Element */}
             <div 
               className="absolute top-[10%] right-[5%] w-[70%] h-[65%] rounded-3xl border-4 -z-10"
-              style={{ borderColor: '#D9953D', opacity: 0.2 }}
+              style={{ borderColor: '#130e0b', opacity: 0.2 }}
             />
           </div>
         </div>

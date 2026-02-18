@@ -4,7 +4,7 @@ import React from 'react';
 
 const HairSpecialistComponent = () => {
     return (
-        <div className="w-full  px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 py-8 sm:py-10 md:py-12 lg:py-16 lg:pb-0">
+        <div className="w-full  px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 py-8 sm:py-10 md:py-12 lg:py-5 lg:pb-0">
             <div className="max-w-7xl mx-auto">
                 {/* Desktop Layout (lg and above) - Original */}
                 <div className="hidden lg:grid lg:grid-cols-2 gap-12 items-center">
@@ -43,7 +43,7 @@ const HairSpecialistComponent = () => {
                             <div className="space-y-3">
                                 <div className="flex items-start gap-3">
                                     {/* Medical Icon */}
-                                    <svg className="w-12 h-12 text-[#FF6B35] flex-shrink-0" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <svg className="w-12 h-12 text-[#130e0b] flex-shrink-0" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="24" cy="24" r="3.5" fill="currentColor"/>
                                         <circle cx="15" cy="24" r="2.5" fill="currentColor"/>
                                         <circle cx="33" cy="24" r="2.5" fill="currentColor"/>
@@ -71,7 +71,7 @@ const HairSpecialistComponent = () => {
                             <div className="space-y-3">
                                 <div className="flex items-start gap-3">
                                     {/* Medical Icon */}
-                                    <svg className="w-12 h-12 text-[#FF6B35] flex-shrink-0" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <svg className="w-12 h-12 text-[#130e0b] flex-shrink-0" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="24" cy="24" r="3.5" fill="currentColor"/>
                                         <circle cx="15" cy="24" r="2.5" fill="currentColor"/>
                                         <circle cx="33" cy="24" r="2.5" fill="currentColor"/>

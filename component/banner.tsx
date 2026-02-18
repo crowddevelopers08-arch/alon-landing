@@ -19,9 +19,10 @@ const CarRentalHero = () => {
 
   // Multiple images for carousel - using hair/medical related images
   const carImages = [
-    'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920&q=80', // Medical/clinic
-    'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1920&q=80', // Professional
-    'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1920&q=80', // Portrait
+    '/DSC02258.JPG', // Medical/clinic
+    'DSC02268.JPG', // Professional
+    'DSC02275.JPG', // Portrait
+    'DSC02264.JPG', // Portrait
   ];
 
   useEffect(() => {
@@ -29,14 +30,14 @@ const CarRentalHero = () => {
     if (headlineChars < fullHeadline.length) {
       const timer = setTimeout(() => {
         setHeadlineChars(prev => prev + 1);
-      }, 50); // 50ms per character - slow and smooth
+      }, 20); // 50ms per character - slow and smooth
       return () => clearTimeout(timer);
     } 
     // Start subheadline after headline completes
     else if (subheadlineChars < subheadline.length) {
       const timer = setTimeout(() => {
         setSubheadlineChars(prev => prev + 1);
-      }, 30); // 30ms per character for subheadline
+      }, 15); // 30ms per character for subheadline
       return () => clearTimeout(timer);
     } 
     // Show buttons after text completes
@@ -57,7 +58,7 @@ const CarRentalHero = () => {
     else if (!isRewriting) {
       const timer = setTimeout(() => {
         setIsRewriting(true);
-      }, 2000); // Wait 2 seconds before starting rewrite loop
+      }, 1000); // Wait 2 seconds before starting rewrite loop
       return () => clearTimeout(timer);
     }
   }, [headlineChars, subheadlineChars, showButtons, showIndicators, isRewriting]);
@@ -71,7 +72,7 @@ const CarRentalHero = () => {
       if (rewriteChars > 0) {
         const timer = setTimeout(() => {
           setRewriteChars(prev => prev - 1);
-        }, 40); // 40ms to delete each character
+        }, 20); // 40ms to delete each character
         return () => clearTimeout(timer);
       } else {
         // Finished deleting, start typing again
@@ -91,7 +92,7 @@ const CarRentalHero = () => {
         // Finished typing, wait then start deleting
         const timer = setTimeout(() => {
           setIsDeleting(true);
-        }, 3000); // Show full text for 3 seconds before deleting
+        },2000); // Show full text for 3 seconds before deleting
         return () => clearTimeout(timer);
       }
     }
@@ -158,7 +159,7 @@ const CarRentalHero = () => {
           {/* Animated Text Content - Adjusted max-width for mobile */}
           <div className="max-w-full md:max-w-2xl lg:max-w-3xl xl:max-w-4xl">
             {/* Headline - Responsive font sizes */}
-            <h1 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-5 md:mb-6 leading-tight">
+            <h1 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold mb-4 sm:mb-5 md:mb-6 leading-tight">
               {!isRewriting ? (
                 <>
                   {fullHeadline.substring(0, headlineChars)}
@@ -180,7 +181,7 @@ const CarRentalHero = () => {
             </h1>
 
             {/* Subheadline - Responsive font sizes */}
-            <p className="text-gray-200 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl mb-6 sm:mb-7 md:mb-8 leading-relaxed max-w-full md:max-w-2xl lg:max-w-3xl" style={{ fontFamily: 'Aileron, sans-serif' }}>
+            <p className="text-gray-200 text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl mb-6 sm:mb-7 md:mb-8 leading-relaxed max-w-full md:max-w-2xl lg:max-w-3xl">
               {subheadline.substring(0, subheadlineChars)}
               {subheadlineChars < subheadline.length && (
                 <span className="animate-pulse">|</span>
@@ -189,12 +190,11 @@ const CarRentalHero = () => {
 
             {/* CTAs - Responsive layout */}
             <div
-              className={`flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-7 md:mb-8 transition-all duration-1000 ${
+              className={`flex sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-7 md:mb-8 transition-all duration-1000 ${
                 showButtons
                   ? 'translate-y-0 opacity-100'
                   : 'translate-y-10 opacity-0'
               }`}
-              style={{ fontFamily: 'Aileron, sans-serif' }}
             >
               {/* Book Now Button - Responsive sizing */}
               <button 
@@ -215,12 +215,11 @@ const CarRentalHero = () => {
 
             {/* Sticky Trust Indicators - Responsive grid */}
             <div
-              className={`grid grid-cols-1 sm:grid-cols-2 md:flex md:flex-wrap gap-2 sm:gap-3 md:gap-4 lg:gap-6 transition-all duration-1000 ${
+              className={`grid grid-cols-2 sm:grid-cols-2 md:flex md:flex-wrap gap-2 sm:gap-3 md:gap-4 lg:gap-6 transition-all duration-1000 ${
                 showIndicators
                   ? 'translate-y-0 opacity-100'
                   : 'translate-y-10 opacity-0'
-              }`}
-              style={{ fontFamily: 'Aileron, sans-serif' }}
+              }`} 
             >
               <div 
                 className="flex items-center gap-2 backdrop-blur-md px-3 sm:px-3.5 md:px-4 py-1.5 sm:py-2 rounded-full border-2 text-xs sm:text-sm md:text-base"
