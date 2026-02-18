@@ -229,7 +229,6 @@ const CarRentalHero = () => {
                   borderColor: '#D9953D'
                 }}
               >
-                <span className="text-base sm:text-lg md:text-xl">📍</span>
                 <span className="text-white font-medium">Chennai</span>
               </div>
 
@@ -240,7 +239,6 @@ const CarRentalHero = () => {
                   borderColor: '#D9953D'
                 }}
               >
-                <span className="text-base sm:text-lg md:text-xl">👩‍⚕️</span>
                 <span className="text-white font-medium">Doctor-led evaluation</span>
               </div>
 
@@ -251,7 +249,6 @@ const CarRentalHero = () => {
                   borderColor: '#D9953D'
                 }}
               >
-                <span className="text-base sm:text-lg md:text-xl">📸</span>
                 <span className="text-white font-medium">Before / After Results</span>
               </div>
 
@@ -261,8 +258,7 @@ const CarRentalHero = () => {
                   backgroundColor: 'rgba(217, 149, 61, 0.15)',
                   borderColor: '#D9953D'
                 }}
-              >
-                <span className="text-base sm:text-lg md:text-xl">📞</span>
+              > 
                 <span className="text-white font-medium">WhatsApp Call & Chat</span>
               </div>
             </div>
