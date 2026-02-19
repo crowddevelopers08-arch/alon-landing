@@ -159,10 +159,10 @@ const CarRentalHero = () => {
                   <span className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">
                     {staticPart}
                   </span>
-                  <span style={{ color: '#D9953D' }} className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">
+                  <span className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-orange-50">
                     {rewritePart.substring(0, rewriteChars)}
                   </span>
-                  <span className="animate-pulse" style={{ color: '#D9953D' }}>|</span>
+                  <span className="animate-pulse" style={{ color: '#ffffff' }}>|</span>
                 </>
               )}
             </h1>
@@ -216,7 +216,7 @@ const CarRentalHero = () => {
                   className="flex items-center gap-2 backdrop-blur-md px-3 sm:px-3.5 md:px-4 py-1.5 sm:py-2 rounded-full border-2 text-xs sm:text-sm md:text-base"
                   style={{
                     backgroundColor: 'rgba(217, 149, 61, 0.15)',
-                    borderColor: '#D9953D',
+                    borderColor: '#9B7057',
                   }}
                 >
                   <span className="text-white flex items-center font-medium">{label}</span>
