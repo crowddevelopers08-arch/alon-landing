@@ -93,7 +93,7 @@ const HairSpecialistComponent = () => {
                         <div className="relative">
                             <div className="w-full h-[600px] bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg overflow-hidden">
                                 <img
-                                    src="/doctors.jpeg"
+                                    src="/doctored.jpeg"
                                     alt="Dr. Nisha R. Srinivas - Hair Specialist"
                                     className="w-full h-full object-cover"
                                 />
@@ -133,7 +133,7 @@ const HairSpecialistComponent = () => {
                         <div className="relative mb-6">
                             <div className="w-full h-[300px] sm:h-[350px] md:h-[400px] bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg overflow-hidden">
                                 <img
-                                    src="/doctors.jpeg"
+                                    src="/doctored.jpeg"
                                     alt="Dr. Nisha R. Srinivas - Hair Specialist"
                                     className="w-full h-full object-cover"
                                 />
