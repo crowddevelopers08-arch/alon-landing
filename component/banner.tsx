@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 const CarRentalHero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+    const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [headlineChars, setHeadlineChars] = useState(0);
   const [subheadlineChars, setSubheadlineChars] = useState(0);
   const [showButtons, setShowButtons] = useState(false);
@@ -16,6 +17,9 @@ const CarRentalHero = () => {
   const rewritePart = "Hair Restoration in Chennai";
   const fullHeadline = staticPart + rewritePart;
   const subheadline = "Hair fall treatment, hair thinning solutions, and advanced hair restoration planned after detailed doctor-led scalp analysis.";
+    const handleCallNow = () => {
+    window.location.href = 'tel:+91 95006 51761';
+  };
 
   const carImages = [
     '/DSC02258.JPG',
@@ -183,7 +187,7 @@ const CarRentalHero = () => {
                   : 'translate-y-10 opacity-0'
               }`}
             >
-              <button
+              <button onClick={() => setIsBookingModalOpen(true)}
                 className="group bg-white text-black font-bold px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-lg flex items-center justify-center gap-2 transition-all duration-300 hover:gap-4 text-sm sm:text-base md:text-lg shadow-lg hover:shadow-xl hover:brightness-110 w-full sm:w-auto"
               >
                 Book Now
@@ -192,6 +196,7 @@ const CarRentalHero = () => {
               <button
                 className="group text-white font-bold px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-lg flex items-center justify-center gap-2 transition-all duration-300 hover:gap-4 text-sm sm:text-base md:text-lg shadow-lg hover:shadow-xl hover:brightness-110 w-full sm:w-auto"
                 style={{ backgroundColor: '#9B7057' }}
+                onClick={handleCallNow}
               >
                 Call Now
               </button>

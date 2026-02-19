@@ -10,7 +10,7 @@ const ClinicVideosResponsiveGrid = () => {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   const handleCallNow = () => {
-    window.location.href = 'tel:+1234567890';
+    window.location.href = 'tel:+91 95006 51761';
   };
 
   const videos = [
