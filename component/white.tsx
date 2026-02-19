@@ -66,22 +66,29 @@ const AnimatedBackground = ({ children }: { children: React.ReactNode }) => {
       ctx.fillRect(0, 0, width, height);
 
       // ── 2. Animated mesh / grid pattern ──
-      const gridSize = 60;
+      const gridSize = 80;
       const gridOffsetX = (tick * 0.15) % gridSize;
       const gridOffsetY = (tick * 0.1) % gridSize;
 
-      ctx.strokeStyle = 'rgba(217, 149, 61, 0.06)';
-      ctx.lineWidth = 0.8;
-      ctx.beginPath();
+      // ── Bubble dots at grid intersections (left & right sides only) ──
+      const centerStart = width * 0.3; // skip from 30% to 70% (center zone)
+      const centerEnd = width * 0.7;
+
       for (let x = -gridSize + gridOffsetX; x < width + gridSize; x += gridSize) {
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, height);
+        // Skip center zone
+        if (x > centerStart && x < centerEnd) continue;
+
+        for (let y = -gridSize + gridOffsetY; y < height + gridSize; y += gridSize) {
+          const pulse = (Math.sin(tick * 0.04 + x * 0.05 + y * 0.03) + 1) / 2;
+          const r = 1.5 + pulse * 0.8;
+          const alpha = 0.15 + pulse * 0.15;
+
+          ctx.beginPath();
+          ctx.arc(x, y, r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(217, 149, 61, ${alpha})`;
+          ctx.fill();
+        }
       }
-      for (let y = -gridSize + gridOffsetY; y < height + gridSize; y += gridSize) {
-        ctx.moveTo(0, y);
-        ctx.lineTo(width, y);
-      }
-      ctx.stroke();
 
       // ── 3. Soft pulsing glow orbs ──
       const glowPulse = (Math.sin(tick * 0.02) + 1) / 2; // 0 → 1
@@ -132,7 +139,7 @@ const AnimatedBackground = ({ children }: { children: React.ReactNode }) => {
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < 120) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(217, 149, 61, ${0.08 * (1 - dist / 120)})`;
+            ctx.strokeStyle = `rgba(217, 149, 61, ${0.18 * (1 - dist / 120)})`;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
             ctx.stroke();

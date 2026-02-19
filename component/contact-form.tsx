@@ -59,49 +59,49 @@ const BookingFormModal = ({ isOpen, onClose }: BookingFormModalProps) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto pt-4">
+    <div className="fixed inset-0 z-50 overflow-y-auto">
       {/* Backdrop */}
       <div 
         className="fixed inset-0 bg-black bg-opacity-50 transition-opacity backdrop-blur-sm"
         onClick={onClose}
       />
       
-      {/* Modal Container - Compact, No Scroll */}
-      <div className="flex min-h-full items-center justify-center p-2 sm:p-3 md:p-6">
-        <div className="relative bg-white rounded-xl sm:rounded-2xl shadow-2xl w-full max-w-[98%] sm:max-w-md md:max-w-lg mx-auto">
+      {/* Modal Container - Large, Fixed Height, No Scroll */}
+      <div className="flex min-h-full items-center justify-center p-4">
+        <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl">
           
-          {/* Header - Compact */}
-          <div className="px-3 sm:px-4 md:px-5 pt-3 sm:pt-4 pb-1 sm:pb-2 border-b border-gray-200">
+          {/* Header - Spacious */}
+          <div className="px-8 pt-6 pb-4 border-b border-gray-200">
             <div className="flex justify-between items-center">
               <div>
-                <h2 className="text-base sm:text-lg md:text-xl font-bold text-gray-900">
-                  Book Consultation
+                <h2 className="text-2xl font-bold text-gray-900">
+                  Book Your Consultation
                 </h2>
-                <p className="text-xs text-gray-600 mt-0.5">
-                  Fill details to schedule your appointment
+                <p className="text-sm text-gray-600 mt-1">
+                  Please fill in your details to schedule an appointment with our specialists
                 </p>
               </div>
               {/* Close button */}
               <button
                 onClick={onClose}
-                className="text-gray-400 hover:text-gray-600 transition-colors p-1 hover:bg-gray-100 rounded-full"
+                className="text-gray-400 hover:text-gray-600 transition-colors p-2 hover:bg-gray-100 rounded-full"
                 aria-label="Close modal"
               >
-                <X className="w-4 h-4 sm:w-5 sm:h-5" />
+                <X className="w-6 h-6" />
               </button>
             </div>
           </div>
 
-          {/* Form Content - Compact, No Scroll Needed */}
-          <div className="px-3 sm:px-4 md:px-5 py-2 sm:py-3">
-            <form onSubmit={handleSubmit} className="space-y-2 sm:space-y-2.5 md:space-y-3">
+          {/* Form Content - Fixed Height, No Scroll Needed */}
+          <div className="px-8 py-6">
+            <form onSubmit={handleSubmit} className="space-y-5">
               
               {/* Row 1: Name & Email */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Full Name */}
                 <div>
-                  <label className="block text-xs font-medium text-gray-700 mb-0.5">
-                    Name *
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Full Name <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -109,15 +109,15 @@ const BookingFormModal = ({ isOpen, onClose }: BookingFormModalProps) => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#D9953D] focus:border-[#D9953D] transition-all"
-                    placeholder="Full name"
+                    className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B7057] focus:border-transparent transition-all"
+                    placeholder="Enter your full name"
                   />
                 </div>
 
                 {/* Email */}
                 <div>
-                  <label className="block text-xs font-medium text-gray-700 mb-0.5">
-                    Email *
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Email Address <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="email"
@@ -125,16 +125,16 @@ const BookingFormModal = ({ isOpen, onClose }: BookingFormModalProps) => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#D9953D] focus:border-[#D9953D] transition-all"
-                    placeholder="Email address"
+                    className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B7057] focus:border-transparent transition-all"
+                    placeholder="Enter your email"
                   />
                 </div>
               </div>
 
               {/* Row 2: Phone */}
               <div>
-                <label className="block text-xs font-medium text-gray-700 mb-0.5">
-                  Phone Number *
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Phone Number <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="tel"
@@ -142,17 +142,17 @@ const BookingFormModal = ({ isOpen, onClose }: BookingFormModalProps) => {
                   value={formData.phone}
                   onChange={handleChange}
                   required
-                  className="w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#D9953D] focus:border-[#D9953D] transition-all"
+                  className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B7057] focus:border-transparent transition-all"
                   placeholder="+91 98765 43210"
                 />
               </div>
 
               {/* Row 3: Date, Time & Treatment */}
-              <div className="grid grid-cols-2 gap-1.5 sm:gap-2">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {/* Date */}
                 <div>
-                  <label className="block text-xs font-medium text-gray-700 mb-0.5">
-                    Date *
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Preferred Date <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="date"
@@ -161,14 +161,14 @@ const BookingFormModal = ({ isOpen, onClose }: BookingFormModalProps) => {
                     onChange={handleChange}
                     required
                     min={getTodayDate()}
-                    className="w-full px-1.5 sm:px-2 py-1.5 sm:py-2 text-xs border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#D9953D] focus:border-[#D9953D] transition-all"
+                    className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B7057] focus:border-transparent transition-all"
                   />
                 </div>
 
                 {/* Time */}
                 <div>
-                  <label className="block text-xs font-medium text-gray-700 mb-0.5">
-                    Time *
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Preferred Time <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="time"
@@ -176,63 +176,68 @@ const BookingFormModal = ({ isOpen, onClose }: BookingFormModalProps) => {
                     value={formData.time}
                     onChange={handleChange}
                     required
-                    className="w-full px-1.5 sm:px-2 py-1.5 sm:py-2 text-xs border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#D9953D] focus:border-[#D9953D] transition-all"
+                    className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B7057] focus:border-transparent transition-all"
                   />
                 </div>
 
-
-              </div>
                 {/* Treatment */}
                 <div>
-                  <label className="block text-xs font-medium text-gray-700 mb-0.5">
-                    Treatment *
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Treatment Type <span className="text-red-500">*</span>
                   </label>
                   <select
                     name="treatment"
                     value={formData.treatment}
                     onChange={handleChange}
                     required
-                    className="w-full px-1.5 sm:px-2 py-1.5 sm:py-2 text-xs border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#D9953D] focus:border-[#D9953D] transition-all bg-white"
+                    className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B7057] focus:border-transparent transition-all bg-white"
                   >
-                    <option value="">Select</option>
-                    <option value="consultation">Consultation</option>
-                    <option value="hair-fall">Hair Fall</option>
-                    <option value="regenera">Regenera</option>
-                    <option value="prp">PRP</option>
+                    <option value="">Select a treatment</option>
+                    <option value="consultation">Initial Consultation</option>
+                    <option value="hair-fall">Hair Fall Treatment</option>
+                    <option value="regenera">Regenera Activa</option>
+                    <option value="prp">PRP Therapy</option>
+                    <option value="hair-transplant">Hair Transplant</option>
                   </select>
                 </div>
+              </div>
+
               {/* Row 4: Message */}
               <div>
-                <label className="block text-xs font-medium text-gray-700 mb-0.5">
-                  Message (Optional)
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Additional Message <span className="text-gray-400 text-xs">(Optional)</span>
                 </label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  rows={2}
-                  className="w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#D9953D] focus:border-[#D9953D] transition-all resize-none"
-                  placeholder="Any specific concerns..."
+                  rows={3}
+                  className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B7057] focus:border-transparent transition-all resize-none"
+                  placeholder="Tell us about your concerns or specific requirements..."
                 />
               </div>
 
               {/* Row 5: Buttons */}
-              <div className="flex gap-2 pt-1">
+              <div className="flex gap-4 pt-4">
                 <button
                   type="submit"
-                  className="flex-1 text-black font-semibold py-1.5 sm:py-2 px-2 rounded-md transition-all duration-300 shadow hover:shadow-md text-xs sm:text-sm"
-                  style={{ backgroundColor: '#D9953D' }}
+                  className="flex-1 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 hover:shadow-lg text-sm bg-[#9B7057] hover:bg-[#c4842c]"
                 >
                   Confirm Booking
                 </button>
                 <button
                   type="button"
                   onClick={onClose}
-                  className="flex-1 bg-gray-200 text-gray-700 font-semibold py-1.5 sm:py-2 px-2 rounded-md hover:bg-gray-300 transition-all duration-300 text-xs sm:text-sm"
+                  className="flex-1 bg-gray-100 text-gray-700 font-semibold py-3 px-4 rounded-lg hover:bg-gray-200 transition-all duration-300 text-sm border border-gray-300"
                 >
                   Cancel
                 </button>
               </div>
+
+              {/* Additional Info */}
+              <p className="text-xs text-gray-500 text-center mt-4">
+                By confirming your booking, you agree to our terms and conditions and privacy policy.
+              </p>
             </form>
           </div>
         </div>
