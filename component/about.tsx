@@ -166,7 +166,7 @@ const WhoWeAreSection = () => {
                 style={{ width: '60%', height: '55%', padding: '8px' }}
               >
                 <div className="w-full h-full rounded-2xl overflow-hidden">
-                  <img src="/DSC02268.JPG" alt="Nurse with elderly patient" className="w-full h-full" />
+                  <img src="/C6274T01.jpeg" alt="Nurse with elderly patient" className="w-full h-full object-cover" />
                 </div>
               </div>
               <div className="absolute top-[10%] right-[5%] w-[70%] h-[65%] rounded-3xl border-4 -z-10" style={{ borderColor: '#130e0b', opacity: 0.2 }} />

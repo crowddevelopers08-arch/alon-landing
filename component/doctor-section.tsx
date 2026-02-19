@@ -1,48 +1,45 @@
 'use client'
 
 import React from 'react';
+import RevealOnScroll from './RevealOnScroll'; // ✅ reusable animation component
 
 const HairSpecialistComponent = () => {
     return (
-        <div className="w-full  px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 py-8 sm:py-10 md:py-12 lg:py-5 lg:pb-0">
+        <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 py-8 sm:py-10 md:py-12 lg:py-5 lg:pb-0">
             <div className="max-w-7xl mx-auto">
-                {/* Desktop Layout (lg and above) - Original */}
+
+                {/* ── Desktop Layout (lg+) ── */}
                 <div className="hidden lg:grid lg:grid-cols-2 gap-12 items-center">
-                    {/* Left Section - Content */}
-                    <div className="space-y-3">
-                        {/* Decorative Elements */}
-                        <div className="flex items-center gap-3 mb-4">
-                            <div className="w-28 h-28 bg-[#9B7057] rounded-full flex-shrink-0"></div>
-                            <div className="w-10 h-10 bg-[#9B7057] rounded-full flex-shrink-0"></div>
-                            <div className="grid grid-cols-3 gap-1.5 w-11 h-11 flex-shrink-0">
-                                {[...Array(9)].map((_, i) => (
-                                    <div key={i} className="w-2.5 h-2.5 bg-gray-900 rounded-full"></div>
-                                ))}
+
+                    {/* Left - slides from left */}
+                    <RevealOnScroll direction="left" duration={800}>
+                        <div className="space-y-3">
+                            {/* Decorative Elements */}
+                            <div className="flex items-center gap-3 mb-4">
+                                <div className="w-28 h-28 bg-[#9B7057] rounded-full flex-shrink-0"></div>
+                                <div className="w-10 h-10 bg-[#9B7057] rounded-full flex-shrink-0"></div>
+                                <div className="grid grid-cols-3 gap-1.5 w-11 h-11 flex-shrink-0">
+                                    {[...Array(9)].map((_, i) => (
+                                        <div key={i} className="w-2.5 h-2.5 bg-gray-900 rounded-full"></div>
+                                    ))}
+                                </div>
                             </div>
-                        </div>
 
-                        {/* Main Heading */}
-                        <h1 className="text-4xl font-bold text-[#9B7057] leading-tight uppercase tracking-tight">
-                            MEET YOUR HAIR SPECIALIST
-                        </h1>
+                            <h1 className="text-4xl font-bold text-[#9B7057] leading-tight uppercase tracking-tight">
+                                MEET YOUR HAIR SPECIALIST
+                            </h1>
 
-                        {/* Doctor Name and Designation */}
-                        <div className="space-y-2">
-                            <h2 className="text-3xl font-bold text-black">
-                                Dr. Nisha R. Srinivas
-                            </h2>
-                            <p className="text-gray-600 text-lg leading-relaxed">
-                                Dermatosurgeon | Dermatologist | Venereologist | Leprologist<br/>
-                                Aesthetic Physician & Clinical Lead – Anlon Skin & Aesthetics
-                            </p>
-                        </div>
+                            <div className="space-y-2">
+                                <h2 className="text-3xl font-bold text-black">Dr. Nisha R. Srinivas</h2>
+                                <p className="text-gray-600 text-lg leading-relaxed">
+                                    Dermatosurgeon | Dermatologist | Venereologist | Leprologist<br/>
+                                    Aesthetic Physician & Clinical Lead – Anlon Skin & Aesthetics
+                                </p>
+                            </div>
 
-                        {/* Features Section */}
-                        <div className="grid grid-cols-1 gap-1">
-                            {/* Feature 1 - Hair-Aligned Profile */}
-                            <div className="space-y-3">
+                            {/* Feature 1 */}
+                            <RevealOnScroll direction="left" delay={200} duration={700}>
                                 <div className="flex items-start gap-3">
-                                    {/* Medical Icon */}
                                     <svg className="w-12 h-12 text-[#130e0b] flex-shrink-0" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="24" cy="24" r="3.5" fill="currentColor"/>
                                         <circle cx="15" cy="24" r="2.5" fill="currentColor"/>
@@ -57,20 +54,17 @@ const HairSpecialistComponent = () => {
                                         <circle cx="37" cy="15" r="2" fill="currentColor"/>
                                     </svg>
                                     <div>
-                                        <h3 className="text-lg font-bold text-black uppercase leading-snug mb-2">
-                                            HAIR-ALIGNED PROFILE
-                                        </h3>
+                                        <h3 className="text-lg font-bold text-black uppercase leading-snug mb-2">HAIR-ALIGNED PROFILE</h3>
                                         <p className="text-gray-600 text-base leading-relaxed">
                                             Dr. Nisha has 12 years of overall medical experience, with 7+ years specialising in dermatology and medical aesthetics, including extensive experience in hair loss diagnosis, scalp disorders, and hair restoration planning.
                                         </p>
                                     </div>
                                 </div>
-                            </div>
+                            </RevealOnScroll>
 
-                            {/* Feature 2 - Approach */}
-                            <div className="space-y-3">
+                            {/* Feature 2 */}
+                            <RevealOnScroll direction="left" delay={350} duration={700}>
                                 <div className="flex items-start gap-3">
-                                    {/* Medical Icon */}
                                     <svg className="w-12 h-12 text-[#130e0b] flex-shrink-0" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="24" cy="24" r="3.5" fill="currentColor"/>
                                         <circle cx="15" cy="24" r="2.5" fill="currentColor"/>
@@ -90,93 +84,80 @@ const HairSpecialistComponent = () => {
                                         </p>
                                     </div>
                                 </div>
-                            </div>
+                            </RevealOnScroll>
                         </div>
-                    </div>
+                    </RevealOnScroll>
 
-                    {/* Right Section - Image Area */}
-                    <div className="relative">
+                    {/* Right - Image slides from right */}
+                    <RevealOnScroll direction="right" delay={150} duration={800}>
                         <div className="relative">
-                            {/* Doctor's Image */}
                             <div className="w-full h-[600px] bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg overflow-hidden">
-                                {/* Replace with actual doctor's image */}
-                                <img 
-                                    src="path-to-doctor-image.jpg" 
+                                <img
+                                    src="/doctors.jpeg"
                                     alt="Dr. Nisha R. Srinivas - Hair Specialist"
                                     className="w-full h-full object-cover"
                                 />
                             </div>
-                            
-                            {/* Experience Badge */}
-                            <div className="absolute top-1/2 left-0 -translate-y-1/2 bg-[#3B4F7D] text-white px-8 py-10 shadow-xl">
+                            <div className="absolute top-1/2 left-0 -translate-y-1/2  bg-orange-50 text-black px-8 py-10 shadow-xl">
                                 <div className="text-center">
                                     <div className="text-8xl font-bold leading-none mb-2">12</div>
-                                    <div className="text-base font-semibold leading-tight">
-                                        Years<br/>Experience
-                                    </div>
+                                    <div className="text-base font-semibold leading-tight">Years<br/>Experience</div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </RevealOnScroll>
                 </div>
 
-                {/* Mobile/Tablet Layout (below lg) - Image between heading and paragraphs */}
+                {/* ── Mobile/Tablet Layout (below lg) ── */}
                 <div className="block lg:hidden">
-                    {/* Decorative Elements - First */}
-                    <div className="flex items-center gap-2 sm:gap-3 mb-3">
-                        <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#9B7057] rounded-full flex-shrink-0"></div>
-                        <div className="w-6 h-6 sm:w-8 sm:h-8 bg-[#9B7057] rounded-full flex-shrink-0"></div>
-                        <div className="grid grid-cols-3 gap-1 sm:gap-1.5 w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0">
-                            {[...Array(9)].map((_, i) => (
-                                <div key={i} className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gray-900 rounded-full"></div>
-                            ))}
+
+                    {/* Decorative + Heading - from left */}
+                    <RevealOnScroll direction="left" duration={700}>
+                        <div className="flex items-center gap-2 sm:gap-3 mb-3">
+                            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#9B7057] rounded-full flex-shrink-0"></div>
+                            <div className="w-6 h-6 sm:w-8 sm:h-8 bg-[#9B7057] rounded-full flex-shrink-0"></div>
+                            <div className="grid grid-cols-3 gap-1 sm:gap-1.5 w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0">
+                                {[...Array(9)].map((_, i) => (
+                                    <div key={i} className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gray-900 rounded-full"></div>
+                                ))}
+                            </div>
                         </div>
-                    </div>
+                        <h1 className="text-xl sm:text-2xl font-bold text-[#9B7057] leading-tight uppercase tracking-tight mb-3">
+                            MEET YOUR HAIR SPECIALIST
+                        </h1>
+                        <h2 className="text-xl sm:text-2xl font-bold text-black mb-4">Dr. Nisha R. Srinivas</h2>
+                    </RevealOnScroll>
 
-                    {/* Main Heading */}
-                    <h1 className="text-xl sm:text-2xl font-bold text-[#9B7057] leading-tight uppercase tracking-tight mb-3">
-                        MEET YOUR HAIR SPECIALIST
-                    </h1>
-
-                    {/* Doctor Name */}
-                    <h2 className="text-xl sm:text-2xl font-bold text-black mb-4">
-                        Dr. Nisha R. Srinivas
-                    </h2>
-
-                    {/* Image - Positioned after name, before paragraphs */}
-                    <div className="relative mb-6">
-                        <div className="relative">
-                            {/* Doctor's Image */}
+                    {/* Image - from right */}
+                    <RevealOnScroll direction="right" delay={150} duration={800}>
+                        <div className="relative mb-6">
                             <div className="w-full h-[300px] sm:h-[350px] md:h-[400px] bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg overflow-hidden">
-                                <img 
-                                    src="path-to-doctor-image.jpg" 
+                                <img
+                                    src="/doctors.jpeg"
                                     alt="Dr. Nisha R. Srinivas - Hair Specialist"
                                     className="w-full h-full object-cover"
                                 />
                             </div>
-                            
-                            {/* Experience Badge */}
-                            <div className="absolute top-1/2 left-0 -translate-y-1/2 bg-[#3B4F7D] text-white px-3 sm:px-4 py-4 sm:py-5 shadow-xl">
+                            <div className="absolute top-1/2 left-0 -translate-y-1/2  bg-orange-50 text-black px-3 sm:px-4 py-4 sm:py-5 shadow-xl">
                                 <div className="text-center">
                                     <div className="text-3xl sm:text-4xl font-bold leading-none mb-1">12</div>
-                                    <div className="text-xs sm:text-sm font-semibold leading-tight">
-                                        Years<br/>Experience
-                                    </div>
+                                    <div className="text-xs sm:text-sm font-semibold leading-tight">Years<br/>Experience</div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </RevealOnScroll>
 
-                    {/* Designation - After image */}
-                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
-                        Dermatosurgeon | Dermatologist | Venereologist | Leprologist<br className="hidden sm:block"/>
-                        Aesthetic Physician & Clinical Lead – Anlon Skin & Aesthetics
-                    </p>
+                    {/* Designation - from left */}
+                    <RevealOnScroll direction="left" delay={200} duration={700}>
+                        <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
+                            Dermatosurgeon | Dermatologist | Venereologist | Leprologist<br className="hidden sm:block"/>
+                            Aesthetic Physician & Clinical Lead – Anlon Skin & Aesthetics
+                        </p>
+                    </RevealOnScroll>
 
-                    {/* Features Section - After designation */}
-                    <div className="grid grid-cols-1 gap-4">
-                        {/* Feature 1 - Hair-Aligned Profile */}
-                        <div className="flex items-start gap-2 sm:gap-3">
+                    {/* Feature 1 - from left */}
+                    <RevealOnScroll direction="left" delay={250} duration={700}>
+                        <div className="flex items-start gap-2 sm:gap-3 mb-4">
                             <svg className="w-8 h-8 sm:w-10 sm:h-10 text-[#FF6B35] flex-shrink-0" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="24" cy="24" r="3.5" fill="currentColor"/>
                                 <circle cx="15" cy="24" r="2.5" fill="currentColor"/>
@@ -191,16 +172,16 @@ const HairSpecialistComponent = () => {
                                 <circle cx="37" cy="15" r="2" fill="currentColor"/>
                             </svg>
                             <div>
-                                <h3 className="text-sm sm:text-base font-bold text-black uppercase leading-snug mb-1">
-                                    HAIR-ALIGNED PROFILE
-                                </h3>
+                                <h3 className="text-sm sm:text-base font-bold text-black uppercase leading-snug mb-1">HAIR-ALIGNED PROFILE</h3>
                                 <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
                                     Dr. Nisha has 12 years of overall medical experience, with 7+ years specialising in dermatology and medical aesthetics, including extensive experience in hair loss diagnosis, scalp disorders, and hair restoration planning.
                                 </p>
                             </div>
                         </div>
+                    </RevealOnScroll>
 
-                        {/* Feature 2 - Approach */}
+                    {/* Feature 2 - from right */}
+                    <RevealOnScroll direction="right" delay={300} duration={700}>
                         <div className="flex items-start gap-2 sm:gap-3">
                             <svg className="w-8 h-8 sm:w-10 sm:h-10 text-[#FF6B35] flex-shrink-0" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="24" cy="24" r="3.5" fill="currentColor"/>
@@ -221,8 +202,9 @@ const HairSpecialistComponent = () => {
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </RevealOnScroll>
                 </div>
+
             </div>
         </div>
     );

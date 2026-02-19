@@ -223,7 +223,7 @@ const BookingFormModal = ({ isOpen, onClose }: BookingFormModalProps) => {
                   type="submit"
                   className="flex-1 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 hover:shadow-lg text-sm bg-[#9B7057] hover:bg-[#c4842c]"
                 >
-                  Confirm Booking
+                  Book Now
                 </button>
                 <button
                   type="button"
