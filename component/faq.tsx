@@ -145,7 +145,7 @@ const FAQSection = () => {
 
       {/* Scroll to Top Button */}
       <button
-        className="fixed bottom-4 sm:bottom-6 md:bottom-8 right-4 sm:right-6 md:right-8 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center text-black shadow-lg hover:shadow-xl transition-all duration-300 z-50 hover:brightness-110"
+        className="fixed bottom-4 sm:bottom-6 md:bottom-8 right-12 sm:right-6 md:right-8 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center text-black shadow-lg hover:shadow-xl transition-all duration-300 z-50 hover:brightness-110"
         style={{ backgroundColor: '#F5E6D3' }}
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       >
