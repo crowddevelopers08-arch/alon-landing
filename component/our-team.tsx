@@ -9,7 +9,7 @@ const HairServicesComponents = () => {
   const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
 
   const handleCallNow = () => {
-    window.location.href = "tel:+ 95006 51761";
+    window.location.href = "tel:+ 9500653243";
   };
 
   const handleImageError = (imageName: string) => {

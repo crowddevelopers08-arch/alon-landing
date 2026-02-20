@@ -18,7 +18,7 @@ const CarRentalHero = () => {
   const fullHeadline = staticPart + rewritePart;
   const subheadline = "Hair fall treatment, hair thinning solutions, and advanced hair restoration planned after detailed doctor-led scalp analysis.";
     const handleCallNow = () => {
-    window.location.href = 'tel:+91 95006 51761';
+    window.location.href = 'tel:+91 9500653243';
   };
 
   const carImages = [

@@ -8,7 +8,7 @@ const WhoWeAreSection = () => {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
 
   const handleCallNow = () => {
-    window.location.href = 'tel:+ 95006 51761';
+    window.location.href = 'tel:+91 9500653243';
   };
 
   const trustPoints = [

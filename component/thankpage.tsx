@@ -121,8 +121,8 @@
                     </div>
                     <div>
                       <p className="text-sm text-gray-600">Call us directly</p>
-                      <a href="tel:+ 95006 51761" className="text-lg font-semibold text-gray-900 hover:text-[#D9953D]">
-                        +91 98765 43210
+                      <a href="tel:+919500653243" className="text-lg font-semibold text-gray-900 hover:text-[#D9953D]">
+                        +91 95006 53243
                       </a>
                     </div>
                   </div>

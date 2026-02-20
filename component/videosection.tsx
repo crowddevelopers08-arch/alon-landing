@@ -10,7 +10,7 @@ const ClinicVideosResponsiveGrid = () => {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   const handleCallNow = () => {
-    window.location.href = 'tel:+91 95006 51761';
+    window.location.href = 'tel:+919500653243';
   };
 
   const videos = [
@@ -191,7 +191,7 @@ const ClinicVideosResponsiveGrid = () => {
               <span>Book Now</span>
             </button>
             <a
-              href="tel:++91 95006 51761"
+              href="tel:+919500653243"
               className="group flex items-center justify-center gap-2 sm:gap-3 text-white font-bold px-6 sm:px-8 md:px-10 lg:px-12 py-3 sm:py-3.5 md:py-4 rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg hover:shadow-xl hover:scale-105 text-sm sm:text-base md:text-lg w-full sm:w-auto max-w-xs sm:max-w-none"
               style={{ backgroundColor: '#9B7057' }}
               onClick={handleCallNow}

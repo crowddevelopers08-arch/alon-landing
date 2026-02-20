@@ -8,7 +8,7 @@ const HealthcareFeaturesSection = () => {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
 
   const handleCallNow = () => {
-    window.location.href = 'tel:+ 95006 51761';
+    window.location.href = 'tel:+919500653243';
   };
 
   return (
