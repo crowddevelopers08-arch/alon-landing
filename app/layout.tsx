@@ -16,6 +16,21 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Alon Skin Asthetics",
   description: "Doctor-Led Hair Loss Treatment & Hair Restoration in Chennai | Anlon Clinic",
+
+    icons: {
+    icon: [
+      { url: "/fav-icon.png", sizes: "any" },
+      { url: "/fav-icon.png", sizes: "16x16", type: "image/png" },
+      { url: "/fav-icon.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/fav-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      { rel: "icon", url: "/fav-icon.png", sizes: "192x192", type: "image/png" },
+      { rel: "icon", url: "/fav-icon.png", sizes: "512x512", type: "image/png" },
+    ],
+  },
 };
 
 export default function RootLayout({
