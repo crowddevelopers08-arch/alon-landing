@@ -14,9 +14,9 @@ const ClinicVideosResponsiveGrid = () => {
   };
 
   const videos = [
-    { id: 1, title: "Doctor Explaining Hair Loss Evaluation",  videoUrl: "/1760777342410947.mov", duration: "5:30" },
-    { id: 2, title: "Regenera Activa Treatment Overview",      videoUrl: "/1768904659105013.mov", duration: "8:45" },
-    { id: 3, title: "In-Clinic Hair Treatment Process",        videoUrl: "/IMG_2605.mp4",         duration: "6:15" },
+    { id: 1, title: "Doctor Explaining Hair Loss Evaluation",  videoUrl: "/1764832869694365.mp4", duration: "5:30" },
+    { id: 2, title: "Regenera Activa Treatment Overview",      videoUrl: "/video1.mp4", duration: "8:45" },
+    { id: 3, title: "In-Clinic Hair Treatment Process",        videoUrl: "/1752055853061414.mp4",         duration: "6:15" },
   ];
 
   const pauseAllVideos = () => {

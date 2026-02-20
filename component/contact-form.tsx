@@ -196,9 +196,7 @@ const BookingFormModal = ({ isOpen, onClose }: BookingFormModalProps) => {
                     <option value="consultation">Initial Consultation</option>
                     <option value="hair-fall">Hair Fall Treatment</option>
                     <option value="regenera">Regenera Activa</option>
-                    <option value="prp">PRP Therapy</option>
-                    <option value="hair-transplant">Hair Transplant</option>
-                  </select>
+                    </select>
                 </div>
               </div>
 
