@@ -35,10 +35,10 @@ const ClinicVideosResponsiveGrid = () => {
         <RevealOnScroll direction="up" duration={700}>
           <div className="text-center mb-6 sm:mb-8 md:mb-5 lg:mb-10">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl font-bold text-gray-900 leading-tight mb-3 sm:mb-4">
-              Videos from Our Clinic
+              Proof
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-4">
-              Watch our expert doctors explain treatments and see our clinic procedures firsthand
+              Discover powerful before & after videos revealing real treatment outcomes and natural-looking results.
             </p>
           </div>
         </RevealOnScroll>
