@@ -9,7 +9,7 @@ export default function HairTreatmentCTA() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
 
   const handleCallNow = () => {
-    window.location.href = 'tel:+9500651761'; // Fixed phone number format
+    window.location.href = 'tel:+919500653243'; // Fixed phone number format
   };
 
   return (
