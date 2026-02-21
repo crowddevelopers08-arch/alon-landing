@@ -55,6 +55,39 @@ export default function RootLayout({
             `,
           }}
         />
+
+        {/* Google Ads Configuration and Phone Conversion Function */}
+        <Script
+          id="google-ads-config"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Google Ads Phone Number Configuration
+              gtag('config', 'AW-17927701020/ADBwCJy9s_wbEJyEzORC', {
+                'phone_conversion_number': '9500653243'
+              });
+
+              // Phone Number Click to Call Conversion Function
+              function gtag_report_conversion(url) {
+                var callback = function () {
+                  if (typeof(url) != 'undefined') {
+                    window.location = url;
+                  }
+                };
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-17927701020/QgA9CJ-9s_wbEJyEzORC',
+                    'value': 1.0,
+                    'currency': 'INR',
+                    'event_callback': callback
+                });
+                return false;
+              }
+
+              // Make function globally available
+              window.gtag_report_conversion = gtag_report_conversion;
+            `,
+          }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${outfit.variable} antialiased`}
