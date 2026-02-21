@@ -1,13 +1,13 @@
 // app/api/leads/route.ts
-import { PrismaClient } from "@prisma/client";
+import prisma from "@/lib/prisma"; 
 import { NextRequest, NextResponse } from "next/server";
 
 /**
  * ✅ Prisma singleton (prevents "too many connections" in Next.js dev)
  */
-const globalForPrisma = globalThis as unknown as { prisma?: PrismaClient };
-const prisma = globalForPrisma.prisma ?? new PrismaClient();
-if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
+// const globalForPrisma = globalThis as unknown as { prisma?: PrismaClient };
+// const prisma = globalForPrisma.prisma ?? new PrismaClient();
+// if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
 
 interface LeadData {
   name: string;
