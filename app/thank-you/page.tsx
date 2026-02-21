@@ -1,6 +1,7 @@
+
+
 import Navbar from '@/component/navbar'
 import ThankYouPage from '@/component/thankpage'
-import React, { useEffect } from 'react'
 import Script from 'next/script'
 
 const Page = () => {
