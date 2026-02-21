@@ -49,12 +49,17 @@ export default function HairTreatmentCTA() {
               >
                 Book Now
               </button>
-              <button
-                onClick={handleCallNow}
-                className="bg-[#9B7057] hover:bg-[#7a4f3a] text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg text-sm md:text-base whitespace-nowrap"
-              >
-                Call Now
-              </button>
+                <a 
+    href="tel:+91 9500653243" 
+    className="flex w-full sm:w-auto"
+  >
+    <button
+      className="group flex items-center justify-center gap-2 text-white font-bold px-6 py-3 rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg hover:shadow-xl text-sm w-full"
+      style={{ backgroundColor: '#9B7057' }}
+    >
+      Call Now
+    </button>
+  </a>
             </div>
           </RevealOnScroll>
         </div>

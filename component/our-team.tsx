@@ -8,9 +8,7 @@ const HairServicesComponents = () => {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
 
-  const handleCallNow = () => {
-    window.location.href = "tel:+ 9500653243";
-  };
+
 
   const handleImageError = (imageName: string) => {
     setImageErrors((prev) => ({ ...prev, [imageName]: true }));
@@ -130,20 +128,26 @@ const HairServicesComponents = () => {
 
         {/* CTAs - from up */}
         <RevealOnScroll direction="up" delay={200} duration={700}>
-          <div className="flex items-center justify-center gap-3 sm:gap-4 flex-wrap mt-8 sm:mt-10 md:mt-12">
-            <button
-              onClick={() => setIsBookingModalOpen(true)}
-              className="border border-[#9B7057] text-[#9B7057] hover:bg-[#9B7057] hover:text-white font-semibold px-6 sm:px-7 md:px-8 py-2.5 sm:py-3 rounded-lg transition-all duration-300 flex items-center gap-2 text-sm sm:text-base"
-            >
-              <span>Book Now</span>
-            </button>
-            <button
-              onClick={handleCallNow}
-              className="bg-[#9B7057] hover:bg-[#7a5a47] text-white font-semibold px-6 sm:px-7 md:px-8 py-2.5 sm:py-3 rounded-lg transition-all duration-300 flex items-center gap-2 text-sm sm:text-base"
-            >
-              <span>Call Now</span>
-            </button>
-          </div>
+<div className="flex sm:flex-row gap-3 justify-center mt-10 max-sm:mb-4">
+  <button
+    className="group border-1 border-black flex items-center justify-center gap-2 text-black font-bold px-6 py-3 rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg hover:shadow-xl text-sm w-full sm:w-auto"
+    onClick={() => setIsBookingModalOpen(true)}
+  >
+    Book Now
+  </button>
+  
+  <a 
+    href="tel:+91 9500653243" 
+    className="flex w-full sm:w-auto"
+  >
+    <button
+      className="group flex items-center justify-center gap-2 text-white font-bold px-6 py-3 rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg hover:shadow-xl text-sm w-full"
+      style={{ backgroundColor: '#9B7057' }}
+    >
+      Call Now
+    </button>
+  </a>
+</div>
         </RevealOnScroll>
 
       </div>

@@ -49,19 +49,24 @@ const HealthcareFeaturesSection = () => {
 
               {/* CTA Buttons */}
               <div className="flex sm:flex-row gap-3 sm:gap-4 pt-4 md:pt-2">
-                <button
-                  onClick={() => setIsBookingModalOpen(true)}
-                  className="flex items-center justify-center gap-2 text-black font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-lg transition-all duration-300 hover:opacity-90 shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full sm:w-auto border border-black"
-                >
-                  Book Now
-                </button>
-                <button
-                  onClick={handleCallNow}
-                  className="flex items-center justify-center gap-2 text-white font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-lg transition-all duration-300 hover:opacity-90 shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full sm:w-auto"
-                  style={{ backgroundColor: '#9B7057' }}
-                >
-                  Call Now
-                </button>
+                 <button
+    className="group border-1 border-black flex items-center justify-center gap-2 text-black font-bold px-6 py-3 rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg hover:shadow-xl text-sm w-full sm:w-auto"
+    onClick={() => setIsBookingModalOpen(true)}
+  >
+    Book Now
+  </button>
+  
+  <a 
+    href="tel:+91 9500653243" 
+    className="flex w-full sm:w-auto"
+  >
+    <button
+      className="group flex items-center justify-center gap-2 text-white font-bold px-6 py-3 rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg hover:shadow-xl text-sm w-full"
+      style={{ backgroundColor: '#9B7057' }}
+    >
+      Call Now
+    </button>
+  </a>
               </div>
             </div>
           </RevealOnScroll>
