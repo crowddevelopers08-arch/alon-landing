@@ -3,6 +3,7 @@
 
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { X, Clock, Calendar, Phone, Mail, User, MessageSquare } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 // Define interface for form data
 interface FormData {
@@ -21,9 +22,16 @@ interface BookingFormModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSuccess?: () => void;
+  redirectUrl?: string; // Add optional redirect URL prop
 }
 
-const BookingFormModal = ({ isOpen, onClose, onSuccess }: BookingFormModalProps) => {
+const BookingFormModal = ({ 
+  isOpen, 
+  onClose, 
+  onSuccess, 
+  redirectUrl = '/thank-you' // Default thank-you page URL
+}: BookingFormModalProps) => {
+  const router = useRouter();
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -99,38 +107,22 @@ const BookingFormModal = ({ isOpen, onClose, onSuccess }: BookingFormModalProps)
       const data = await response.json();
 
       if (response.ok) {
-        setSubmitStatus({
-          type: 'success',
-          message: data.message || 'Booking confirmed! We will contact you shortly.'
-        });
-        
-        // Reset form
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          date: '',
-          time: '',
-          treatment: '',
-          message: '',
-          consent: false
-        });
-
         // Call onSuccess callback if provided
         if (onSuccess) {
           onSuccess();
         }
-
-        // Close modal after 3 seconds
-        setTimeout(() => {
-          onClose();
-          setSubmitStatus({ type: null, message: '' });
-        }, 3000);
+        
+        // Close the modal first
+        onClose();
+        
+        // Redirect to thank-you page
+        router.push(redirectUrl);
       } else {
         setSubmitStatus({
           type: 'error',
           message: data.error || 'Failed to submit booking. Please try again.'
         });
+        setIsSubmitting(false);
       }
     } catch (error) {
       console.error('Form submission error:', error);
@@ -138,7 +130,6 @@ const BookingFormModal = ({ isOpen, onClose, onSuccess }: BookingFormModalProps)
         type: 'error',
         message: 'Network error. Please check your connection and try again.'
       });
-    } finally {
       setIsSubmitting(false);
     }
   };
@@ -187,13 +178,9 @@ const BookingFormModal = ({ isOpen, onClose, onSuccess }: BookingFormModalProps)
 
           {/* Form Content */}
           <div className="px-8 py-6">
-            {/* Status Message */}
-            {submitStatus.type && (
-              <div className={`mb-4 p-3 rounded-lg text-sm ${
-                submitStatus.type === 'success' 
-                  ? 'bg-green-50 text-green-800 border border-green-200' 
-                  : 'bg-red-50 text-red-800 border border-red-200'
-              }`}>
+            {/* Status Message - Only show errors now */}
+            {submitStatus.type === 'error' && (
+              <div className="mb-4 p-3 rounded-lg text-sm bg-red-50 text-red-800 border border-red-200">
                 {submitStatus.message}
               </div>
             )}
