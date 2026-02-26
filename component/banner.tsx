@@ -18,9 +18,7 @@ const CarRentalHero = () => {
   const fullHeadline = staticPart + rewritePart;
   const subheadline =
     "Hair fall treatment, hair thinning solutions, and advanced hair restoration planned after detailed doctor-led scalp analysis.";
-  const handleCallNow = () => {
-    window.location.href = "tel:+91 9500653243";
-  };
+
 
   const carImages = [
     "/DSC02258.JPG",
@@ -191,7 +189,7 @@ const CarRentalHero = () => {
             </p>
 
             {/* CTAs */}
-            <div
+            {/* <div
               className={`flex sm:flex-row gap-3 sm:gap-4 mb-4 sm:mb-7 md:mb-8 transition-all duration-1000 ${
                 showButtons
                   ? "translate-y-0 opacity-100"
@@ -213,7 +211,29 @@ const CarRentalHero = () => {
                   Call Now
                 </button>
               </a>
-            </div>
+            </div> */}
+            <div
+  className={`flex sm:flex-row gap-3 sm:gap-4 mb-4 sm:mb-7 md:mb-8 transition-all duration-1000 ${
+    showButtons ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+  }`}
+>
+  <button
+    onClick={() => setIsBookingModalOpen(true)}
+    className="group bg-white text-black font-bold px-4 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-lg flex items-center justify-center gap-2 transition-all duration-300 hover:gap-4 text-sm sm:text-base md:text-lg shadow-lg hover:shadow-xl hover:brightness-110 w-full sm:w-auto"
+  >
+    Book Now
+  </button>
+
+  {/* ✅ Mobile only */}
+  <a href="tel:+91 9500653243" className="flex w-full sm:hidden">
+    <button
+      className="group flex items-center justify-center gap-2 text-white font-bold px-4 py-2 rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg hover:shadow-xl text-md w-full"
+      style={{ backgroundColor: "#9B7057" }}
+    >
+      Call Now
+    </button>
+  </a>
+</div>
 
             {/* Trust Indicators */}
             <div
@@ -227,7 +247,6 @@ const CarRentalHero = () => {
                 "Chennai",
                 "Doctor-led evaluation",
                 "Before / After Results",
-                "WhatsApp Call & Chat",
               ].map((label) => (
                 <div
                   key={label}

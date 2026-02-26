@@ -8,9 +8,6 @@ import RevealOnScroll from "./RevealOnScroll";
 export default function HairTreatmentCTA() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
 
-  const handleCallNow = () => {
-    window.location.href = 'tel:+919500653243'; // Fixed phone number format
-  };
 
   return (
     <section className="w-full py-10 px-4">
@@ -51,7 +48,7 @@ export default function HairTreatmentCTA() {
               </button>
                 <a 
     href="tel:+91 9500653243" 
-    className="flex w-full sm:w-auto"
+    className="flex w-full sm:w-auto sm:hidden"
   >
     <button
       className="group flex items-center justify-center gap-2 text-white font-bold px-6 py-3 rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg hover:shadow-xl text-sm w-full"

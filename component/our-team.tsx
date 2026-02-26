@@ -138,7 +138,7 @@ const HairServicesComponents = () => {
   
   <a 
     href="tel:+91 9500653243" 
-    className="flex w-full sm:w-auto"
+    className="flex w-full sm:w-auto sm:hidden"
   >
     <button
       className="group flex items-center justify-center gap-2 text-white font-bold px-6 py-3 rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg hover:shadow-xl text-sm w-full"
