@@ -15,7 +15,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Alon Skin Asthetics",
+  title: "Anlon Skin Asthetics",
   description: "Doctor-Led Hair Loss Treatment & Hair Restoration in Chennai | Anlon Clinic",
   icons: {
     icon: [
