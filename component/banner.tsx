@@ -134,7 +134,7 @@ const CarRentalHero = () => {
 
             {/* Trust Indicators */}
         <div
-  className={`flex flex-row flex-wrap justify-center items-center gap-2 sm:gap-3 max-[470px]:gap-4 md:flex md:flex-wrap md:gap-4 lg:gap-6 transition-all duration-1000 ${
+  className={`flex flex-row flex-wrap justify-center items-center gap-2 sm:gap-3 max-[470px]:gap-4 md:flex md:flex-wrap md:justify-start md:gap-4 lg:gap-6 transition-all duration-1000 ${
     showIndicators
       ? "translate-y-0 opacity-100"
       : "translate-y-10 opacity-0"
