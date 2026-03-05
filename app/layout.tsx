@@ -90,7 +90,7 @@ export default function RootLayout({
         />
 
         {/* Meta Pixel Code */}
-        <Script
+        {/* <Script
           id="meta-pixel"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -107,7 +107,7 @@ export default function RootLayout({
               fbq('track', 'PageView');
             `,
           }}
-        />
+        /> */}
       </head>
       <body
         className={`${geistSans.variable} ${outfit.variable} antialiased`}
@@ -123,7 +123,7 @@ export default function RootLayout({
         </noscript>
         
         {/* Meta Pixel (noscript) */}
-        <noscript>
+        {/* <noscript>
           <img 
             height="1" 
             width="1" 
@@ -131,7 +131,7 @@ export default function RootLayout({
             src="https://www.facebook.com/tr?id=1208737557910739&ev=PageView&noscript=1"
             alt=""
           />
-        </noscript>
+        </noscript> */}
         
         <AnimatedBackground>
           {children}
