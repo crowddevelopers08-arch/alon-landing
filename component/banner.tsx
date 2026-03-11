@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import BookingFormModal from "./contact-form";
 
 const CarRentalHero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -8,7 +9,8 @@ const CarRentalHero = () => {
   const [showButtons, setShowButtons] = useState(false);
   const [showIndicators, setShowIndicators] = useState(false);
 
-  const headline = "Doctor-Led Hair Loss Treatment & Hair Restoration in Chennai";
+  const headline =
+    "Doctor-Led Hair Loss Treatment & Hair Restoration in Chennai";
   const subheadline =
     "Hair fall treatment, hair thinning solutions, and advanced hair restoration planned after detailed doctor-led scalp analysis.";
 
@@ -23,7 +25,7 @@ const CarRentalHero = () => {
     const timer1 = setTimeout(() => {
       setShowButtons(true);
     }, 300);
-    
+
     const timer2 = setTimeout(() => {
       setShowIndicators(true);
     }, 400);
@@ -39,7 +41,7 @@ const CarRentalHero = () => {
       setCurrentSlide((prev) => (prev + 1) % carImages.length);
       setShowButtons(false);
       setShowIndicators(false);
-      
+
       setTimeout(() => setShowButtons(true), 300);
       setTimeout(() => setShowIndicators(true), 400);
     }, 15000);
@@ -51,7 +53,7 @@ const CarRentalHero = () => {
     setCurrentSlide((prev) => (prev + 1) % carImages.length);
     setShowButtons(false);
     setShowIndicators(false);
-    
+
     setTimeout(() => setShowButtons(true), 300);
     setTimeout(() => setShowIndicators(true), 400);
   };
@@ -60,7 +62,7 @@ const CarRentalHero = () => {
     setCurrentSlide((prev) => (prev - 1 + carImages.length) % carImages.length);
     setShowButtons(false);
     setShowIndicators(false);
-    
+
     setTimeout(() => setShowButtons(true), 300);
     setTimeout(() => setShowIndicators(true), 400);
   };
@@ -111,7 +113,9 @@ const CarRentalHero = () => {
             {/* CTAs */}
             <div
               className={`flex sm:flex-row gap-3 sm:gap-4 mb-4 sm:mb-7 md:mb-8 transition-all duration-1000 ${
-                showButtons ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+                showButtons
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-10 opacity-0"
               }`}
             >
               <button
@@ -133,26 +137,26 @@ const CarRentalHero = () => {
             </div>
 
             {/* Trust Indicators */}
-        <div
-  className={`flex flex-row flex-wrap justify-center items-center gap-2 sm:gap-3 max-[470px]:gap-4 md:flex md:flex-wrap md:justify-start md:gap-4 lg:gap-6 transition-all duration-1000 ${
-    showIndicators
-      ? "translate-y-0 opacity-100"
-      : "translate-y-10 opacity-0"
-  }`}
->
-  {[
-    "Chennai",
-    "Doctor-led evaluation",
-    "Before / After Results",
-  ].map((label) => (
-    <div
-      key={label}
-      className="text-white text-xs sm:text-sm md:text-base font-medium whitespace-nowrap"
-    >
-      {label}
-    </div>
-  ))}
-</div>
+            <div
+              className={`flex flex-row flex-wrap justify-center items-center gap-2 sm:gap-3 max-[470px]:gap-4 md:flex md:flex-wrap md:justify-start md:gap-4 lg:gap-6 transition-all duration-1000 ${
+                showIndicators
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-10 opacity-0"
+              }`}
+            >
+              {[
+                "Chennai",
+                "Doctor-led evaluation",
+                "Before / After Results",
+              ].map((label) => (
+                <div
+                  key={label}
+                  className="text-white text-xs sm:text-sm md:text-base font-medium whitespace-nowrap"
+                >
+                  {label}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -213,6 +217,10 @@ const CarRentalHero = () => {
           />
         ))}
       </div>
+      <BookingFormModal
+        isOpen={isBookingModalOpen}
+        onClose={() => setIsBookingModalOpen(false)}
+      />
     </div>
   );
 };

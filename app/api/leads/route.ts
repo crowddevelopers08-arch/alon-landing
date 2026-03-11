@@ -36,6 +36,7 @@ interface LeadData {
   preferredDate?: string;
   preferredTime?: string;
   bookingStatus?: string;
+  pageUrl?: string;
 }
 
 function logEnvironmentStatus() {
@@ -121,6 +122,7 @@ async function saveLeadToDatabase(leadData: LeadData, telecrmResult?: any) {
       preferredDate: leadData.preferredDate || null,
       preferredTime: leadData.preferredTime || null,
       bookingStatus: leadData.bookingStatus || 'pending',
+      pageUrl: leadData.pageUrl || null,
 
       telecrmSynced: !!telecrmResult?.synced,
       telecrmId: telecrmResult?.leadId || telecrmResult?.id || telecrmResult?.LeadID || null,
@@ -174,7 +176,8 @@ async function sendToTeleCRM(leadData: LeadData) {
       { type: "SYSTEM_NOTE", text: `Preferred Date: ${leadData.preferredDate || "Not specified"}` },
       { type: "SYSTEM_NOTE", text: `Preferred Time: ${leadData.preferredTime || "Not specified"}` },
       { type: "SYSTEM_NOTE", text: `Booking Status: ${leadData.bookingStatus || 'pending'}` },
-      { type: "SYSTEM_NOTE", text: `Message: ${leadData.message || "Not specified"}` }
+      { type: "SYSTEM_NOTE", text: `Message: ${leadData.message || "Not specified"}` },
+      { type: "SYSTEM_NOTE", text: `Page URL: ${leadData.pageUrl || "Not specified"}` }
     );
   } else {
     // Add other form specific notes
@@ -428,6 +431,7 @@ export async function GET(request: NextRequest) {
           preferredDate: lead.preferredDate,
           preferredTime: lead.preferredTime,
           bookingStatus: lead.bookingStatus,
+          pageUrl: lead.pageUrl,
           
           createdAt: lead.createdAt.toISOString(),
           updatedAt: lead.updatedAt.toISOString(),

@@ -35,6 +35,7 @@ model Lead {
   preferredDate     String?
   preferredTime     String?
   bookingStatus     String? @default("pending")
+  pageUrl           String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

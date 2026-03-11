@@ -99,6 +99,7 @@ const BookingFormModal = ({
           consent: formData.consent,
           source: 'Anlon Booking Form',
           formName: 'Anlon',
+          pageUrl: typeof window !== 'undefined' ? window.location.href : '',
           status: 'new',
           bookingStatus: 'pending'
         }),

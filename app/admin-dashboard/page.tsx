@@ -44,6 +44,7 @@ interface Lead {
   preferredDate?: string
   preferredTime?: string
   bookingStatus?: 'pending' | 'confirmed' | 'cancelled' | 'completed'
+  pageUrl?: string
 }
 
 interface LeadsTableProps {
@@ -270,7 +271,7 @@ export default function LeadsTable({
       // Smile Baby specific fields
       "WhatsApp", "Woman's Age Bracket", "Trying Duration",
       // Anlon specific fields
-      "Preferred Date", "Preferred Time", "Booking Status"
+      "Preferred Date", "Preferred Time", "Booking Status", "Page URL"
     ]
     
     const csvData = filteredLeads.map(lead => [
@@ -291,7 +292,8 @@ export default function LeadsTable({
       lead.tryingDuration || '',
       lead.preferredDate || '',
       lead.preferredTime || '',
-      lead.bookingStatus || ''
+      lead.bookingStatus || '',
+      lead.pageUrl || ''
     ])
     
     const csvContent = [headers, ...csvData]
@@ -791,6 +793,9 @@ export default function LeadsTable({
                                           <div><span className="font-medium">Preferred Date:</span> {lead.preferredDate || 'Not specified'}</div>
                                           <div><span className="font-medium">Preferred Time:</span> {lead.preferredTime || 'Not specified'}</div>
                                           <div><span className="font-medium">Booking Status:</span> {lead.bookingStatus || 'Not specified'}</div>
+                                          {lead.pageUrl && (
+                                            <div><span className="font-medium">Page URL:</span> <a href={lead.pageUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline break-all">{lead.pageUrl}</a></div>
+                                          )}
                                           {lead.bookingStatus && (
                                             <div className="mt-2">
                                               <span className="font-medium mr-2">Update Booking Status:</span>
