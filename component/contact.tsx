@@ -17,7 +17,7 @@ export default function HairTreatmentCTA() {
         <div className="flex-shrink-0 w-[120px] md:w-[160px] lg:w-[180px]">
           <RevealOnScroll direction="left" duration={750}>
             <Image
-              src="/imageed.jpg"
+              src="https://ik.imagekit.io/yvjqesbbx/public/imageed.jpg?updatedAt=1773305802544"
               alt="Medical Team"
               width={180}
               height={180}

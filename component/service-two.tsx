@@ -71,9 +71,9 @@ const HealthcareFeaturesSection = () => {
           {/* Right Side - Feature items slide from right with stagger */}
           <div className="space-y-1 mt-4 lg:mt-0">
             {[
-              { src: '/pushing.png',  alt: 'Progressive thinning',     label: 'Have progressive or advanced thinning' },
-              { src: '/hourglass.png', alt: 'Limited results',          label: 'Have seen limited results with earlier treatments' },
-              { src: '/man.png',       alt: 'Long-term restoration',    label: 'Are looking for long-term hair restoration' },
+              { src: 'https://ik.imagekit.io/yvjqesbbx/public/pushing.png?updatedAt=1773305802299',  alt: 'Progressive thinning',     label: 'Have progressive or advanced thinning' },
+              { src: 'https://ik.imagekit.io/yvjqesbbx/public/hourglass.png?updatedAt=1773305802212', alt: 'Limited results',          label: 'Have seen limited results with earlier treatments' },
+              { src: 'https://ik.imagekit.io/yvjqesbbx/public/man.png?updatedAt=1773305802070',       alt: 'Long-term restoration',    label: 'Are looking for long-term hair restoration' },
             ].map((feature, i) => (
               <RevealOnScroll key={i} direction="right" delay={200 + i * 150} duration={700}>
                 <div className="flex sm:flex-row items-center gap-4 sm:gap-5 p-4 sm:p-5 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 text-center sm:text-left">

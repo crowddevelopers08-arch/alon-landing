@@ -39,7 +39,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <a href="/" className="flex items-center">
               <img
-                src="/logos.png"
+                src="https://ik.imagekit.io/yvjqesbbx/public/logos.png?updatedAt=1773305802782"
                 alt="Anlon Aesthetics Logo"
                 className="h-8 sm:h-10 md:h-12 lg:h-14 w-auto transition-all duration-300"
               />

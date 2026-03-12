@@ -19,15 +19,15 @@ const HairServicesComponents = () => {
   };
 
   const leftServices = [
-    { src: "/hair-loss.png",  alt: "Hair loss",    title: "Hair Loss Evaluation",    desc: "Comprehensive medical assessment and accurate diagnosis of hair loss patterns." },
-    { src: "/hairs-p.png",    alt: "Scalp",        title: "Scalp Disorders",         desc: "Expert management of various scalp conditions affecting hair health." },
-    { src: "/hairs-po.png",   alt: "Hair thinning",title: "Hair Thinning Protocols", desc: "Advanced protocols for addressing hair density loss and thinning concerns." },
+    { src: "https://ik.imagekit.io/yvjqesbbx/public/hair-loss.png?updatedAt=1773305802148",  alt: "Hair loss",    title: "Hair Loss Evaluation",    desc: "Comprehensive medical assessment and accurate diagnosis of hair loss patterns." },
+    { src: "https://ik.imagekit.io/yvjqesbbx/public/hairs-p.png?updatedAt=1773305802281",    alt: "Scalp",        title: "Scalp Disorders",         desc: "Expert management of various scalp conditions affecting hair health." },
+    { src: "https://ik.imagekit.io/yvjqesbbx/public/hairs-po.png?updatedAt=1773305802535",   alt: "Hair thinning",title: "Hair Thinning Protocols", desc: "Advanced protocols for addressing hair density loss and thinning concerns." },
   ];
 
   const rightServices = [
-    { src: "/hairs-pos.png",  alt: "Regenerative", title: "Regenerative Restoration", desc: "Innovative regenerative approaches for natural hair restoration." },
-    { src: "/hairs-pose.png", alt: "Ethical",       title: "Ethical Treatment",        desc: "Conservative, ethical approach to personalized treatment planning." },
-    { src: "/hairs-poses.png",alt: "Follicle",      title: "Follicle Health Care",     desc: "Long-term scalp and follicle health maintenance for lasting results." },
+    { src: "https://ik.imagekit.io/yvjqesbbx/public/hairs-pos.png?updatedAt=1773305802162",  alt: "Regenerative", title: "Regenerative Restoration", desc: "Innovative regenerative approaches for natural hair restoration." },
+    { src: "https://ik.imagekit.io/yvjqesbbx/public/hairs-pos.png?updatedAt=1773305802162", alt: "Ethical",       title: "Ethical Treatment",        desc: "Conservative, ethical approach to personalized treatment planning." },
+    { src: "https://ik.imagekit.io/yvjqesbbx/public/hairs-poses.png?updatedAt=1773305802080",alt: "Follicle",      title: "Follicle Health Care",     desc: "Long-term scalp and follicle health maintenance for lasting results." },
   ];
 
   return (
@@ -68,7 +68,7 @@ const HairServicesComponents = () => {
             <RevealOnScroll direction="up" delay={200} duration={800}>
               <div className="flex items-center justify-center">
                 <div className="w-full max-w-md h-100">
-                  <img src="/microscope.webp" alt="Hair Treatment Services" className="w-full h-full object-contain" />
+                  <img src="https://ik.imagekit.io/yvjqesbbx/public/microscope.webp?updatedAt=1773305802301" alt="Hair Treatment Services" className="w-full h-full object-contain" />
                 </div>
               </div>
             </RevealOnScroll>
@@ -101,7 +101,7 @@ const HairServicesComponents = () => {
             <RevealOnScroll direction="up" delay={100} duration={700}>
               <div className="w-full flex justify-center mb-4">
                 <div className="w-2/4 sm:w-2/3 md:w-1/2 max-w-md">
-                  <img src="/microscope.webp" alt="Hair Treatment Services" className="w-full h-auto object-contain" />
+                  <img src="https://ik.imagekit.io/yvjqesbbx/public/microscope.webp?updatedAt=1773305802301" alt="Hair Treatment Services" className="w-full h-auto object-contain" />
                 </div>
               </div>
             </RevealOnScroll>

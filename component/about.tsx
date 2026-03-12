@@ -48,14 +48,14 @@ const WhoWeAreSection = () => {
           <RevealOnScroll direction="right" delay={150} duration={800}>
             <div className="relative h-[350px] sm:h-[400px] w-full mb-6">
               <div className="absolute top-0 right-0 w-[85%] h-[75%] rounded-2xl overflow-hidden shadow-2xl z-10 animate-float-up-down">
-                <img src="/DSC02295.JPG" alt="Doctor with baby" className="w-full h-full object-cover" />
+                <img src="https://ik.imagekit.io/yvjqesbbx/public/DSC02295.JPG?updatedAt=1773305816255" alt="Doctor with baby" className="w-full h-full object-cover" />
               </div>
               <div
                 className="absolute bottom-0 left-0 rounded-2xl overflow-hidden shadow-2xl z-20 animate-float-left-right bg-orange-50"
                 style={{ width: '60%', height: '45%', maxHeight: '250px', padding: '6px' }}
               >
                 <div className="w-full h-full rounded-xl overflow-hidden">
-                  <img src="/DSC02268.JPG" alt="Nurse with elderly patient" className="w-full h-full object-cover" />
+                  <img src="https://ik.imagekit.io/yvjqesbbx/public/DSC02268.JPG?updatedAt=1773305811543" alt="Nurse with elderly patient" className="w-full h-full object-cover" />
                 </div>
               </div>
               <div className="absolute top-[8%] right-[4%] w-[70%] h-[60%] rounded-2xl border-4 -z-10" style={{ borderColor: '#130e0b', opacity: 0.2 }} />
@@ -167,14 +167,14 @@ const WhoWeAreSection = () => {
           <RevealOnScroll direction="right" delay={200} duration={800}>
             <div className="relative h-[700px]">
               <div className="absolute top-0 right-0 w-[85%] h-[80%] rounded-3xl overflow-hidden shadow-2xl z-10 animate-float-up-down">
-                <img src="/DSC02295.JPG" alt="Doctor with baby" className="w-full h-full object-cover" />
+                <img src="https://ik.imagekit.io/yvjqesbbx/public/DSC02295.JPG?updatedAt=1773305816255" alt="Doctor with baby" className="w-full h-full object-cover" />
               </div>
               <div
                 className="absolute bottom-0 left-0 rounded-3xl overflow-hidden shadow-2xl z-20 animate-float-left-right bg-orange-50"
                 style={{ width: '60%', height: '55%', padding: '8px' }}
               >
                 <div className="w-full h-full rounded-2xl overflow-hidden">
-                  <img src="/C6274T01.jpeg" alt="Nurse with elderly patient" className="w-full h-full object-cover" />
+                  <img src="https://ik.imagekit.io/yvjqesbbx/public/C6274T01.jpeg?updatedAt=1773305802807" alt="Nurse with elderly patient" className="w-full h-full object-cover" />
                 </div>
               </div>
               <div className="absolute top-[10%] right-[5%] w-[70%] h-[65%] rounded-3xl border-4 -z-10" style={{ borderColor: '#130e0b', opacity: 0.2 }} />
