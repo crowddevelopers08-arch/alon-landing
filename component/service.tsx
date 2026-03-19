@@ -101,7 +101,7 @@ const WhyChooseUsSection = () => {
                     { src: "https://ik.imagekit.io/xivdiehvf/hair-loss.png", label: "Weak, fine hair texture" },
                     { src: "https://ik.imagekit.io/xivdiehvf/hair.png",      label: "Slow or uneven regrowth" },
             ].map((feature, i) => (
-              <RevealOnScroll key={i} direction={feature.dir as 'left' | 'right'} delay={100 * i} duration={600}>
+              <RevealOnScroll key={i} direction={i % 2 === 0 ? 'left' : 'right'} delay={100 * i} duration={600}>
                 <div className="flex items-center gap-3">
                   <div className="flex-shrink-0 p-2 bg-[#f7ead8] rounded-full">
                     <img src={feature.src} alt={feature.label} className="w-8 h-8 sm:w-9 sm:h-9 object-contain"
