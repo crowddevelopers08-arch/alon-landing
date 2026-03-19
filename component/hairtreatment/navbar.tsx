@@ -30,7 +30,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="nb-logo">
             <Image
-                src="https://ik.imagekit.io/yvjqesbbx/public/logos.png?updatedAt=1773305802782"
+                src="https://ik.imagekit.io/xivdiehvf/logos.png"
                 alt="CrowMedi Logo"
                 width={160}
                 height={52}

@@ -17,7 +17,7 @@ const CarRentalHero = () => {
   const carImages = [
     "https://ik.imagekit.io/xivdiehvf/DSC02258.JPG",
     "https://ik.imagekit.io/xivdiehvf/DSC02268.JPG",
-    "hhttps://ik.imagekit.io/xivdiehvf/DSC02275.JPG",
+    "https://ik.imagekit.io/xivdiehvf/DSC02275.JPG",
     "https://ik.imagekit.io/xivdiehvf/DSC02264.JPG",
   ];
 
@@ -68,7 +68,7 @@ const CarRentalHero = () => {
   };
 
   return (
-    <div className="relative w-full overflow-hidden bg-gray-900 h-[70svh] lg:h-[100svh]">
+    <div className="relative w-full overflow-hidden bg-gray-900 h-[62svh] lg:h-[100svh]">
       {/* Background Carousel with Zoom Effect */}
       <div className="absolute inset-0 z-0">
         {carImages.map((image, index) => (
@@ -138,7 +138,7 @@ const CarRentalHero = () => {
 
             {/* Trust Indicators */}
             <div
-              className={`flex flex-row flex-wrap justify-center items-center gap-2 sm:gap-3 max-[470px]:gap-4 md:flex md:flex-wrap md:justify-start md:gap-4 lg:gap-6 transition-all duration-1000 ${
+              className={`flex flex-row flex-wrap justify-center items-center gap-0 sm:gap-3 max-[470px]:gap-2 max-sm:mb-2 md:flex md:flex-wrap md:justify-start md:gap-4 lg:gap-6 transition-all duration-1000 ${
                 showIndicators
                   ? "translate-y-0 opacity-100"
                   : "translate-y-10 opacity-0"
