@@ -21,7 +21,7 @@ const WhyChooseUsSection = () => {
             <RevealOnScroll direction="left" duration={800} className="w-full h-full">
               <div className="relative w-full h-full flex items-center">
                 <img
-                  src="https://ik.imagekit.io/yvjqesbbx/public/download1.avif?updatedAt=1773305802092"
+                  src="https://ik.imagekit.io/xivdiehvf/download1.avif"
                   alt="Award Badge"
                   className="w-full max-w-md xl:max-w-lg 2xl:max-w-xl h-auto object-cover max-h-[500px] xl:max-h-[600px] 2xl:max-h-[700px]"
                 />
@@ -45,10 +45,10 @@ const WhyChooseUsSection = () => {
                 </p>
                 <div className="grid grid-cols-2 gap-6 xl:gap-8 2xl:gap-10 pt-4 xl:pt-0 2xl:pt-8">
                   {[
-                    { src: "https://ik.imagekit.io/yvjqesbbx/public/hair-care.png?updatedAt=1773305802501", label: "Excessive daily hair fall" },
-                    { src: "https://ik.imagekit.io/yvjqesbbx/public/face.png?updatedAt=1773305802025",      label: "Early thinning at crown or frontal areas" },
-                    { src: "https://ik.imagekit.io/yvjqesbbx/public/hair-loss.png?updatedAt=1773305802148", label: "Weak, fine hair texture" },
-                    { src: "https://ik.imagekit.io/yvjqesbbx/public/hair.png?updatedAt=1773305802477",      label: "Slow or uneven regrowth" },
+                    { src: "https://ik.imagekit.io/xivdiehvf/hair-care.png", label: "Excessive daily hair fall" },
+                    { src: "https://ik.imagekit.io/xivdiehvf/face.png",      label: "Early thinning at crown or frontal areas" },
+                    { src: "https://ik.imagekit.io/xivdiehvf/hair-loss.png", label: "Weak, fine hair texture" },
+                    { src: "https://ik.imagekit.io/xivdiehvf/hair.png",      label: "Slow or uneven regrowth" },
                   ].map((feature, i) => (
                     <RevealOnScroll key={i} direction="right" delay={300 + i * 100} duration={600}>
                       <div className="flex items-center gap-4 xl:gap-5 2xl:gap-6">

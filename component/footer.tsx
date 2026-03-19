@@ -5,7 +5,7 @@ import RevealOnScroll from "./RevealOnScroll"; // ✅ reusable animation compone
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="bg-[#080808] text-gray-300">
       {/* Main Footer Content */}
       <div className="max-w-8xl mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 py-10 sm:py-12 md:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-5">
@@ -15,7 +15,7 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-center bg-white rounded-lg px-3 py-2 w-max">
                 <a href="/" className="flex items-center">
-                  <img src="https://ik.imagekit.io/yvjqesbbx/public/logos-removebg.png?updatedAt=1773305802645" alt="Anlon Aesthetics Logo" className="h-8 sm:h-10 md:h-12 lg:h-14 w-auto transition-all duration-300" />
+                  <img src="https://ik.imagekit.io/xivdiehvf/logos-removebg.png" alt="Anlon Aesthetics Logo" className="h-8 sm:h-10 md:h-12 lg:h-14 w-auto transition-all duration-300" />
                 </a>
               </div>
               <p className="text-sm sm:text-base leading-relaxed">

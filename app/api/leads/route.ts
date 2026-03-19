@@ -320,28 +320,32 @@ export async function POST(request: NextRequest) {
       console.log("⏭️ TeleCRM not configured, skipping sync");
     }
 
-    // ✅ Save to DB
-    const dbLead = await saveLeadToDatabase(validatedData, telecrmResponse);
+    // ✅ Save to DB (non-blocking — DB failure won't break the response)
+    let dbLead: any = null;
+    let databaseSaved = false;
+    try {
+      dbLead = await saveLeadToDatabase(validatedData, telecrmResponse);
+      databaseSaved = true;
+      console.log("✅ Final response:", {
+        leadId: dbLead.id,
+        formName: dbLead.formName,
+        telecrmSynced: !!telecrmResponse?.synced,
+        telecrmId: telecrmResponse?.leadId || telecrmResponse?.id || null,
+      });
+    } catch (dbError: any) {
+      console.error("⚠️ DB save failed (non-fatal):", dbError?.message || String(dbError));
+    }
 
-    const responseData = {
+    return NextResponse.json({
       success: true,
-      leadId: dbLead.id,
-      databaseSaved: true,
+      leadId: dbLead?.id || null,
+      databaseSaved,
       telecrmSynced: !!telecrmResponse?.synced,
       telecrmResponse,
       timestamp: new Date().toISOString(),
       formName: validatedData.formName || "Website Leads",
       message: "Thank you! We have received your request and will contact you soon.",
-    };
-
-    console.log("✅ Final response:", {
-      leadId: dbLead.id,
-      formName: dbLead.formName,
-      telecrmSynced: !!telecrmResponse?.synced,
-      telecrmId: telecrmResponse?.leadId || telecrmResponse?.id || null,
-    });
-
-    return NextResponse.json(responseData, { status: 200 });
+    }, { status: 200 });
   } catch (error: any) {
     console.error("❌ Lead submission error:", { message: error?.message || String(error) });
     return NextResponse.json(

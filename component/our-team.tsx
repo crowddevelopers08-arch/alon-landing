@@ -8,32 +8,60 @@ const HairServicesComponents = () => {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
 
-
-
   const handleImageError = (imageName: string) => {
     setImageErrors((prev) => ({ ...prev, [imageName]: true }));
   };
 
   const iconStyle = {
-    filter: "brightness(0) saturate(100%) invert(5%) sepia(20%) saturate(600%) hue-rotate(5deg) brightness(20%) contrast(105%)",
+    filter:
+      "brightness(0) saturate(100%) invert(5%) sepia(20%) saturate(600%) hue-rotate(5deg) brightness(20%) contrast(105%)",
   };
 
   const leftServices = [
-    { src: "https://ik.imagekit.io/yvjqesbbx/public/hair-loss.png?updatedAt=1773305802148",  alt: "Hair loss",    title: "Hair Loss Evaluation",    desc: "Comprehensive medical assessment and accurate diagnosis of hair loss patterns." },
-    { src: "https://ik.imagekit.io/yvjqesbbx/public/hairs-p.png?updatedAt=1773305802281",    alt: "Scalp",        title: "Scalp Disorders",         desc: "Expert management of various scalp conditions affecting hair health." },
-    { src: "https://ik.imagekit.io/yvjqesbbx/public/hairs-po.png?updatedAt=1773305802535",   alt: "Hair thinning",title: "Hair Thinning Protocols", desc: "Advanced protocols for addressing hair density loss and thinning concerns." },
+    {
+      src: "https://ik.imagekit.io/xivdiehvf/hair-loss.png",
+      alt: "Hair loss",
+      title: "Hair Loss Evaluation",
+      desc: "Comprehensive medical assessment and accurate diagnosis of hair loss patterns.",
+    },
+    {
+      src: "https://ik.imagekit.io/xivdiehvf/hairs-p.png",
+      alt: "Scalp",
+      title: "Scalp Disorders",
+      desc: "Expert management of various scalp conditions affecting hair health.",
+    },
+    {
+      src: "https://ik.imagekit.io/xivdiehvf/hairs-po.png",
+      alt: "Hair thinning",
+      title: "Hair Thinning Protocols",
+      desc: "Advanced protocols for addressing hair density loss and thinning concerns.",
+    },
   ];
 
   const rightServices = [
-    { src: "https://ik.imagekit.io/yvjqesbbx/public/hairs-pos.png?updatedAt=1773305802162",  alt: "Regenerative", title: "Regenerative Restoration", desc: "Innovative regenerative approaches for natural hair restoration." },
-    { src: "https://ik.imagekit.io/yvjqesbbx/public/hairs-pos.png?updatedAt=1773305802162", alt: "Ethical",       title: "Ethical Treatment",        desc: "Conservative, ethical approach to personalized treatment planning." },
-    { src: "https://ik.imagekit.io/yvjqesbbx/public/hairs-poses.png?updatedAt=1773305802080",alt: "Follicle",      title: "Follicle Health Care",     desc: "Long-term scalp and follicle health maintenance for lasting results." },
+    {
+      src: "https://ik.imagekit.io/xivdiehvf/hairs-pos.png",
+      alt: "Regenerative",
+      title: "Regenerative Restoration",
+      desc: "Innovative regenerative approaches for natural hair restoration.",
+    },
+    {
+      src: "https://ik.imagekit.io/xivdiehvf/hairs-pose.png",
+      alt: "Ethical",
+      title: "Ethical Treatment",
+      desc: "Conservative, ethical approach to personalized treatment planning.",
+    },
+    {
+      src: "https://ik.imagekit.io/xivdiehvf/hairs-poses.png",
+      alt: "Follicle",
+      title: "Follicle Health Care",
+      desc: "Long-term scalp and follicle health maintenance for lasting results.",
+    },
   ];
 
   return (
     <div className="w-full py-0 sm:py-14 md:py-16 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-8">
       <div className="max-w-7xl mx-auto">
-
         {/* Heading - from up */}
         <RevealOnScroll direction="up" duration={700}>
           <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-10 md:mb-12">
@@ -46,18 +74,30 @@ const HairServicesComponents = () => {
         {/* ── Desktop Layout (lg+) ── */}
         <div className="hidden lg:block">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center mt-10">
-
             {/* Left Column - slides from left, staggered */}
             <div className="space-y-12">
               {leftServices.map((s, i) => (
-                <RevealOnScroll key={i} direction="left" delay={i * 150} duration={700}>
+                <RevealOnScroll
+                  key={i}
+                  direction="left"
+                  delay={i * 150}
+                  duration={700}
+                >
                   <div className="flex items-start gap-4 lg:flex-row-reverse lg:text-right">
                     <div className="flex-shrink-0 w-9 h-9 flex items-center justify-center">
-                      <img src={s.src} alt={s.alt} className="w-8 h-8 sm:w-9 sm:h-9 object-contain" onError={() => handleImageError(s.alt)} style={iconStyle} />
+                      <img
+                        src={s.src}
+                        alt={s.alt}
+                        className="w-8 h-8 sm:w-9 sm:h-9 object-contain"
+                        onError={() => handleImageError(s.alt)}
+                        style={iconStyle}
+                      />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-black mb-2 uppercase">{s.title}</h3>
-                      <p className="text-gray-600 text-sm md:text-base">{s.desc}</p>
+                      <h3 className="text-xl font-bold text-black mb-2 uppercase">
+                        {s.title}
+                      </h3>
+                      <p className="text-gray-600 text-base">{s.desc}</p>
                     </div>
                   </div>
                 </RevealOnScroll>
@@ -68,7 +108,11 @@ const HairServicesComponents = () => {
             <RevealOnScroll direction="up" delay={200} duration={800}>
               <div className="flex items-center justify-center">
                 <div className="w-full max-w-md h-100">
-                  <img src="https://ik.imagekit.io/yvjqesbbx/public/microscope.webp?updatedAt=1773305802301" alt="Hair Treatment Services" className="w-full h-full object-contain" />
+                  <img
+                    src="https://ik.imagekit.io/xivdiehvf/microscope.webp  "
+                    alt="Hair Treatment Services"
+                    className="w-full h-full object-contain"
+                  />
                 </div>
               </div>
             </RevealOnScroll>
@@ -76,32 +120,47 @@ const HairServicesComponents = () => {
             {/* Right Column - slides from right, staggered */}
             <div className="space-y-12">
               {rightServices.map((s, i) => (
-                <RevealOnScroll key={i} direction="right" delay={i * 150} duration={700}>
+                <RevealOnScroll
+                  key={i}
+                  direction="right"
+                  delay={i * 150}
+                  duration={700}
+                >
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0 w-9 h-9 flex items-center justify-center">
-                      <img src={s.src} alt={s.alt} className="w-8 h-8 sm:w-9 sm:h-9 object-contain" onError={() => handleImageError(s.alt)} style={iconStyle} />
+                      <img
+                        src={s.src}
+                        alt={s.alt}
+                        className="w-8 h-8 sm:w-9 sm:h-9 object-contain"
+                        onError={() => handleImageError(s.alt)}
+                        style={iconStyle}
+                      />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-black mb-2 uppercase">{s.title}</h3>
-                      <p className="text-gray-600 text-sm md:text-base">{s.desc}</p>
+                      <h3 className="text-xl font-bold text-black mb-2 uppercase">
+                        {s.title}
+                      </h3>
+                      <p className="text-gray-600 text-base">{s.desc}</p>
                     </div>
                   </div>
                 </RevealOnScroll>
               ))}
             </div>
-
           </div>
         </div>
 
         {/* ── Mobile/Tablet Layout (below lg) ── */}
         <div className="block lg:hidden">
           <div className="flex flex-col items-center space-y-8">
-
             {/* Image - from up */}
             <RevealOnScroll direction="up" delay={100} duration={700}>
               <div className="w-full flex justify-center mb-4">
                 <div className="w-2/4 sm:w-2/3 md:w-1/2 max-w-md">
-                  <img src="https://ik.imagekit.io/yvjqesbbx/public/microscope.webp?updatedAt=1773305802301" alt="Hair Treatment Services" className="w-full h-auto object-contain" />
+                  <img
+                    src="https://ik.imagekit.io/xivdiehvf/microscope.webp  "
+                    alt="Hair Treatment Services"
+                    className="w-full h-auto object-contain"
+                  />
                 </div>
               </div>
             </RevealOnScroll>
@@ -109,47 +168,58 @@ const HairServicesComponents = () => {
             {/* Service items - alternate left/right staggered */}
             <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
               {[...leftServices, ...rightServices].map((s, i) => (
-                <RevealOnScroll key={i} direction={i % 2 === 0 ? "left" : "right"} delay={i * 100} duration={650}>
+                <RevealOnScroll
+                  key={i}
+                  direction={i % 2 === 0 ? "left" : "right"}
+                  delay={i * 100}
+                  duration={650}
+                >
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center">
-                      <img src={s.src} alt={s.alt} className="w-8 h-8 sm:w-9 sm:h-9 object-contain" onError={() => handleImageError(s.alt)} style={iconStyle} />
+                      <img
+                        src={s.src}
+                        alt={s.alt}
+                        className="w-8 h-8 sm:w-9 sm:h-9 object-contain"
+                        onError={() => handleImageError(s.alt)}
+                        style={iconStyle}
+                      />
                     </div>
                     <div>
-                      <h3 className="text-base sm:text-lg font-bold text-black mb-1 uppercase">{s.title}</h3>
-                      <p className="text-gray-600 text-xs sm:text-sm">{s.desc}</p>
+                      <h3 className="text-sm sm:text-lg font-bold text-black mb-1 uppercase">
+                        {s.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm">{s.desc}</p>
                     </div>
                   </div>
                 </RevealOnScroll>
               ))}
             </div>
-
           </div>
         </div>
 
         {/* CTAs - from up */}
         <RevealOnScroll direction="up" delay={200} duration={700}>
-<div className="flex sm:flex-row gap-3 justify-center mt-10 max-sm:mb-4">
-  <button
-    className="group border-1 border-black flex items-center justify-center gap-2 text-black font-bold px-6 py-3 rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg hover:shadow-xl text-sm w-full sm:w-auto"
-    onClick={() => setIsBookingModalOpen(true)}
-  >
-    Book Now
-  </button>
-  
-  <a 
-    href="tel:+91 9500653243" 
-    className="flex w-full sm:w-auto sm:hidden"
-  >
-    <button
-      className="group flex items-center justify-center gap-2 text-white font-bold px-6 py-3 rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg hover:shadow-xl text-sm w-full"
-      style={{ backgroundColor: '#9B7057' }}
-    >
-      Call Now
-    </button>
-  </a>
-</div>
-        </RevealOnScroll>
+          <div className="flex sm:flex-row gap-3 justify-center mt-10 max-sm:mb-4">
+            <button
+              className="group border-1 border-black flex items-center justify-center gap-2 text-black font-bold px-6 py-3 rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg hover:shadow-xl text-sm w-full sm:w-auto"
+              onClick={() => setIsBookingModalOpen(true)}
+            >
+              Book Now
+            </button>
 
+            <a
+              href="tel:+91 9500653243"
+              className="flex w-full sm:w-auto sm:hidden"
+            >
+              <button
+                className="group flex items-center justify-center gap-2 text-white font-bold px-6 py-3 rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg hover:shadow-xl text-sm w-full"
+                style={{ backgroundColor: "#9B7057" }}
+              >
+                Call Now
+              </button>
+            </a>
+          </div>
+        </RevealOnScroll>
       </div>
 
       <BookingFormModal

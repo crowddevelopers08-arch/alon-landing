@@ -19,16 +19,16 @@ export const metadata: Metadata = {
   description: "Doctor-Led Hair Loss Treatment & Hair Restoration in Chennai | Anlon Clinic",
   icons: {
     icon: [
-      { url: "https://ik.imagekit.io/yvjqesbbx/public/fav-icon.png?updatedAt=1773305802432", sizes: "any" },
-      { url: "https://ik.imagekit.io/yvjqesbbx/public/fav-icon.png?updatedAt=1773305802432", sizes: "16x16", type: "image/png" },
-      { url: "https://ik.imagekit.io/yvjqesbbx/public/fav-icon.png?updatedAt=1773305802432", sizes: "32x32", type: "image/png" },
+      { url: "https://ik.imagekit.io/xivdiehvf/fav-icon.png", sizes: "any" },
+      { url: "https://ik.imagekit.io/xivdiehvf/fav-icon.png", sizes: "16x16", type: "image/png" },
+      { url: "https://ik.imagekit.io/xivdiehvf/fav-icon.png", sizes: "32x32", type: "image/png" },
     ],
     apple: [
-      { url: "https://ik.imagekit.io/yvjqesbbx/public/fav-icon.png?updatedAt=1773305802432", sizes: "180x180", type: "image/png" },
+      { url: "https://ik.imagekit.io/xivdiehvf/fav-icon.png", sizes: "180x180", type: "image/png" },
     ],
     other: [
-      { rel: "icon", url: "https://ik.imagekit.io/yvjqesbbx/public/fav-icon.png?updatedAt=1773305802432", sizes: "192x192", type: "image/png" },
-      { rel: "icon", url: "https://ik.imagekit.io/yvjqesbbx/public/fav-icon.png?updatedAt=1773305802432", sizes: "512x512", type: "image/png" },
+      { rel: "icon", url: "https://ik.imagekit.io/xivdiehvf/fav-icon.png", sizes: "192x192", type: "image/png" },
+      { rel: "icon", url: "https://ik.imagekit.io/xivdiehvf/fav-icon.png", sizes: "512x512", type: "image/png" },
     ],
   },
 };
