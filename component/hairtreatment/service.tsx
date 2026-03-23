@@ -18,7 +18,7 @@ const treatments = [
       "Reduced hair density",
       "Individuals seeking advanced hair restoration",
     ],
-    image: "https://ik.imagekit.io/xivdiehvf/download5.jpg",
+    image: "/download5.jpg",
     imageAlt: "Regenera Activa hair restoration treatment",
   },
   {
@@ -35,7 +35,7 @@ const treatments = [
       "Weak hair follicles",
       "Slowing progressive hair fall",
     ],
-    image: "https://ik.imagekit.io/xivdiehvf/download6.avif",
+    image: "/download6.avif",
     imageAlt: "PRP platelet rich plasma hair therapy",
   },
   {
@@ -52,7 +52,7 @@ const treatments = [
       "Improving scalp health",
       "Supporting stronger hair growth",
     ],
-    image: "https://ik.imagekit.io/xivdiehvf/download7.webp",
+    image: "/download7.webp",
     imageAlt: "GFC growth factor concentrate hair treatment",
   },
   {
@@ -69,7 +69,7 @@ const treatments = [
       "Poor scalp condition",
       "Hair density improvement",
     ],
-    image: "https://ik.imagekit.io/xivdiehvf/download4.jpg",
+    image: "/download4.jpg",
     imageAlt: "LLLT low level laser therapy for hair",
   },
   {
@@ -86,7 +86,7 @@ const treatments = [
       "healthier hair growth by targeting follicle health more effectively.",
       "Developed using advanced growth factor technology, ",
     ],
-    image: "https://ik.imagekit.io/xivdiehvf/microscopic.avif",
+    image: "/microscopic.avif",
     imageAlt: "LLLT low level laser therapy for hair",
   },
 ];

@@ -50,9 +50,9 @@ function CountBadge({ badge }: { badge: BadgeData }) {
 }
 
 const BG_IMAGES = [
-  "https://ik.imagekit.io/xivdiehvf/medium-shots.avif",
-  "https://ik.imagekit.io/xivdiehvf/jaise-09.jpg",
-  "https://ik.imagekit.io/xivdiehvf/doctors-using.jpg",
+  "/medium-shots.avif",
+  "/jaise-09.jpg",
+  "/doctors-using.jpg",
 ];
 
 const TRUST_BADGES = [

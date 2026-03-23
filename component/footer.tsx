@@ -15,7 +15,7 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-center bg-white rounded-lg px-3 py-2 w-max">
                 <a href="/" className="flex items-center">
-                  <img src="https://ik.imagekit.io/xivdiehvf/logos-removebg.png" alt="Anlon Aesthetics Logo" className="h-8 sm:h-10 md:h-12 lg:h-14 w-auto transition-all duration-300" />
+                  <img src="/logos-removebg.png" alt="Anlon Aesthetics Logo" className="h-8 sm:h-10 md:h-12 lg:h-14 w-auto transition-all duration-300" />
                 </a>
               </div>
               <p className="text-sm sm:text-base leading-relaxed">

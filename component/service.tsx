@@ -21,7 +21,7 @@ const WhyChooseUsSection = () => {
             <RevealOnScroll direction="left" duration={800} className="w-full h-full">
               <div className="relative w-full h-full flex items-center">
                 <img
-                  src="https://ik.imagekit.io/xivdiehvf/download1.avif"
+                  src="/download1.avif"
                   alt="Award Badge"
                   className="w-full max-w-md xl:max-w-lg 2xl:max-w-xl h-auto object-cover max-h-[500px] xl:max-h-[600px] 2xl:max-h-[700px]"
                 />
@@ -45,10 +45,10 @@ const WhyChooseUsSection = () => {
                 </p>
                 <div className="grid grid-cols-2 gap-6 xl:gap-8 2xl:gap-10 pt-4 xl:pt-0 2xl:pt-8">
                   {[
-                    { src: "https://ik.imagekit.io/xivdiehvf/hair-care.png", label: "Excessive daily hair fall" },
-                    { src: "https://ik.imagekit.io/xivdiehvf/face.png",      label: "Early thinning at crown or frontal areas" },
-                    { src: "https://ik.imagekit.io/xivdiehvf/hair-loss.png", label: "Weak, fine hair texture" },
-                    { src: "https://ik.imagekit.io/xivdiehvf/hair.png",      label: "Slow or uneven regrowth" },
+                    { src: "/hair-care.png", label: "Excessive daily hair fall" },
+                    { src: "/face.png",      label: "Early thinning at crown or frontal areas" },
+                    { src: "/hair-loss.png", label: "Weak, fine hair texture" },
+                    { src: "/hair.png",      label: "Slow or uneven regrowth" },
                   ].map((feature, i) => (
                     <RevealOnScroll key={i} direction="right" delay={300 + i * 100} duration={600}>
                       <div className="flex items-center gap-4 xl:gap-5 2xl:gap-6">
@@ -78,7 +78,7 @@ const WhyChooseUsSection = () => {
 
           <RevealOnScroll direction="right" delay={150} duration={800}>
             <div className="flex items-center justify-center mb-6">
-              <img src="https://ik.imagekit.io/xivdiehvf/download1.avif" alt="Award Badge"
+              <img src="/download1.avif" alt="Award Badge"
                 className="w-3/4 sm:w-2/3 md:w-3/5 max-w-md h-auto object-cover max-h-[250px] sm:max-h-[300px] md:max-h-[350px]" />
             </div>
           </RevealOnScroll>
@@ -96,10 +96,10 @@ const WhyChooseUsSection = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
             {[
-              { src: "https://ik.imagekit.io/xivdiehvf/hair-care.png", label: "Excessive daily hair fall" },
-                    { src: "https://ik.imagekit.io/xivdiehvf/face.png",      label: "Early thinning at crown or frontal areas" },
-                    { src: "https://ik.imagekit.io/xivdiehvf/hair-loss.png", label: "Weak, fine hair texture" },
-                    { src: "https://ik.imagekit.io/xivdiehvf/hair.png",      label: "Slow or uneven regrowth" },
+              { src: "/hair-care.png", label: "Excessive daily hair fall" },
+                    { src: "/face.png",      label: "Early thinning at crown or frontal areas" },
+                    { src: "/hair-loss.png", label: "Weak, fine hair texture" },
+                    { src: "/hair.png",      label: "Slow or uneven regrowth" },
             ].map((feature, i) => (
               <RevealOnScroll key={i} direction={i % 2 === 0 ? 'left' : 'right'} delay={100 * i} duration={600}>
                 <div className="flex items-center gap-3">

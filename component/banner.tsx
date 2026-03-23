@@ -15,10 +15,10 @@ const CarRentalHero = () => {
     "Hair fall treatment, hair thinning solutions, and advanced hair restoration planned after detailed doctor-led scalp analysis.";
 
   const carImages = [
-    "https://ik.imagekit.io/xivdiehvf/DSC02258.JPG",
-    "https://ik.imagekit.io/xivdiehvf/DSC02268.JPG",
-    "https://ik.imagekit.io/xivdiehvf/DSC02275.JPG",
-    "https://ik.imagekit.io/xivdiehvf/DSC02264.JPG",
+    "/DSC02258.JPG",
+    "/DSC02268.JPG",
+    "/DSC02275.JPG",
+    "/DSC02264.JPG",
   ];
 
   useEffect(() => {

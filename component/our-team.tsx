@@ -19,19 +19,19 @@ const HairServicesComponents = () => {
 
   const leftServices = [
     {
-      src: "https://ik.imagekit.io/xivdiehvf/hair-loss.png",
+      src: "/hair-loss.png",
       alt: "Hair loss",
       title: "Hair Loss Evaluation",
       desc: "Comprehensive medical assessment and accurate diagnosis of hair loss patterns.",
     },
     {
-      src: "https://ik.imagekit.io/xivdiehvf/hairs-p.png",
+      src: "/hairs-p.png",
       alt: "Scalp",
       title: "Scalp Disorders",
       desc: "Expert management of various scalp conditions affecting hair health.",
     },
     {
-      src: "https://ik.imagekit.io/xivdiehvf/hairs-po.png",
+      src: "/hairs-po.png",
       alt: "Hair thinning",
       title: "Hair Thinning Protocols",
       desc: "Advanced protocols for addressing hair density loss and thinning concerns.",
@@ -40,19 +40,19 @@ const HairServicesComponents = () => {
 
   const rightServices = [
     {
-      src: "https://ik.imagekit.io/xivdiehvf/hairs-pos.png",
+      src: "/hairs-pos.png",
       alt: "Regenerative",
       title: "Regenerative Restoration",
       desc: "Innovative regenerative approaches for natural hair restoration.",
     },
     {
-      src: "https://ik.imagekit.io/xivdiehvf/hairs-pose.png",
+      src: "/hairs-pose.png",
       alt: "Ethical",
       title: "Ethical Treatment",
       desc: "Conservative, ethical approach to personalized treatment planning.",
     },
     {
-      src: "https://ik.imagekit.io/xivdiehvf/hairs-poses.png",
+      src: "/hairs-poses.png",
       alt: "Follicle",
       title: "Follicle Health Care",
       desc: "Long-term scalp and follicle health maintenance for lasting results.",
@@ -109,7 +109,7 @@ const HairServicesComponents = () => {
               <div className="flex items-center justify-center">
                 <div className="w-full max-w-md h-100">
                   <img
-                    src="https://ik.imagekit.io/xivdiehvf/microscope.webp  "
+                    src="/microscope.webp  "
                     alt="Hair Treatment Services"
                     className="w-full h-full object-contain"
                   />
@@ -157,7 +157,7 @@ const HairServicesComponents = () => {
               <div className="w-full flex justify-center mb-4">
                 <div className="w-2/4 sm:w-2/3 md:w-1/2 max-w-md">
                   <img
-                    src="https://ik.imagekit.io/xivdiehvf/microscope.webp  "
+                    src="/microscope.webp  "
                     alt="Hair Treatment Services"
                     className="w-full h-auto object-contain"
                   />
