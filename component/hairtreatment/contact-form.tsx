@@ -257,9 +257,6 @@ const BookingFormModal = ({
               </>
             ) : (
               <span className="flex items-center gap-2 flex-nowrap justify-center">
-                <span className="hidden md:inline text-[11px] font-semibold line-through text-red-300 tracking-wide whitespace-nowrap">Consultation Fee ₹499</span>
-                <span className="hidden md:inline text-[10px] font-bold text-green-300 tracking-wider uppercase border border-green-300 px-1.5 py-0.5 rounded-full whitespace-nowrap">FREE</span>
-                <span className="hidden md:inline w-px h-3 bg-white/30 flex-shrink-0" />
                 <span className="flex items-center gap-1.5 whitespace-nowrap font-bold">
                   Book Your Consultation
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0">
