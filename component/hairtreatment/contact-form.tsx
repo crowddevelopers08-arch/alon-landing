@@ -215,13 +215,9 @@ const BookingFormModal = ({
               className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B7057] focus:border-transparent transition-all bg-white disabled:bg-gray-100 disabled:cursor-not-allowed"
             >
               <option value="">Select a treatment</option>
-              <option value="Initial Consultation">Initial Consultation</option>
-              <option value="Skin Brightening">Skin Brightening</option>
-              <option value="HIFU Lifting">HIFU Lifting</option>
-              <option value="Acne & Scars">Acne &amp; Scars</option>
-              <option value="Anti-Ageing">Anti-Ageing</option>
-              <option value="Pigmentation">Pigmentation</option>
-              <option value="Hair Removal">Hair Removal</option>
+              <option value="Hair Thinning Treatment">Hair Thinning Treatment</option>
+              <option value="Skin Brightening">Hairloss Treatment</option>
+              <option value="HIFU Lifting">Baldness Treatment</option>
               <option value="Other">Other</option>
             </select>
           </div>
