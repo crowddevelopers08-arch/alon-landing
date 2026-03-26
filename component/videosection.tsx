@@ -1,31 +1,29 @@
 'use client'
 
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import BookingFormModal from './contact-form';
 import RevealOnScroll from './RevealOnScroll'; // ✅ reusable animation component
+
+const YT = (id: string) =>
+  `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=1&modestbranding=1&rel=0&playsinline=1&enablejsapi=1`;
 
 const ClinicVideosResponsiveGrid = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
-  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   const handleCallNow = () => {
     window.location.href = 'tel:+919500653243';
   };
 
   const videos = [
-    { id: 1, title: "Doctor Explaining Hair Loss Evaluation",  videoUrl: "/video2.mp4", duration: "5:30" },
-    { id: 2, title: "Regenera Activa Treatment Overview",      videoUrl: "/video1.mp4", duration: "8:45" },
-    { id: 3, title: "In-Clinic Hair Treatment Process",        videoUrl: "/video3.mp4", duration: "6:15" },
+    { id: 1, title: "Doctor Explaining Hair Loss Evaluation",  videoUrl: YT("k5aVT7qcul4") },
+    { id: 2, title: "Regenera Activa Treatment Overview",      videoUrl: YT("u8Ypbe_dcF8") },
+    { id: 3, title: "In-Clinic Hair Treatment Process",        videoUrl: YT("8-AtVQb03gs") },
   ];
 
-  const pauseAllVideos = () => {
-    videoRefs.current.forEach((ref) => { if (ref) ref.pause(); });
-  };
-
-  const nextSlide = () => { pauseAllVideos(); setCurrentSlide((prev) => (prev + 1) % videos.length); };
-  const prevSlide = () => { pauseAllVideos(); setCurrentSlide((prev) => (prev - 1 + videos.length) % videos.length); };
-  const goToSlide = (index: number) => { pauseAllVideos(); setCurrentSlide(index); };
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % videos.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + videos.length) % videos.length);
+  const goToSlide = (index: number) => setCurrentSlide(index);
 
   return (
     <section className="py-8 sm:py-12 md:py-16 lg:py-15 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
@@ -58,16 +56,13 @@ const ClinicVideosResponsiveGrid = () => {
                     }`}
                   >
                     <div className="relative w-full bg-black" style={{ height: '500px' }}>
-                      <video
-                        ref={(el) => { videoRefs.current[index] = el; }}
+                      <iframe
                         src={video.videoUrl}
-                        className="absolute inset-0 w-full h-full object-cover"
-                        controls
-                        preload="metadata"
-                        playsInline
-                      >
-                        Your browser does not support the video tag.
-                      </video>
+                        allow="autoplay; fullscreen; encrypted-media"
+                        allowFullScreen
+                        className="absolute inset-0 w-full h-full"
+                        style={{ border: "none" }}
+                      />
                     </div>
                   </div>
                 ))}
@@ -135,16 +130,13 @@ const ClinicVideosResponsiveGrid = () => {
                       <RevealOnScroll key={video.id} direction={index === 0 ? 'left' : index === 2 ? 'right' : 'up'} delay={index * 150} duration={750}>
                         <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
                           <div className="relative w-full bg-black" style={{ height: '600px' }}>
-                            <video
-                              ref={(el) => { videoRefs.current[index + 3] = el; }}
+                            <iframe
                               src={video.videoUrl}
-                              className="absolute inset-0 w-full h-full object-cover"
-                              controls
-                              preload="metadata"
-                              playsInline
-                            >
-                              Your browser does not support the video tag.
-                            </video>
+                              allow="autoplay; fullscreen; encrypted-media"
+                              allowFullScreen
+                              className="absolute inset-0 w-full h-full"
+                              style={{ border: "none" }}
+                            />
                           </div>
                         </div>
                       </RevealOnScroll>

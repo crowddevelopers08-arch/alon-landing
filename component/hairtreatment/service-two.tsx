@@ -3,6 +3,9 @@
 // import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 
+const YT_EMBED = (id: string) =>
+  `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&modestbranding=1&rel=0&playsinline=1&enablejsapi=1`;
+
 const CARDS = [
   {
     id: 1,
@@ -13,7 +16,7 @@ const CARDS = [
     tagColor: "#6d5b8f",
     tagBg: "rgba(109,91,143,0.12)",
     tagBorder: "rgba(109,91,143,0.3)",
-    video: "/hook-1.mov",
+    video: YT_EMBED("k5aVT7qcul4"),
   },
   {
     id: 2,
@@ -24,7 +27,7 @@ const CARDS = [
     tagColor: "#ec778d",
     tagBg: "rgba(236,119,141,0.12)",
     tagBorder: "rgba(236,119,141,0.35)",
-    video: "/hook-2.mov",
+    video: YT_EMBED("u8Ypbe_dcF8"),
   },
   {
     id: 3,
@@ -35,7 +38,7 @@ const CARDS = [
     tagColor: "#f2a0b5",
     tagBg: "rgba(242,160,181,0.12)",
     tagBorder: "rgba(242,160,181,0.35)",
-    video: "/script-10.mov",
+    video: YT_EMBED("8-AtVQb03gs"),
   },
   {
     id: 4,
@@ -46,92 +49,68 @@ const CARDS = [
     tagColor: "#f2a0b5",
     tagBg: "rgba(242,160,181,0.12)",
     tagBorder: "rgba(242,160,181,0.35)",
-    video: "/script-11.mov",
+    video: YT_EMBED("MUnXQbjTLxk"),
   },
 ];
 
 export default function CosBeforeAfterSection() {
   const [current, setCurrent] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
-  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const iframeRefs = useRef<(HTMLIFrameElement | null)[]>([]);
   const autoRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const manualMode = useRef(false); // true = user clicked, wait for video to end
   const total = CARDS.length;
+
+  const sendYTCommand = (iframe: HTMLIFrameElement | null, func: string) => {
+    if (!iframe) return;
+    iframe.contentWindow?.postMessage(
+      JSON.stringify({ event: "command", func, args: [] }),
+      "*"
+    );
+  };
 
   const startAutoScroll = () => {
     if (autoRef.current) clearInterval(autoRef.current);
-    const isMobile = typeof window !== "undefined" && window.innerWidth <= 580;
-    const delay = isMobile ? 15 * 60 * 1000 : 10000;
     autoRef.current = setInterval(() => {
-      if (!manualMode.current) {
-        setCurrent((p) => (p + 1) % total);
-        setIsPlaying(true);
-        setIsMuted(true);
-      }
-    }, delay);
+      setCurrent((p) => (p + 1) % total);
+      setIsMuted(true);
+    }, 10000);
   };
 
-  // Start auto-scroll on mount
   useEffect(() => {
     startAutoScroll();
     return () => { if (autoRef.current) clearInterval(autoRef.current); };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const go = (idx: number, manual = false) => {
-    const curr = videoRefs.current[current];
-    if (curr) { curr.pause(); curr.currentTime = 0; }
-    manualMode.current = manual;
-    if (manual) {
-      // Stop auto-scroll while video plays fully
-      if (autoRef.current) clearInterval(autoRef.current);
-    }
-    setCurrent((idx + total) % total);
-    setIsPlaying(true);
-    setIsMuted(true);
-  };
-
-  // Sync play/pause for center video
+  // When slide changes, mute the previous iframe
   useEffect(() => {
-    videoRefs.current.forEach((v, i) => {
-      if (!v) return;
-      if (i === current) {
-        v.muted = isMuted;
-        if (isPlaying) {
-          v.play().catch(() => {});
-        } else {
-          v.pause();
-        }
-      } else {
-        v.pause();
-      }
+    iframeRefs.current.forEach((iframe, i) => {
+      if (i !== current) sendYTCommand(iframe, "mute");
     });
-  }, [current, isPlaying]);
+    setIsMuted(true);
+  }, [current]);
 
-  // Sync mute independently
-  useEffect(() => {
-    const v = videoRefs.current[current];
-    if (v) v.muted = isMuted;
-  }, [isMuted, current]);
-
-  const togglePlay = () => setIsPlaying((p) => !p);
-
-  const toggleAudio = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setIsMuted((m) => !m);
-  };
-
-  // When video ends naturally (manual mode): advance then resume auto-scroll
-  const handleVideoEnded = () => {
-    const nextIdx = (current + 1) % total;
-    manualMode.current = false;
-    go(nextIdx, false);
+  const go = (idx: number) => {
+    if (autoRef.current) clearInterval(autoRef.current);
+    setCurrent((idx + total) % total);
+    setIsMuted(true);
     startAutoScroll();
   };
 
-  const prev = () => go((current - 1 + total) % total, false);
-  const next = () => go((current + 1) % total, false);
+  const toggleAudio = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const iframe = iframeRefs.current[current];
+    if (isMuted) {
+      sendYTCommand(iframe, "unMute");
+      sendYTCommand(iframe, "setVolume");
+    } else {
+      sendYTCommand(iframe, "mute");
+    }
+    setIsMuted((m) => !m);
+  };
+
+  const prev = () => go((current - 1 + total) % total);
+  const next = () => go((current + 1) % total);
 
   const visible = [
     (current - 1 + total) % total,
@@ -257,30 +236,18 @@ export default function CosBeforeAfterSection() {
                         border: "1px solid rgba(0,0,0,0.08)",
                       }}
                       onClick={() => {
-                        if (isCenter) {
-                          // Enter manual mode and stop auto-scroll so video plays fully
-                          manualMode.current = true;
-                          if (autoRef.current) clearInterval(autoRef.current);
-                          togglePlay();
-                        } else {
-                          go(cardIdx, true);
-                        }
+                        if (!isCenter) go(cardIdx);
                       }}
                     >
                       {/* Video */}
                       <div className="absolute inset-0">
-                        <video
-                          ref={(el) => { videoRefs.current[cardIdx] = el; }}
+                        <iframe
+                          ref={(el) => { iframeRefs.current[cardIdx] = el; }}
                           src={card.video}
-                          muted
-                          playsInline
-                          onCanPlay={() => {
-                            if (cardIdx === current && isPlaying) {
-                              videoRefs.current[cardIdx]?.play().catch(() => {});
-                            }
-                          }}
-                          onEnded={isCenter ? handleVideoEnded : undefined}
-                          className="w-full h-full object-cover"
+                          allow="autoplay; fullscreen; encrypted-media"
+                          allowFullScreen
+                          className="w-full h-full"
+                          style={{ border: "none", pointerEvents: isCenter ? "auto" : "none" }}
                         />
                       </div>
 
@@ -293,21 +260,6 @@ export default function CosBeforeAfterSection() {
                       {/* Center card controls */}
                       {isCenter && (
                         <>
-                          {/* Play / Pause button — bottom left */}
-                          <div className="absolute bottom-4 left-4 z-20">
-                            <div className="w-10 h-10 rounded-full bg-black/50 flex items-center justify-center shadow-lg hover:bg-black/70 transition-colors">
-                              {isPlaying ? (
-                                <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                  <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-                                </svg>
-                              ) : (
-                                <svg className="w-5 h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-                                  <path d="M8 5v14l11-7z" />
-                                </svg>
-                              )}
-                            </div>
-                          </div>
-
                           {/* Audio button — bottom right */}
                           <button
                             onClick={toggleAudio}
@@ -364,7 +316,7 @@ export default function CosBeforeAfterSection() {
               {CARDS.map((_, i) => (
                 <button
                   key={i}
-                  onClick={() => go(i, false)}
+                  onClick={() => go(i)}
                   aria-label={`Slide ${i + 1}`}
                   className="border-none cursor-pointer p-0 rounded-full transition-all duration-300"
                   style={{
@@ -393,7 +345,7 @@ export default function CosBeforeAfterSection() {
               {CARDS.map((_, i) => (
                 <button
                   key={i}
-                  onClick={() => go(i, false)}
+                  onClick={() => go(i)}
                   aria-label={`Slide ${i + 1}`}
                   className="border-none cursor-pointer p-0 rounded-full transition-all duration-300"
                   style={{

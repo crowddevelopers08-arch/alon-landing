@@ -7,89 +7,46 @@ import RevealOnScroll from './RevealOnScroll';
 const WhoWeAreSection = () => {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
-  const [videosReady, setVideosReady] = useState(false);
 
-  const mobileVideoRef = useRef<HTMLVideoElement>(null);
-  const desktopVideoRef = useRef<HTMLVideoElement>(null);
+  const mobileVideoRef = useRef<HTMLIFrameElement>(null);
+  const desktopVideoRef = useRef<HTMLIFrameElement>(null);
 
+  const getYouTubeEmbedUrl = () => {
+    const videoId = 'k5aVT7qcul4';
+    return `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&modestbranding=1&rel=0&showinfo=0&enablejsapi=1`;
+  };
+
+  const sendCommand = (iframe: HTMLIFrameElement | null, func: string) => {
+    iframe?.contentWindow?.postMessage(
+      JSON.stringify({ event: "command", func, args: [] }), '*'
+    );
+  };
+
+  // Restore unmuted state after iframe loads
   useEffect(() => {
-    setVideosReady(true);
-  }, []);
-
-  // Separate effects for mobile and desktop videos
-  useEffect(() => {
-    if (!videosReady) return;
-    
-    const mobileVideo = mobileVideoRef.current;
-    if (!mobileVideo) return;
-
-    const playMobileVideo = async () => {
-      try {
-        mobileVideo.muted = true; // Start muted
-        await mobileVideo.play();
-        console.log('Mobile video playing');
-      } catch (error) {
-        console.log('Mobile video play failed:', error);
-      }
-    };
-
-    playMobileVideo();
-  }, [videosReady]);
-
-  useEffect(() => {
-    if (!videosReady) return;
-    
-    const desktopVideo = desktopVideoRef.current;
-    if (!desktopVideo) return;
-
-    const playDesktopVideo = async () => {
-      try {
-        desktopVideo.muted = true; // Start muted
-        await desktopVideo.play();
-        console.log('Desktop video playing');
-      } catch (error) {
-        console.log('Desktop video play failed:', error);
-      }
-    };
-
-    playDesktopVideo();
-  }, [videosReady]);
-
-  // Handle user interaction to unmute
-  useEffect(() => {
-    const handleUserInteraction = () => {
+    const wasUnmuted = localStorage.getItem('anlons_sound_unlocked') === '1';
+    if (!wasUnmuted) return;
+    const timer = setTimeout(() => {
       const isMobile = window.innerWidth < 1024;
-      const activeVideo = isMobile ? mobileVideoRef.current : desktopVideoRef.current;
-      
-      if (activeVideo) {
-        activeVideo.muted = false;
-        activeVideo.volume = 1;
-        setIsMuted(false);
-        localStorage.setItem('anlons_sound_unlocked', '1');
-      }
-    };
-
-    document.addEventListener('click', handleUserInteraction);
-    document.addEventListener('touchstart', handleUserInteraction);
-
-    return () => {
-      document.removeEventListener('click', handleUserInteraction);
-      document.removeEventListener('touchstart', handleUserInteraction);
-    };
+      const iframe = isMobile ? mobileVideoRef.current : desktopVideoRef.current;
+      sendCommand(iframe, 'unMute');
+      setIsMuted(false);
+    }, 2000); // wait for iframe to fully load
+    return () => clearTimeout(timer);
   }, []);
 
   const toggleMute = () => {
     const isMobile = window.innerWidth < 1024;
-    const activeVideo = isMobile ? mobileVideoRef.current : desktopVideoRef.current;
-    
-    if (!activeVideo) return;
-    
-    activeVideo.muted = !activeVideo.muted;
-    setIsMuted(activeVideo.muted);
-    
-    if (!activeVideo.muted) {
+    const activeIframe = isMobile ? mobileVideoRef.current : desktopVideoRef.current;
+    if (!activeIframe) return;
+    if (isMuted) {
+      sendCommand(activeIframe, 'unMute');
       localStorage.setItem('anlons_sound_unlocked', '1');
+    } else {
+      sendCommand(activeIframe, 'mute');
+      localStorage.removeItem('anlons_sound_unlocked');
     }
+    setIsMuted(!isMuted);
   };
 
   const MuteButton = () => (
@@ -148,12 +105,11 @@ const WhoWeAreSection = () => {
             <div className="relative h-[470px] sm:h-[400px] w-full mb-6">
               {/* Video container with solid background */}
               <div className="absolute top-0 right-0 w-[100%] h-[100%] rounded-3xl overflow-hidden shadow-2xl z-10 bg-black">
-                <video
+                <iframe
                   ref={mobileVideoRef}
-                  src="/script-10.mov"
-                  loop
-                  playsInline
-                  muted
+                  src={getYouTubeEmbedUrl()}
+                  allow="autoplay; fullscreen; encrypted-media"
+                  allowFullScreen
                   className="w-full h-full object-cover"
                   style={{ backgroundColor: '#000' }}
                 />
@@ -251,12 +207,11 @@ const WhoWeAreSection = () => {
             <div className="relative h-[700px]">
               {/* Video container with solid background */}
               <div className="absolute top-0 right-0 w-[85%] h-[90%] rounded-3xl overflow-hidden shadow-2xl z-10 animate-float-up-down bg-black">
-                <video
+                <iframe
                   ref={desktopVideoRef}
-                  src="/script-10.mov"
-                  loop
-                  playsInline
-                  muted
+                  src={getYouTubeEmbedUrl()}
+                  allow="autoplay; fullscreen; encrypted-media"
+                  allowFullScreen
                   className="w-full h-full object-cover"
                   style={{ backgroundColor: '#000' }}
                 />
