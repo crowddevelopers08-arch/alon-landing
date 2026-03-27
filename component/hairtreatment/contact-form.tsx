@@ -28,7 +28,7 @@ const BookingFormModal = ({
   isOpen,
   onClose,
   onSuccess,
-  redirectUrl = '/thank-you',
+  redirectUrl = '/hair-treatments/thank-you',
   inline = false,
 }: BookingFormModalProps) => {
   const router = useRouter();
@@ -104,15 +104,14 @@ const BookingFormModal = ({
       const data = await response.json();
 
       if (response.ok) {
-        // Call onSuccess callback if provided
-        if (onSuccess) {
-          onSuccess();
-        }
-        
-        // Close the modal first
+        // Save booking details for thank-you page
+        localStorage.setItem('lastBooking', JSON.stringify({
+          name: formData.name,
+          treatment: formData.treatment,
+        }));
+
+        if (onSuccess) onSuccess();
         onClose?.();
-        
-        // Redirect to thank-you page
         router.push(redirectUrl);
       } else {
         setSubmitStatus({

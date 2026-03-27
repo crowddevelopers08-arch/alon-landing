@@ -203,7 +203,7 @@
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/"
+                href="/hair-treatments"
                 className="bg-[#9B7057] text-white font-semibold px-8 py-4 rounded-lg hover:brightness-110 transition-all duration-300 shadow-lg hover:shadow-xl text-base sm:text-lg"
               >
                 ← Back to Home
