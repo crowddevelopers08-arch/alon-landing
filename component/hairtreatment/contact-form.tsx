@@ -3,7 +3,6 @@
 
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { X, Phone, Mail, User } from 'lucide-react';
-import { useRouter } from 'next/navigation';
 
 // Define interface for form data
 interface FormData {
@@ -31,61 +30,49 @@ const BookingFormModal = ({
   redirectUrl = '/hair-treatments/thank-you',
   inline = false,
 }: BookingFormModalProps) => {
-  const router = useRouter();
+
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     phone: '',
     treatment: '',
     message: '',
-    consent: false
+    consent: false,
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
-    type: 'success' | 'error' | null;
+    type: 'success' | 'error' | '';
     message: string;
-  }>({ type: null, message: '' });
+  }>({ type: '', message: '' });
 
-  // Type-safe change handler
+  // Change handler
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
-    
     if (type === 'checkbox') {
       const checked = (e.target as HTMLInputElement).checked;
-      setFormData(prev => ({
-        ...prev,
-        [name]: checked
-      }));
+      setFormData(prev => ({ ...prev, [name]: checked }));
     } else {
-      setFormData(prev => ({
-        ...prev,
-        [name]: value
-      }));
+      setFormData(prev => ({ ...prev, [name]: value }));
     }
   };
 
-  // Type-safe submit handler
+  // Submit handler — page reload + redirect to thank-you
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     if (!formData.consent) {
-      setSubmitStatus({
-        type: 'error',
-        message: 'Please consent to being contacted'
-      });
+      setSubmitStatus({ type: 'error', message: 'Please consent to being contacted' });
       return;
     }
 
     setIsSubmitting(true);
-    setSubmitStatus({ type: null, message: '' });
+    setSubmitStatus({ type: '', message: '' });
 
     try {
       const response = await fetch('/api/leads', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
@@ -97,7 +84,7 @@ const BookingFormModal = ({
           formName: 'Anlon',
           pageUrl: typeof window !== 'undefined' ? window.location.href : '',
           status: 'new',
-          bookingStatus: 'pending'
+          bookingStatus: 'pending',
         }),
       });
 
@@ -112,11 +99,13 @@ const BookingFormModal = ({
 
         if (onSuccess) onSuccess();
         onClose?.();
-        router.push(redirectUrl);
+
+        // ── Full page reload and redirect to thank-you ──
+        window.location.href = redirectUrl;
       } else {
         setSubmitStatus({
           type: 'error',
-          message: data.error || 'Failed to submit booking. Please try again.'
+          message: data.error || 'Failed to submit booking. Please try again.',
         });
         setIsSubmitting(false);
       }
@@ -124,18 +113,17 @@ const BookingFormModal = ({
       console.error('Form submission error:', error);
       setSubmitStatus({
         type: 'error',
-        message: 'Network error. Please check your connection and try again.'
+        message: 'Network error. Please check your connection and try again.',
       });
       setIsSubmitting(false);
     }
   };
 
-
   if (!inline && !isOpen) return null;
 
   const formContent = (
     <>
-      {/* Status Message - Only show errors */}
+      {/* Error message */}
       {submitStatus.type === 'error' && (
         <div className="mb-4 p-3 rounded-lg text-sm bg-red-50 text-red-800 border border-red-200">
           {submitStatus.message}
@@ -201,28 +189,26 @@ const BookingFormModal = ({
 
         {/* Row 3: Treatment */}
         <div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Treatment Type <span className="text-red-500">*</span>
-            </label>
-            <select
-              name="treatment"
-              value={formData.treatment}
-              onChange={handleChange}
-              required
-              disabled={isSubmitting}
-              className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B7057] focus:border-transparent transition-all bg-white disabled:bg-gray-100 disabled:cursor-not-allowed"
-            >
-              <option value="">Select a treatment</option>
-              <option value="Hair Thinning Treatment">Hair Thinning Treatment</option>
-              <option value="Skin Brightening">Hairloss Treatment</option>
-              <option value="HIFU Lifting">Baldness Treatment</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Treatment Type <span className="text-red-500">*</span>
+          </label>
+          <select
+            name="treatment"
+            value={formData.treatment}
+            onChange={handleChange}
+            required
+            disabled={isSubmitting}
+            className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B7057] focus:border-transparent transition-all bg-white disabled:bg-gray-100 disabled:cursor-not-allowed"
+          >
+            <option value="">Select a treatment</option>
+            <option value="Hair Thinning Treatment">Hair Thinning Treatment</option>
+            <option value="Hairloss Treatment">Hairloss Treatment</option>
+            <option value="Baldness Treatment">Baldness Treatment</option>
+            <option value="Other">Other</option>
+          </select>
         </div>
 
-        {/* Row 5: Consent */}
+        {/* Row 4: Consent */}
         <div className="flex items-start">
           <input
             type="checkbox"
@@ -235,11 +221,12 @@ const BookingFormModal = ({
             className="mt-1 mr-2 w-4 h-4 text-[#9B7057] border-gray-300 rounded focus:ring-[#9B7057]"
           />
           <label htmlFor="consent" className="text-sm text-gray-600">
-            I consent to being contacted via call, SMS, or WhatsApp regarding my appointment and treatment options. <span className="text-red-500">*</span>
+            I consent to being contacted via call, SMS, or WhatsApp regarding my appointment and treatment options.{' '}
+            <span className="text-red-500">*</span>
           </label>
         </div>
 
-        {/* Row 6: Buttons */}
+        {/* Row 5: Buttons */}
         <div className={`flex gap-3 ${inline ? 'pt-2' : 'pt-4'}`}>
           <button
             type="submit"
@@ -249,22 +236,21 @@ const BookingFormModal = ({
             {isSubmitting ? (
               <>
                 <svg className="animate-spin h-4 w-4 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                 </svg>
                 Submitting...
               </>
             ) : (
-              <span className="flex items-center gap-2 flex-nowrap justify-center">
-                <span className="flex items-center gap-1.5 whitespace-nowrap font-bold">
-                  Book Your Consultation
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </span>
+              <span className="flex items-center gap-1.5 whitespace-nowrap font-bold">
+                Book Your Consultation
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
               </span>
             )}
           </button>
+
           {!inline && (
             <button
               type="button"
@@ -276,14 +262,15 @@ const BookingFormModal = ({
             </button>
           )}
         </div>
+
       </form>
     </>
   );
 
-  // ── Inline mode ──────────────────────────────────────────────────────────
+  // ── Inline mode ──
   if (inline) return <div>{formContent}</div>;
 
-  // ── Modal mode ───────────────────────────────────────────────────────────
+  // ── Modal mode ──
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto">
       <div
@@ -296,15 +283,13 @@ const BookingFormModal = ({
             <div className="flex justify-between items-center">
               <div>
                 <h2 className="text-2xl font-bold text-gray-900">Book a Quick Appointment</h2>
-                <p className="text-sm text-gray-600 mt-1">
-                  Fuller Scalp , Stronger Roots , Stronger Hair.
-                </p>
+                <p className="text-sm text-gray-600 mt-1">Fuller Scalp, Stronger Roots, Stronger Hair.</p>
               </div>
               <button
                 onClick={onClose}
+                disabled={isSubmitting}
                 className="text-gray-400 hover:text-gray-600 transition-colors p-2 hover:bg-gray-100 rounded-full"
                 aria-label="Close modal"
-                disabled={isSubmitting}
               >
                 <X className="w-6 h-6" />
               </button>
