@@ -81,7 +81,7 @@ const BookingFormModal = ({
           message: formData.message,
           consent: formData.consent,
           source: 'Anlon Booking Form',
-          formName: 'Anlon',
+          formName: 'Hair-Anlon-Booking',
           pageUrl: typeof window !== 'undefined' ? window.location.href : '',
           status: 'new',
           bookingStatus: 'pending',

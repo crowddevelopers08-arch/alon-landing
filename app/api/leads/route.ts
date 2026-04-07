@@ -39,6 +39,14 @@ interface LeadData {
   pageUrl?: string;
 }
 
+function isAnlonBookingForm(formName?: string) {
+  const normalized = formName?.toLowerCase();
+  return normalized === 'anlon' ||
+    normalized === 'anlon-booking' ||
+    normalized === 'hair-anlon-booking' ||
+    normalized === 'skin-anlon-booking';
+}
+
 function logEnvironmentStatus() {
   console.log("🔍 Environment Check:", {
     NODE_ENV: process.env.NODE_ENV,
@@ -92,7 +100,7 @@ async function saveLeadToDatabase(leadData: LeadData, telecrmResult?: any) {
   let treatment = leadData.treatment || leadData.test;
   if (leadData.formName?.toLowerCase() === 'smile baby') {
     treatment = 'IVF Consultation';
-  } else if (leadData.formName?.toLowerCase() === 'anlon') {
+  } else if (isAnlonBookingForm(leadData.formName)) {
     treatment = leadData.treatment || 'Consultation Booking';
   }
 
@@ -170,9 +178,9 @@ async function sendToTeleCRM(leadData: LeadData) {
     );
   } 
   // Add Anlon Booking specific notes
-  else if (leadData.formName?.toLowerCase() === 'anlon') {
+  else if (isAnlonBookingForm(leadData.formName)) {
     notes.push(
-      { type: "SYSTEM_NOTE", text: `Service: ${leadData.treatment || 'Consultation Booking'} - Anlon` },
+      { type: "SYSTEM_NOTE", text: `Service: ${leadData.treatment || 'Consultation Booking'} - ${leadData.formName || 'Anlon Booking'}` },
       { type: "SYSTEM_NOTE", text: `Preferred Date: ${leadData.preferredDate || "Not specified"}` },
       { type: "SYSTEM_NOTE", text: `Preferred Time: ${leadData.preferredTime || "Not specified"}` },
       { type: "SYSTEM_NOTE", text: `Booking Status: ${leadData.bookingStatus || 'pending'}` },

@@ -53,6 +53,26 @@ interface LeadsTableProps {
   refreshInterval?: number
 }
 
+const isAnlonBookingForm = (formName?: string) => {
+  const normalized = formName?.toLowerCase()
+  return normalized === 'anlon' ||
+    normalized === 'anlon-booking' ||
+    normalized === 'hair-anlon-booking' ||
+    normalized === 'skin-anlon-booking'
+}
+
+const getFormDisplayName = (formName?: string) => {
+  if (!formName) return 'Unknown Form'
+  if (formName === 'hairtreatment') return 'Hair Treatment'
+  if (formName === 'skin and hair leads') return 'Skin & Hair'
+  if (formName === 'smile baby') return 'Smile Baby IVF'
+  if (formName === 'Anlon-Booking') return 'Anlon Booking'
+  if (formName === 'Hair-Anlon-Booking') return 'Hair Anlon Booking'
+  if (formName === 'Skin-Anlon-Booking') return 'Skin Anlon Booking'
+  if (formName === 'Unknown') return 'Unknown Form'
+  return formName
+}
+
 export default function LeadsTable({ 
   initialLeads = [], 
   autoRefresh = false,
@@ -217,6 +237,9 @@ export default function LeadsTable({
       'skin and hair leads': { label: "Skin & Hair", color: "bg-indigo-100 text-indigo-800 border-indigo-200" },
       'smile baby': { label: "Smile Baby IVF", color: "bg-pink-100 text-pink-800 border-pink-200", icon: Baby },
       'anlon': { label: "Anlon Booking", color: "bg-teal-100 text-teal-800 border-teal-200", icon: Clock },
+      'anlon-booking': { label: "Anlon Booking", color: "bg-teal-100 text-teal-800 border-teal-200", icon: Clock },
+      'hair-anlon-booking': { label: "Hair Anlon Booking", color: "bg-cyan-100 text-cyan-800 border-cyan-200", icon: Clock },
+      'skin-anlon-booking': { label: "Skin Anlon Booking", color: "bg-emerald-100 text-emerald-800 border-emerald-200", icon: Clock },
       'default': { label: formName, color: "bg-gray-100 text-gray-800 border-gray-200" }
     }
     
@@ -226,7 +249,7 @@ export default function LeadsTable({
         {config.icon && (
           <>
             {formName.toLowerCase() === 'smile baby' && <Baby className="h-3 w-3" />}
-            {formName.toLowerCase() === 'anlon' && <Clock className="h-3 w-3" />}
+            {isAnlonBookingForm(formName) && <Clock className="h-3 w-3" />}
           </>
         )}
         {config.label}
@@ -431,17 +454,13 @@ export default function LeadsTable({
                       <div className="flex items-center gap-2 mb-2">
                         {formName.toLowerCase() === 'smile baby' ? (
                           <Baby className="h-4 w-4 text-pink-600" />
-                        ) : formName.toLowerCase() === 'anlon' ? (
+                        ) : isAnlonBookingForm(formName) ? (
                           <Clock className="h-4 w-4 text-teal-600" />
                         ) : (
                           <FileText className="h-4 w-4 text-blue-600" />
                         )}
                         <span className="font-medium text-sm text-gray-900 capitalize">
-                          {formName === 'hairtreatment' ? 'Hair Treatment' : 
-                           formName === 'skin and hair leads' ? 'Skin & Hair' : 
-                           formName === 'smile baby' ? 'Smile Baby IVF' : 
-                           formName === 'anlon' ? 'Anlon Booking' : 
-                           formName === 'Unknown' ? 'Unknown Form' : formName}
+                          {getFormDisplayName(formName)}
                         </span>
                       </div>
                       <div className="text-2xl font-bold text-gray-900">{stats.total}</div>
@@ -528,11 +547,7 @@ export default function LeadsTable({
                 <SelectItem value="all" className="focus:bg-gray-100">All Forms</SelectItem>
                 {uniqueFormNames.map(formName => (
                   <SelectItem key={formName} value={formName} className="focus:bg-gray-100">
-                    {formName === 'hairtreatment' ? 'Hair Treatment' : 
-                     formName === 'skin and hair leads' ? 'Skin & Hair' : 
-                     formName === 'smile baby' ? 'Smile Baby IVF' : 
-                     formName === 'anlon' ? 'Anlon Booking' : 
-                     formName === 'Unknown' ? 'Unknown Form' : formName}
+                    {getFormDisplayName(formName)}
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -608,7 +623,7 @@ export default function LeadsTable({
                     filteredLeads.map((lead) => {
                       const formattedDate = formatDate(lead.createdAt)
                       const isSmileBaby = lead.formName?.toLowerCase() === 'smile baby'
-                      const isAnlon = lead.formName?.toLowerCase() === 'anlon'
+                      const isAnlon = isAnlonBookingForm(lead.formName)
                       
                       return (
                         <Fragment key={lead.id}>
@@ -886,11 +901,7 @@ export default function LeadsTable({
               Showing {filteredLeads.length} of {leads.length} leads
               {searchTerm && ` • Filtered by: "${searchTerm}"`}
               {formFilter !== 'all' && ` • Form: ${
-                formFilter === 'hairtreatment' ? 'Hair Treatment' : 
-                formFilter === 'skin and hair leads' ? 'Skin & Hair' : 
-                formFilter === 'smile baby' ? 'Smile Baby IVF' : 
-                formFilter === 'anlon' ? 'Anlon Booking' : 
-                formFilter === 'Unknown' ? 'Unknown Form' : formFilter
+                getFormDisplayName(formFilter)
               }`}
             </div>
             <div className="flex gap-4">
