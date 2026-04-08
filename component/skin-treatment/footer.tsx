@@ -14,7 +14,7 @@ const Footer = () => {
           <RevealOnScroll direction="left" duration={750}>
             <div className="space-y-4">
               <div className="flex items-center bg-white rounded-lg px-3 py-2 w-max">
-                <a href="/" className="flex items-center">
+                <a href="/skin-treatments" className="flex items-center">
                   <img src="/logos-removebg.png" alt="Anlon Aesthetics Logo" className="h-8 sm:h-10 md:h-12 lg:h-14 w-auto transition-all duration-300" />
                 </a>
               </div>
