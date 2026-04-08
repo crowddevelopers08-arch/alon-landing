@@ -5,13 +5,35 @@ import BookingFormModal from './contact-form';
 import RevealOnScroll from './RevealOnScroll';
 
 const YOUTUBE_VIDEO_ID = 'tteCsoLbBrU';
+const ROTATING_PERSONAS = ['Influencers', 'Models', 'Actresses'];
+
+const TickIcon = ({ className = '' }: { className?: string }) => (
+  <svg
+    viewBox="0 0 20 20"
+    fill="none"
+    aria-hidden="true"
+    className={className}
+  >
+    <circle cx="10" cy="10" r="9" fill="#130e0b" opacity="0.1" />
+    <path
+      d="M6 10.2l2.5 2.5L14 7.8"
+      stroke="#130e0b"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
 
 const WhoWeAreSection = () => {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [isDesktop, setIsDesktop] = useState(false);
+  const [personaIndex, setPersonaIndex] = useState(0);
+  const [personaVisible, setPersonaVisible] = useState(true);
   const mobileVideoRef = useRef<HTMLIFrameElement>(null);
   const desktopVideoRef = useRef<HTMLIFrameElement>(null);
+  const personaTimeoutRef = useRef<number | null>(null);
 
   const desktopEmbedUrl = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&mute=0&controls=1&loop=1&playlist=${YOUTUBE_VIDEO_ID}&playsinline=1&rel=0&modestbranding=1&enablejsapi=1`;
   const mobileAutoplayUrl = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&mute=1&controls=1&loop=1&playlist=${YOUTUBE_VIDEO_ID}&playsinline=1&rel=0&modestbranding=1&enablejsapi=1`;
@@ -56,6 +78,24 @@ const WhoWeAreSection = () => {
   useEffect(() => {
     syncPlayerState(isMuted, isDesktop);
   }, [isMuted, isDesktop]);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setPersonaVisible(false);
+
+      personaTimeoutRef.current = window.setTimeout(() => {
+        setPersonaIndex((current) => (current + 1) % ROTATING_PERSONAS.length);
+        setPersonaVisible(true);
+      }, 220);
+    }, 2200);
+
+    return () => {
+      window.clearInterval(interval);
+      if (personaTimeoutRef.current !== null) {
+        window.clearTimeout(personaTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const toggleMute = () => {
     const nextMuted = !isMuted;
@@ -104,15 +144,38 @@ const WhoWeAreSection = () => {
           0%, 100% { transform: translateX(0px); }
           50% { transform: translateX(15px); }
         }
+        @keyframes personaIn {
+          0% { opacity: 0; transform: translateY(14px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes personaOut {
+          0% { opacity: 1; transform: translateY(0); }
+          100% { opacity: 0; transform: translateY(-14px); }
+        }
         .animate-float-up-down { animation: floatUpDown 4s ease-in-out infinite; }
         .animate-float-left-right { animation: floatLeftRight 5s ease-in-out infinite; }
+        .about-rotating-word {
+          display: inline-flex;
+          min-width: 10.5ch;
+          justify-content: flex-start;
+          color: #9B7057;
+        }
+        .about-rotating-word.enter {
+          animation: personaIn 0.28s ease-out both;
+        }
+        .about-rotating-word.exit {
+          animation: personaOut 0.22s ease-in both;
+        }
       `}</style>
 
       <div className="max-w-7xl mx-auto">
         <div className="block lg:hidden">
           <RevealOnScroll direction="left" duration={700}>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight max-sm:mb-10 mb-4">
-              Premium Skin Care Clinic Chosen by Influencers, Models & Actresses
+              Premium Skin Care Clinic Chosen by{' '}
+              <span className={`about-rotating-word ${personaVisible ? 'enter' : 'exit'}`}>
+                {ROTATING_PERSONAS[personaIndex]}
+              </span>
             </h2>
           </RevealOnScroll>
 
@@ -149,7 +212,7 @@ const WhoWeAreSection = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-orange-50 p-4 rounded-xl border-l-4 mb-6" style={{ borderColor: '#130e0b' }}>
               {trustPoints.map((point, i) => (
                 <div key={i} className={`flex items-start gap-2 ${i === 4 ? 'sm:col-span-2' : ''}`}>
-                  <span className="text-lg mt-1 flex-shrink-0" style={{ color: '#130e0b' }}>?</span>
+                  <TickIcon className="w-5 h-5 mt-0.5 flex-shrink-0" />
                   <p className="text-gray-800 text-sm font-medium">{point}</p>
                 </div>
               ))}
@@ -177,7 +240,10 @@ const WhoWeAreSection = () => {
           <RevealOnScroll direction="left" duration={800}>
             <div className="space-y-2">
               <h2 className="text-5xl font-bold text-gray-900">
-                Premium Skin Care Clinic Chosen by Influencers, Models & Actresses
+                Premium Skin Care Clinic Chosen by{' '}
+                <span className={`about-rotating-word ${personaVisible ? 'enter' : 'exit'}`}>
+                  {ROTATING_PERSONAS[personaIndex]}
+                </span>
               </h2>
               <div className="space-y-4">
                 <p className="text-gray-600 text-lg leading-relaxed m-1">
@@ -191,7 +257,7 @@ const WhoWeAreSection = () => {
               <div className="grid grid-cols-2 gap-4 bg-orange-50 p-6 rounded-xl border-l-4" style={{ borderColor: '#130e0b' }}>
                 {trustPoints.map((point, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <span className="text-xl mt-1" style={{ color: '#130e0b' }}>?</span>
+                    <TickIcon className="w-6 h-6 mt-0.5 flex-shrink-0" />
                     <p className="text-gray-800 font-medium">{point}</p>
                   </div>
                 ))}

@@ -2,6 +2,9 @@
 
 import { useState, useEffect, useRef } from "react";
 
+const createAutoplayVideoUrl = (videoId: string) =>
+  `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&playsinline=1&loop=1&playlist=${videoId}&rel=0&modestbranding=1`;
+
 const CARDS = [
   {
     id: 1,
@@ -12,7 +15,7 @@ const CARDS = [
     tagColor: "#6d5b8f",
     tagBg: "rgba(109,91,143,0.12)",
     tagBorder: "rgba(109,91,143,0.3)",
-    video: "https://www.youtube.com/embed/qHgf4Y1MVUQ?rel=0&modestbranding=1",
+    video: createAutoplayVideoUrl("qHgf4Y1MVUQ"),
   },
   {
     id: 2,
@@ -23,7 +26,7 @@ const CARDS = [
     tagColor: "#ec778d",
     tagBg: "rgba(236,119,141,0.12)",
     tagBorder: "rgba(236,119,141,0.35)",
-    video: "https://www.youtube.com/embed/-YVzYrH8hMs?rel=0&modestbranding=1",
+    video: createAutoplayVideoUrl("-YVzYrH8hMs"),
   },
   {
     id: 3,
@@ -34,7 +37,7 @@ const CARDS = [
     tagColor: "#f2a0b5",
     tagBg: "rgba(242,160,181,0.12)",
     tagBorder: "rgba(242,160,181,0.35)",
-    video: "https://www.youtube.com/embed/iz6t2ydR_J0?rel=0&modestbranding=1",
+    video: createAutoplayVideoUrl("iz6t2ydR_J0"),
   },
   {
     id: 4,
@@ -45,7 +48,7 @@ const CARDS = [
     tagColor: "#f2a0b5",
     tagBg: "rgba(242,160,181,0.12)",
     tagBorder: "rgba(242,160,181,0.35)",
-    video: "https://www.youtube.com/embed/tteCsoLbBrU?rel=0&modestbranding=1",
+    video: createAutoplayVideoUrl("tteCsoLbBrU"),
   },
 ];
 

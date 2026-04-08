@@ -205,7 +205,7 @@ const HairSpecialistComponent = () => {
                       maxWidth: 780, margin: "0 auto",
                       lineHeight: 1.75, fontWeight: 400,
                     }}>
-                      Every treatment at our clinic is personally supervised by our lead dermatologist — combining clinical expertise with a deeply personalised approach to hair restoration.
+                      Every treatment at our clinic is personally supervised by our lead dermatologist — combining clinical expertise with a deeply personalised approach to Skin restoration.
                     </p>
 
                     {/* Divider */}
@@ -242,7 +242,7 @@ const HairSpecialistComponent = () => {
 
                             <RevealOnScroll direction="up" duration={700} delay={100}>
                             <h1 className="text-4xl font-bold text-[#9B7057] leading-tight uppercase tracking-tight">
-                                GET PROFESSIONAL HAIR TREATMENT ADVICE
+                                GET PROFESSIONAL SKIN TREATMENT ADVICE
                             </h1>
                             </RevealOnScroll>
 
@@ -275,7 +275,7 @@ const HairSpecialistComponent = () => {
                                         <circle cx="37" cy="15" r="2" fill="currentColor"/>
                                     </svg>
                                     <div>
-                                        <h3 className="text-xl font-bold text-black uppercase leading-snug mb-2">HAIR-ALIGNED PROFILE</h3>
+                                        <h3 className="text-xl font-bold text-black uppercase leading-snug mb-2">SKIN-ALIGNED PROFILE</h3>
                                         <p className="text-gray-600 md:text-lg leading-relaxed">
                                             Dr. Nisha has 12 years of overall medical experience, with 7+ years specialising in dermatology and medical aesthetics, including extensive expertise in skin analysis, acne management, pigmentation treatment, and advanced skin rejuvenation procedures.
                                         </p>
@@ -392,7 +392,7 @@ const HairSpecialistComponent = () => {
                                 <circle cx="37" cy="15" r="2" fill="currentColor"/>
                             </svg>
                             <div>
-                                <h3 className="text-sm sm:text-base font-bold text-black uppercase leading-snug mb-1">HAIR-ALIGNED PROFILE</h3>
+                                <h3 className="text-sm sm:text-base font-bold text-black uppercase leading-snug mb-1">SKIN-ALIGNED PROFILE</h3>
                                 <p className="text-gray-600 text-sm leading-relaxed">
                                     Dr. Nisha has 12 years of overall medical experience, with 7+ years specialising in dermatology and medical aesthetics, including extensive expertise in skin analysis, acne management, pigmentation treatment, and advanced skin rejuvenation procedures.
                                 </p>

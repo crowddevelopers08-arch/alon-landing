@@ -9,9 +9,9 @@ const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
   const faqs = [
-    { question: "Do I need a consultation before starting hair treatment?", answer: "Yes. Hair loss varies by cause and stage. A consultation ensures the treatment is appropriate and effective for your condition." },
-    { question: "How is the right treatment decided for me?", answer: "Based on scalp health, follicle activity, and hair loss pattern identified during evaluation." },
-    { question: "When can I see visible improvement?", answer: "Progress depends on hair loss stage and treatment type. Improvement is gradual and monitored over time." },
+    { question: "Do I need a consultation before starting skin treatment?", answer: "Yes. skin loss varies by cause and stage. A consultation ensures the treatment is appropriate and effective for your condition." },
+    { question: "How is the right treatment decided for me?", answer: "Based on scalp health, follicle activity, and skin loss pattern identified during evaluation." },
+    { question: "When can I see visible improvement?", answer: "Progress depends on skin loss stage and treatment type. Improvement is gradual and monitored over time." },
     { question: "Is Regenera Activa suitable for everyone?", answer: "No. It is recommended only for selected cases after doctor assessment." },
     { question: "Will there be follow-ups after treatment?", answer: "Yes. Follow-ups help track response and refine the treatment plan if required." },
   ];
@@ -36,7 +36,7 @@ const FAQSection = () => {
                 Common Questions Before Booking
               </h2>
               <p className="text-sm text-gray-600 leading-relaxed max-sm:mb-0">
-                We understand you may have questions before starting your hair restoration journey. Here are answers to the most common concerns.
+                We understand you may have questions before starting your skin restoration journey. Here are answers to the most common concerns.
               </p>
 
               {/* FAQ Accordion - staggered */}
@@ -81,7 +81,7 @@ const FAQSection = () => {
             {/* Card 1 - Top Left - from up */}
             <RevealOnScroll direction="up" delay={100} duration={700}>
               <div className="relative h-[180px] sm:h-[250px] md:h-[300px] lg:h-[360px] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80" alt="Hair treatment consultation" className="w-full h-full object-cover" />
+                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80" alt="skin treatment consultation" className="w-full h-full object-cover" />
               </div>
             </RevealOnScroll>
 
@@ -96,7 +96,7 @@ const FAQSection = () => {
                       BOOK YOUR<br />CONSULTATION
                     </h3>
                     <p className="text-black text-[10px] sm:text-xs md:text-sm lg:text-base leading-relaxed hidden sm:block">
-                      Schedule a detailed hair and scalp evaluation with our specialists. Get personalized treatment recommendations based on your condition.
+                      Schedule a detailed skin and scalp evaluation with our specialists. Get personalized treatment recommendations based on your condition.
                     </p>
                     <p className="text-black text-xs leading-tight sm:hidden">Schedule evaluation with specialists</p>
                   </div>
@@ -135,7 +135,7 @@ const FAQSection = () => {
             {/* Card 4 - Bottom Right - from up */}
             <RevealOnScroll direction="up" delay={300} duration={700}>
               <div className="relative h-[180px] sm:h-[250px] md:h-[300px] lg:h-[360px] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80" alt="Professional hair care" className="w-full h-full object-cover" />
+                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80" alt="Professional skin care" className="w-full h-full object-cover" />
               </div>
             </RevealOnScroll>
 

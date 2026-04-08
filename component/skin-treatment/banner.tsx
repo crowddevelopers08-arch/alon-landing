@@ -106,10 +106,10 @@ const TRUST_BADGES = [
 ];
 
 const HEADLINES = [
-  { line1: "Leading Skin Care ", line2: "Clinic in Chennai" },
-  { line1: "Chennai’s Trusted Clinic", line2: "for Skin Care Treatment" },
+  { line1: "Leading Skin Care Clinic", line2: "in Chennai" },
+  { line1: "Chennai’s Trusted Clinic for", line2: " Skin Care Treatment" },
   { line1: "Advanced Skin Care Treatment", line2: " Clinic in Chennai" },
-  { line1: "Top Rated Skin Care", line2: "Clinic in Chennai" },
+  { line1: "Top Rated Skin Care Clinic", line2: " in Chennai" },
   { line1: "Premium Clinic for Advanced", line2: "Skin Care in Chennai" },
 ];
 
@@ -169,6 +169,7 @@ export default function SkinHeroSection() {
         .sh-tagline { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 10px; border: 1px solid rgba(155,112,87,0.3); background: rgba(155,112,87,0.08); border-radius: 100px; padding: 6px 16px; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.8); backdrop-filter: blur(8px); }
         .sh-dot { width: 7px; height: 7px; background: #9B7057; border-radius: 50%; animation: sh-blink 1.4s ease-in-out infinite; }
         @keyframes sh-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        .sh-headline-shell { display: flex; align-items: flex-start; min-height: clamp(5.75rem, 9vw, 8.75rem); }
         .sh-headline { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900; line-height: 1.1; color: #ffffff; letter-spacing: -1px; }
         .sh-headline-accent { color: #9B7057; }
         @keyframes sh-headline-in { 0% { opacity: 0; transform: translateY(22px); } 100% { opacity: 1; transform: translateY(0); } }
@@ -212,7 +213,7 @@ export default function SkinHeroSection() {
         .sh-cta-icon { flex-shrink: 0; transition: transform 0.2s ease; }
         .sh-cta-primary:hover .sh-cta-icon { transform: translateX(3px); }
         .sh-cta-secondary:hover .sh-cta-icon { transform: rotate(-8deg) scale(1.15); }
-        @media (max-width: 640px) { .sh-badge-grid { grid-template-columns: 1fr; } .sh-card { padding: 24px 18px; } .sh-cta-primary, .sh-cta-secondary { font-size: 13px; padding: 12px 20px; } .sh-card-title { font-size: 18px; } .sh-card-sub { font-size: 14px; } .sh-headline { font-size: 1.5rem; } .sh-tagline { font-size: 11px; } .sh-rating-score { font-size: 16px; } .sh-rating-label { font-size: 14px; } .sh-badge { font-size: 14px; } .sh-subtext { font-size: 14px !important; } }
+        @media (max-width: 640px) { .sh-badge-grid { grid-template-columns: 1fr; } .sh-card { padding: 24px 18px; } .sh-cta-primary, .sh-cta-secondary { font-size: 13px; padding: 12px 20px; } .sh-card-title { font-size: 18px; } .sh-card-sub { font-size: 14px; } .sh-headline-shell { min-height: 3.75rem; } .sh-headline { font-size: 1.5rem; } .sh-tagline { font-size: 11px; } .sh-rating-score { font-size: 16px; } .sh-rating-label { font-size: 14px; } .sh-badge { font-size: 14px; } .sh-subtext { font-size: 14px !important; } }
         @media (min-width: 641px) { .sh-cta-mobile-only { display: none !important; } }
       `}</style>
 
@@ -250,16 +251,17 @@ export default function SkinHeroSection() {
               </div>
 
               {/* Headline */}
-              <h1
-                className={`sh-headline ${headlineVisible ? "sh-headline-enter" : "sh-headline-exit"}`}
-                style={{ minHeight: "0.8em" }}
-              >
-                {HEADLINES[headlineIndex].line1}
-                <br />
-                <span className="sh-headline-accent sh-hl-line2">
-                  {HEADLINES[headlineIndex].line2}
-                </span>
-              </h1>
+              <div className="sh-headline-shell">
+                <h1
+                  className={`sh-headline ${headlineVisible ? "sh-headline-enter" : "sh-headline-exit"}`}
+                >
+                  {HEADLINES[headlineIndex].line1}
+                  <br />
+                  <span className="sh-headline-accent sh-hl-line2">
+                    {HEADLINES[headlineIndex].line2}
+                  </span>
+                </h1>
+              </div>
 
               {/* Subtext */}
               <p className="sh-subtext" style={{ color: "rgba(255,255,255,0.52)", fontSize: 15, lineHeight: 1.75, maxWidth: 480, fontWeight: 400 }}>
