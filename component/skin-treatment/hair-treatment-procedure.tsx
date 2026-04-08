@@ -391,7 +391,7 @@ export default function HairTreatmentProcedure() {
               <span style={{ color: "#9B7057" }}>Procedure</span>
             </h2>
             <p className="htp-header-desc" style={{ fontSize: 15, color: "#6b7280", maxWidth: 500, margin: "0 auto", lineHeight: 1.75 }}>
-              A simple, doctor-guided process designed for visible, lasting hair restoration results.
+              A simple, doctor-guided process designed for visible, lasting skin restoration results.
             </p>
           </div>
 
@@ -449,7 +449,7 @@ export default function HairTreatmentProcedure() {
           {/* ── CTA ── */}
           <div className="text-center max-sm:mt-6 mt-14">
             <p className="htp-cta-sub" style={{ fontSize: 13, color: "#9ca3af", marginBottom: 18, fontWeight: 500, letterSpacing: "0.3px" }}>
-              Begin your personalised hair restoration journey today
+              Begin your personalised skin restoration journey today
             </p>
             <a
               href="#"

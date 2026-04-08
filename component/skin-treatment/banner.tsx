@@ -321,7 +321,7 @@ export default function SkinHeroSection() {
                   Book a Quick{" "}
                   <span style={{ color: "#9B7057" }}>Appointment</span>
                 </h2>
-                <p className="sh-card-sub">Fuller Scalp , Stronger Roots , Stronger Hair.</p>
+                <p className="sh-card-sub">Fuller Scalp , Stronger Roots , Stronger Skin.</p>
                 <BookingFormModal inline />
               </div>
             </div>
