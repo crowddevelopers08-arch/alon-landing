@@ -43,7 +43,7 @@ const Footer = () => {
                 {[
                   { href: "#about",      label: "About Us" },
                   { href: "#treatments", label: "Treatments" },
-                  { href: "#regenera",   label: "Regenera Activa" },
+                  { href: "#regenera",   label: "Vampire Facial" },
                   { href: "#videos",     label: "Videos" },
                   { href: "#faq",        label: "FAQs" },
                 ].map((link) => (

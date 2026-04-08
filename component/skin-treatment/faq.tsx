@@ -12,7 +12,7 @@ const FAQSection = () => {
     { question: "Do I need a consultation before starting skin treatment?", answer: "Yes. skin loss varies by cause and stage. A consultation ensures the treatment is appropriate and effective for your condition." },
     { question: "How is the right treatment decided for me?", answer: "Based on scalp health, follicle activity, and skin loss pattern identified during evaluation." },
     { question: "When can I see visible improvement?", answer: "Progress depends on skin loss stage and treatment type. Improvement is gradual and monitored over time." },
-    { question: "Is Regenera Activa suitable for everyone?", answer: "No. It is recommended only for selected cases after doctor assessment." },
+    { question: "Is Vampire Facial suitable for everyone?", answer: "No. It is recommended only for selected cases after doctor assessment." },
     { question: "Will there be follow-ups after treatment?", answer: "Yes. Follow-ups help track response and refine the treatment plan if required." },
   ];
 
