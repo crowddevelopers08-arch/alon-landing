@@ -44,9 +44,9 @@ const treatments = [
     id: "vampire-facial-prp",
     number: "03",
     tag: "Skin Regeneration",
-    name: "Vampire Facial (PRP)",
+    name: "Vampire Facial",
     subtitle:
-      "Vampire Facial is an advanced skin rejuvenation treatment that uses Platelet-Rich Plasma (PRP) derived from your own blood to stimulate collagen production and repair skin at a cellular level.",
+      "Vampire Facial is an advanced skin rejuvenation treatment that uses Platelet-Rich Plasma derived from your own blood to stimulate collagen production and repair skin at a cellular level.",
     description:
       "This natural procedure enhances skin texture, elasticity, and overall glow.",
     idealFor: [
@@ -56,7 +56,7 @@ const treatments = [
       "Individuals seeking natural skin rejuvenation",
     ],
     image: "dermapen.webp",
-    imageAlt: "Vampire facial PRP skin regeneration treatment",
+    imageAlt: "Vampire facial skin regeneration treatment",
   },
   {
     id: "chemical-peel",

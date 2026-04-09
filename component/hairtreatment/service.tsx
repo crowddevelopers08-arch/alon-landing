@@ -36,7 +36,7 @@ const treatments = [
       "Slowing progressive hair fall",
     ],
     image: "/download6.avif",
-    imageAlt: "PRP platelet rich plasma hair therapy",
+    imageAlt: " platelet rich plasma hair therapy",
   },
   {
     id: "gfc",
